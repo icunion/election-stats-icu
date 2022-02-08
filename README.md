@@ -4,6 +4,23 @@
 
 [![NPM](https://img.shields.io/npm/v/election-stats-icu.svg)](https://www.npmjs.com/package/election-stats-icu) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+Provides a library of [React](https://reactjs.org/) components for building live stats pages and blocks for [Imperial College Union](https://wwww.imperialcollegeunion.org)'s elections.
+
+NOTE: This library is currently a pre-release alpha, undergoing rapid development for use in ICU's Leadership Elections 2022.
+
+## Overview
+
+The library is intended to be used as part of a minimal app whose job is to set up a Redux store, wrap one of the `block` or `pages` components, and render the app to the DOM. The reason for this is so we can build an app designed to be delivered to the browser from a [Drupal 9](https://www.drupal.org) on imperialcollegeunion.org, and to separate that concern from the development of the live stats front-end, which can be done completely independently with just this library.
+
+The library was created using [create-react-library](https://www.npmjs.com/package/create-react-library) and is organised into four main folders:
+
+* `arithmospora`: Code relating to connecting [Arithmospora](https://github.com/icunion/arithmospora) to a [Redux](https://redux.js.org/) state slice.
+* `blocks`: Top-level components intended to be rendered to a Drupal block (e.g. live stats banners).
+* `components`: The main component library used top level block and page components.
+* `config`: Provides environment specific configuration for connecting to Arithmospora.
+* `pages`:
+
+
 ## Install
 
 ```bash
@@ -12,19 +29,62 @@ npm install --save election-stats-icu
 
 ## Usage
 
-```jsx
-import React, { Component } from 'react'
+TODO: Plug the gaps in the below clues.
 
-import MyComponent from 'election-stats-icu'
+Apps using this library should set up a Redux store and wrap the App component in the store provider in the usual way:
+
+`index.js`:
+```js
+import './index.css'
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import App from './App'
+import store from './store/index'
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
+
+The store needs to be configured using the `configureStore` function exported by the library rather than the usual version provided by Redux Toolkit: this takes care of setting up the `stats` state slice which the library uses for all the stats data. Apps are free to set up their own state slices and pass their reducers so the store gets configured for all required state slices. In the below example we don't need any other slices so we don't have any extra reducers to pass:
+
+`store/index.js`:
+
+```js
+import { configureStore } from 'election-stats-icu'
+
+const store = configureStore({
+  reducer: {}
+})
+
+export default store
+```
+
+Finally we build an app component by importing a block or page component from the library and returning it is our JSX to render:
+
+`App.js`:
+```jsx
+import React, { useContext } from 'react'
+
+import { Banner } from 'election-stats-icu'
 import 'election-stats-icu/dist/index.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const App = () => {
+  return <Banner votingCloseDate={Date.now() + 5000} mainSource="le2022"/>
 }
+
+export default App
 ```
+
+## Contact
+
+Email: ICU Systems Team [icu.systems@imperial.ac.uk](mailto:icu.systems@imperial.ac.uk)
 
 ## License
 
-MIT © [icunion](https://github.com/icunion)
+MIT © [Imperial College Union](https://www.imperialcollegeunion.org)

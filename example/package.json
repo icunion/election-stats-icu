@@ -10,10 +10,13 @@
     "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
+    "election-stats-icu": "file:..",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
+    "react-redux": "^7.2.6",
     "react-scripts": "file:../node_modules/react-scripts",
-    "election-stats-icu": "file:.."
+    "redux": "file:../node_modules/redux"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"

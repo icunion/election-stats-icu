@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { ExampleComponent } from 'election-stats-icu'
+import { Banner } from 'election-stats-icu'
 import 'election-stats-icu/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <Banner votingCloseDate={Date.now() + 5000} mainSource="le2022"/>
 }
 
 export default App

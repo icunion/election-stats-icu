@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './styles.module.css'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+import config from './config'
+
+export { default as Banner } from './blocks/Banner'
+export { default as configureStore } from './arithmospora/store'
