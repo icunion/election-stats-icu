@@ -18,8 +18,7 @@ The library was created using [create-react-library](https://www.npmjs.com/packa
 * `blocks`: Top-level components intended to be rendered to a Drupal block (e.g. live stats banners).
 * `components`: The main component library used top level block and page components.
 * `config`: Provides environment specific configuration for connecting to Arithmospora.
-* `pages`:
-
+* `pages`: Top-level components intended to be rendered as a full page, either in the content region of a .org page (full width) or completely standalone.
 
 ## Install
 
@@ -80,6 +79,10 @@ const App = () => {
 
 export default App
 ```
+
+## Development
+
+See the [create-reacte-app Development section](https://www.npmjs.com/package/create-react-library#development). Additionally, in the `example` folder the `redux` dependency is sourced from the parent folder to ensure the example app uses the same Redux instance as the library itself.
 
 ## Contact
 
