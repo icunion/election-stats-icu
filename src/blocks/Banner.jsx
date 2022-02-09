@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import AnimatedNumber from 'animated-number-react'
+
+import useLocalStorage from '../hooks/use-local-storage'
 
 import connectSources from '../arithmospora'
 import {
@@ -30,17 +33,41 @@ const Banner = (props) => {
   // Use a state property to determine whether the countdown has completed.
   // If the close date is already in the past, we want the state to be set
   // to true from the outset.
-  const [countdownCompleted, setCountdownCompleted] = useState(props.votingCloseDate < Date.now())
+  const [countdownCompleted, setCountdownCompleted] = useState(
+    props.votingCloseDate < Date.now()
+  )
 
   const bannerCountdownCompleteHandler = () => {
     setCountdownCompleted(true)
   }
 
+  // Number animation: we want all the numbers to animate the first time we
+  // load the page and whenever stats change, but we don't want to spin the
+  // numbers on every page refresh, as this gets very distracting when
+  // browsing the site and doing lots of page loads.
+  const [animateNumbersStorage, setAnimateNumbersStorage] = useLocalStorage('animateNumbers', true, {ttl: 3600})
+  const [animateNumbers, setAnimateNumbers] = useState(animateNumbersStorage)
+
+  useEffect(() =>{
+    if (animateNumbersStorage) {
+      setAnimateNumbersStorage(false)
+    }
+    // We enable number animation after a short timeout to prevent unrelated
+    // re-renders triggering the animation straight away (i.e. countdown tick)
+    setTimeout(() =>{
+      setAnimateNumbers(true)
+    }, 1500)
+  })
+
   // Connect the stats source
   connectSources([props.mainSource])
 
   return (
-    <div className={`election-stats-icu ${styles.banner} ${styles[props.mainSource] || ''}`}>
+    <div
+      className={`election-stats-icu ${styles.banner} ${
+        styles[props.mainSource] || ''
+      }`}
+    >
       <div className='logo-link'>
         <a href='https://vote.union.ic.ac.uk'>Leadership Elections 2022</a>
       </div>
@@ -54,18 +81,42 @@ const Banner = (props) => {
       <div className={styles.stats}>
         <div className={styles.turnout}>
           <div className={styles.label}>turnout</div>
-          <div className={styles.data}>{totalVoters.percentage.toFixed(2)}%</div>
+          <div className={styles.data}>
+            <AnimatedNumber
+              duration={animateNumbers ? 750 : 0}
+              formatValue={(value) => `${value.toFixed(2)}%`}
+              value={totalVoters.percentage}
+            />
+          </div>
         </div>
         <div className={styles.votes}>
           <div className={styles.label}>votes cast</div>
-          <div className={styles.data}>{totalVotes}</div>
+          <div className={styles.data}>
+            <AnimatedNumber
+              duration={animateNumbers ? 750 : 0}
+              formatValue={(value) => value.toFixed(0)}
+              value={totalVotes}
+            />
+          </div>
         </div>
         <div className={styles.voters}>
           <div className={styles.label}>voters</div>
-          <div className={styles.data}>{totalVoters.current}</div>
+          <div className={styles.data}>
+          <AnimatedNumber
+              duration={animateNumbers ? 750 : 0}
+              formatValue={(value) => value.toFixed(0)}
+              value={totalVoters.current}
+            />
+          </div>
         </div>
       </div>
-      {!countdownCompleted && <div><Button href="https://vote.union.ic.ac.uk" target="_blank">Vote Now</Button></div>}
+      {!countdownCompleted && (
+        <div>
+          <Button href='https://vote.union.ic.ac.uk' target='_blank'>
+            Vote Now
+          </Button>
+        </div>
+      )}
     </div>
   )
 }

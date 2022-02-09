@@ -54,6 +54,7 @@
     "dist"
   ],
   "dependencies": {
+    "animated-number-react": "^0.1.1",
     "localstorage-slim": "^2.2.0",
     "react-countdown": "^2.3.2"
   }
