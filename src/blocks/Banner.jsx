@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import ElectionCountdown from '../components/Countdowns/ElectionCountdown'
+import { useSelector } from 'react-redux'
+
 import connectSources from '../arithmospora'
 import {
   arithmosporaSelector,
   proportionStatSelector
 } from '../arithmospora/selectors'
 
+import ElectionCountdown from '../components/Countdowns/ElectionCountdown'
+import Button from '../components/UI/Button/Button'
+
+import styles from './Banner.module.scss'
+
 const Banner = (props) => {
-  const dispatch = useDispatch
+  // Gets data from redux state
   const totalVotes = useSelector((state) =>
     arithmosporaSelector(
       state,
@@ -21,54 +26,46 @@ const Banner = (props) => {
   const totalVoters = useSelector((state) =>
     proportionStatSelector(state, props.mainSource, 'proportion', 'total')
   )
-  const [countdownCompleted, setCountdownCompleted] = useState(false)
+
+  // Use a state property to determine whether the countdown has completed.
+  // If the close date is already in the past, we want the state to be set
+  // to true from the outset.
+  const [countdownCompleted, setCountdownCompleted] = useState(props.votingCloseDate < Date.now())
 
   const bannerCountdownCompleteHandler = () => {
     setCountdownCompleted(true)
   }
 
-  connectSources([props.mainSource], dispatch)
-  //  connectSources(props.sources)
+  // Connect the stats source
+  connectSources([props.mainSource])
 
   return (
-    <div>
+    <div className={`election-stats-icu ${styles.banner} ${styles[props.mainSource] || ''}`}>
       <div className='logo-link'>
         <a href='https://vote.union.ic.ac.uk'>Leadership Elections 2022</a>
       </div>
       <ElectionCountdown
         date={props.votingCloseDate}
         onComplete={bannerCountdownCompleteHandler}
+        className={props.mainSource}
       >
-        <p className='countdown-completed'>Thank you for voting!</p>
+        <p className={styles.countdownCompleted}>Thank you for voting!</p>
       </ElectionCountdown>
-      <div className='stats'>
-        <div className='stats-turnout'>
-          <div className='stats-label'>turnout</div>
-          <div className='stats-data'>
-            <span id='elections-live-turnout' data-live='percentage'>
-              {totalVoters.percentage.toFixed(2)}
-            </span>
-            %
-          </div>
+      <div className={styles.stats}>
+        <div className={styles.turnout}>
+          <div className={styles.label}>turnout</div>
+          <div className={styles.data}>{totalVoters.percentage.toFixed(2)}%</div>
         </div>
-        <div className='stats-votes'>
-          <div className='stats-label'>votes cast</div>
-          <div className='stats-data'>
-            <span id='elections-live-votes' data-live='totalvotes'>
-              {totalVotes}
-            </span>
-          </div>
+        <div className={styles.votes}>
+          <div className={styles.label}>votes cast</div>
+          <div className={styles.data}>{totalVotes}</div>
         </div>
-        <div className='stats-voters'>
-          <div className='stats-label'>voters</div>
-          <div className='stats-data'>
-            <span id='elections-live-voters' data-live='current'>
-              {totalVoters.current}
-            </span>
-          </div>
+        <div className={styles.voters}>
+          <div className={styles.label}>voters</div>
+          <div className={styles.data}>{totalVoters.current}</div>
         </div>
       </div>
-      {!countdownCompleted && <div>Vote Now</div>}
+      {!countdownCompleted && <div><Button href="https://vote.union.ic.ac.uk" target="_blank">Vote Now</Button></div>}
     </div>
   )
 }

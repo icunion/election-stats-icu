@@ -1,31 +1,32 @@
 import React, { useState } from 'react'
 import Countdown from 'react-countdown'
+import styles from './ElectionCountdown.module.scss'
 
-const renderer = ({ days, hours, minutes, seconds }) => {
+const renderer = ({ days, hours, minutes, seconds, props }) => {
   return (
-    <div className='countdown-time-row'>
-      <div className='countdown-time'>
-        <div className='time-count days'>{days}</div>
-        <div className='time-label'>days</div>
+    <div className={`${styles.timeRow} ${styles[props.className] || ''}`}>
+      <div className={styles.time}>
+        <span className={styles.count}>{days}</span>
+        <span className={styles.label}>day{days == 1 ? '' : 's'}</span>
       </div>
-      <div className='countdown-time'>
-        <div className='time-count hours'>{hours}</div>
-        <div className='time-label'>hours</div>
+      <div className={styles.time}>
+        <span className={styles.count}>{hours}</span>
+        <span className={styles.label}>hour{hours == 1 ? '' : 's'}</span>
       </div>
-      <div className='countdown-time'>
-        <div className='time-count minutes'>{minutes}</div>
-        <div className='time-label'>minutes</div>
+      <div className={styles.time}>
+        <span className={styles.count}>{minutes}</span>
+        <span className={styles.label}>minute{minutes == 1 ? '' : 's'}</span>
       </div>
-      <div className='countdown-time'>
-        <div className='time-count'>{seconds}</div>
-        <div className='time-label'>seconds</div>
+      <div className={styles.time}>
+        <span className={styles.count}>{seconds}</span>
+        <span className={styles.label}>second{seconds == 1 ? '' : 's'}</span>
       </div>
     </div>
   )
 }
 
 const ElectionCountDown = (props) => {
-  const [countdownCompleted, setCountdownCompleted] = useState(false)
+  const [countdownCompleted, setCountdownCompleted] = useState(props.date < Date.now())
 
   const countdownCompleteHandler = () => {
     setCountdownCompleted(true)
@@ -33,7 +34,7 @@ const ElectionCountDown = (props) => {
   }
 
   return (
-    <div className='countdown'>
+    <div className={styles.countdown}>
       {!countdownCompleted && (
         <Countdown
           date={props.date}

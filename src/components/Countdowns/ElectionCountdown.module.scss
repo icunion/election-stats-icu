@@ -1,0 +1,22 @@
+/* ElectionCountdown component styles. */
+.countdown {
+  .timeRow {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .time {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .count {
+      font-size: 2rem;
+    }
+
+    .label {
+      font-size: 0.75rem;
+    }
+  }
+}

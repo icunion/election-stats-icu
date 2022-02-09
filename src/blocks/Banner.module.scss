@@ -1,0 +1,33 @@
+/* Styles for the Banner component */
+@import "../styles/variables.scss";
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 1fr;
+  align-items: center;
+}
+
+.countdownCompleted {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > div {
+    text-align: center;
+  }
+
+  .data {
+    font-size: 2rem;
+  }
+}
+
+@include small {
+  .banner {
+    grid-template-columns: 1fr;
+  }
+}
