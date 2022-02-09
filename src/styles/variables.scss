@@ -1,0 +1,26 @@
+// Colours
+// LE2022
+$teal: #45a5ae;
+$indigo: #39009a;
+$amber: #feaa00;
+$red: #ff005d;
+
+// Dotorg
+$cyan: #009dd6;
+$magenta: #ec008c;
+$dark-cyan: #0068aa;
+$dark-magenta: #cb0078;
+
+$breakpoints: (
+  small: 0,
+  medium: 848px,
+  large: 1140px,
+  xlarge: 1440px,
+  xxlarge: 1920px
+);
+
+@mixin small {
+  @media screen and (max-width: map-get($breakpoints, 'medium')) {
+    @content;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './styles.module.css'
 
+import './styles/common.scss'
 import config from './config'
 
 export { default as Banner } from './blocks/Banner'

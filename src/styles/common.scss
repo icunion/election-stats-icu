@@ -1,0 +1,14 @@
+/* Styles common to all components. */
+@import "./variables.scss";
+
+/**
+ * :global selector is a temporary work around for an issue where regular
+ * css/scss includes are processed as CSS modules due to an upstream bug
+ * in the microbundle-crl fork - see
+ * https://github.com/developit/microbundle/issues/653
+ */
+:global {
+  .election-stats-icu {
+    font-family: 'Open Sans',Arial,sans-serif;
+  }
+}
