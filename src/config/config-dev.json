@@ -1,5 +1,5 @@
 {
-  "arithmosporaUrl": "wss://kodos.su.ic.ac.uk:8444",
+  "arithmosporaUrl": "wss://www.imperialcollegeunion.org/sys-arithmospora-dev",
   "sources": {
     "le2022": { "path": "dev" }
   }
