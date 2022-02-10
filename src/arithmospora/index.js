@@ -4,7 +4,7 @@ import config from '../config'
 
 /**
  * Object to hold our stats source WebSocket instances.
- * @type {Object.<string, WebSocket>}
+ * @type {Object.<string, {socket: WebSocket, interval: interval}>}
  */
 let sockets = {}
 
@@ -40,27 +40,29 @@ const connectSources = (statsSources = []) => {
  */
 const connectSource = (statsSource) => {
   const sourceConf = config.sources[statsSource]
-  let interval = null
 
-  sockets[statsSource] = new WebSocket(
+  if (!(statsSource in sockets)) {
+    sockets[statsSource] = { socket: null, interval: null }
+  }
+  sockets[statsSource].socket = new WebSocket(
     `${config.arithmosporaUrl}/${sourceConf.path}`
   )
 
   // Attempt to reconnect on disconnect after a short delay
-  sockets[statsSource].onopen = (event) => {
-    if (interval) {
-      clearInterval(interval)
-      interval = null
+  sockets[statsSource].socket.onopen = (event) => {
+    if (sockets[statsSource].interval) {
+      clearInterval(sockets[statsSource].interval)
+      sockets[statsSource].interval = null
     }
   }
-  sockets[statsSource].onclose = (event) => {
-    if (!interval) {
-      interval = setInterval(() => connectSource(statsSource), 5000)
+  sockets[statsSource].socket.onclose = (event) => {
+    if (!sockets[statsSource].interval) {
+      sockets[statsSource].interval = setInterval(() => connectSource(statsSource), 5000)
     }
   }
 
   // Handle messages for this source
-  sockets[statsSource].onmessage = (event) => {
+  sockets[statsSource].socket.onmessage = (event) => {
     const message = JSON.parse(event.data)
     //console.log(message)
     const [messageEvent, ...messageArgs] = message.event.split(':')
