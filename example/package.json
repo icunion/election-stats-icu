@@ -14,7 +14,7 @@
     "election-stats-icu": "file:..",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
-    "react-redux": "^7.2.6",
+    "react-redux": "file:../node_modules/react-redux",
     "react-scripts": "file:../node_modules/react-scripts",
     "redux": "file:../node_modules/redux"
   },
