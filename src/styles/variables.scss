@@ -1,9 +1,11 @@
 // Colours
 // LE2022
-$teal: #45a5ae;
-$indigo: #39009a;
-$amber: #feaa00;
-$red: #ff005d;
+$indigo: #390099;
+$teal: #45a5ad;
+$mauve: #9e0059;
+$red: #ff005c;
+$orange: #ff4d00;
+$amber: #fda900;
 
 // Dotorg
 $cyan: #009dd6;
@@ -11,6 +13,13 @@ $magenta: #ec008c;
 $dark-cyan: #0068aa;
 $dark-magenta: #cb0078;
 
+// Font weights
+$fw-light: 300;
+$fw-regular: 400;
+$fw-bold: 600;
+$fw-extra-bold: 800;
+
+// Breakpoints
 $breakpoints: (
   small: 0,
   medium: 848px,
