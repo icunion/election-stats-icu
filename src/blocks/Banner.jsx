@@ -57,7 +57,7 @@ const Banner = (props) => {
     setTimeout(() =>{
       setAnimateNumbers(true)
     }, 1500)
-  })
+  }, [animateNumbersStorage])
 
   // Connect the stats source
   connectSources([props.mainSource])
