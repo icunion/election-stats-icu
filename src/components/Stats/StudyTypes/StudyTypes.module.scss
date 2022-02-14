@@ -1,0 +1,10 @@
+/* Styles for the StudyTypes component */
+@import "../../../styles/variables.scss";
+
+.container {
+  background-color: $indigo;
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  color: white;
+}
