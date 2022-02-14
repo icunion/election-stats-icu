@@ -1,0 +1,40 @@
+/* Styles for the Panel component */
+@import "../../styles/variables.scss";
+
+.panel {
+  border: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 2px);
+
+  > h2 {
+    flex: 0 1 1.75em;
+    margin: 0;
+    padding: 0.125em 0.5em;
+    background-color: #444;
+    color: #fff;
+    font-size: 1.125em;
+    height: 1.5em;
+    line-height: 1.5em;
+  }
+
+  > .children {
+    flex: 1 0 auto;
+  }
+
+  &.indigo {
+    border: 1px solid $indigo;
+
+    > h2 {
+      background-color: $indigo;
+    }
+  }
+
+  &.teal {
+    border: 1px solid $teal;
+
+    > h2 {
+      background-color: $teal;
+    }
+  }
+}
