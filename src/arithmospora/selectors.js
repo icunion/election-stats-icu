@@ -1,5 +1,6 @@
 const checkStatExists = (state, source, group, stat) => {
   return (
+    'stats' in state &&
     source in state.stats.sources &&
     group in state.stats.sources[source] &&
     stat in state.stats.sources[source][group] &&
@@ -34,15 +35,16 @@ const makeProportionStat = (stateStat) => {
   return proportionStat
 }
 
-export const proportionStatSelector = (state, source, group, stat) => {
+export const proportionStatSelector = (state, source, group, stat, statSelector = (stat) => stat) => {
   if (checkStatExists(state, source, group, stat)) {
-    return makeProportionStat(state.stats.sources[source][group][stat])
+    return statSelector(makeProportionStat(state.stats.sources[source][group][stat]))
   } else {
-    return {
+    return statSelector({
       current: 0,
       total: 0,
       proportion: 0,
-      percentage: 0
-    }
+      percentage: 0,
+      dataPoints: {}
+    })
   }
 }
