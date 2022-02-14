@@ -5,6 +5,7 @@ import styles from './ElectionCountdown.module.scss'
 const renderer = ({ days, hours, minutes, seconds, props }) => {
   return (
     <div className={`${styles.timeRow} ${styles[props.className] || ''}`}>
+      <p className={styles.header}>Voting closes in</p>
       <div className={styles.time}>
         <span className={styles.count}>{days}</span>
         <span className={styles.label}>day{days == 1 ? '' : 's'}</span>
@@ -15,11 +16,11 @@ const renderer = ({ days, hours, minutes, seconds, props }) => {
       </div>
       <div className={styles.time}>
         <span className={styles.count}>{minutes}</span>
-        <span className={styles.label}>minute{minutes == 1 ? '' : 's'}</span>
+        <span className={styles.label}>min{minutes == 1 ? '' : 's'}</span>
       </div>
       <div className={styles.time}>
         <span className={styles.count}>{seconds}</span>
-        <span className={styles.label}>second{seconds == 1 ? '' : 's'}</span>
+        <span className={styles.label}>sec{seconds == 1 ? '' : 's'}</span>
       </div>
     </div>
   )

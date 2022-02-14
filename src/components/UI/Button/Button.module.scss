@@ -5,24 +5,32 @@
   display: inline-block;
   vertical-align: middle;
   padding: 0.85em 1em;
-  border: 1px solid transparent;
-  border-radius: 0;
-  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  transition: color 0.25s ease-out, color 0.25s ease-out;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 2em;
+  font-weight: $fw-extra-bold;
   -webkit-appearance: none;
   line-height: 1;
+  letter-spacing: 0.3rem;
   text-align: center;
   cursor: pointer;
-  background-color: #333;
-  color: #fefefe;
+  background-color: transparent;
+  color: $amber;
+  text-shadow: 1px -1px $orange;
 
   &:hover {
-    background-color: $dark-magenta;
-    color: #fefefe;
+    text-shadow: 1px -1px $amber;
+    color: $orange;
   }
 }
 
 a.button {
   text-decoration: none;
 }
+
+@include small {
+  .button {
+    grid-area: 1;
+  }
+}
+

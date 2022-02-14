@@ -12,8 +12,11 @@ import {
 
 import ElectionCountdown from '../components/Countdowns/ElectionCountdown'
 import Button from '../components/UI/Button/Button'
+import logoBanner from 'logo-banner2022.png'
+
 
 import styles from './Banner.module.scss'
+
 
 const Banner = (props) => {
   // Gets data from redux state
@@ -64,13 +67,17 @@ const Banner = (props) => {
 
   return (
     <div
-      className={`election-stats-icu ${styles.banner} ${
+      className={`election-stats-icu ${countdownCompleted ? styles.completed : ''} ${styles.banner} ${
         styles[props.mainSource] || ''
       }`}
     >
-      <div className='logo-link'>
-        <a href='https://vote.union.ic.ac.uk'>Leadership Elections 2022</a>
+      <div className={styles.electionLogo}>
+        <a href='https://vote.union.ic.ac.uk' target='_blank'>
+          <img src={logoBanner} alt="Logo" />
+        </a>
       </div>
+      
+      
       <ElectionCountdown
         date={props.votingCloseDate}
         onComplete={bannerCountdownCompleteHandler}
@@ -111,9 +118,9 @@ const Banner = (props) => {
         </div>
       </div>
       {!countdownCompleted && (
-        <div>
+        <div className='text-center'>
           <Button href='https://vote.union.ic.ac.uk' target='_blank'>
-            Vote Now
+            VOTE
           </Button>
         </div>
       )}
