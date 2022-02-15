@@ -2,9 +2,17 @@
   "name": "election-stats-icu",
   "version": "0.1.0",
   "description": "Imperial College Union election stats apps and components",
-  "author": "icunion",
+  "author": {
+    "name": "Imperial College Union",
+    "email": "icu.systems@imperial.ac.uk",
+    "url": "https://www.imperialcollegeunion.org"
+  },
   "license": "MIT",
+  "homepage": "https://github.com/icunion/election-stats-icu",
   "repository": "icunion/election-stats-icu",
+  "bugs": {
+    "email": "icu.systems@imperial.ac.uk"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
