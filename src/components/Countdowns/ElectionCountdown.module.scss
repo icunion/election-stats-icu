@@ -3,8 +3,7 @@
 
 .countdown {
   .timeRow {
-    display: grid;
-    grid-template-columns: 0.8fr 1fr 1fr 1fr 1fr;
+    display: flex;
     text-align: center;
     justify-content: space-around;
     align-items: center;
@@ -15,6 +14,7 @@
     color: $amber;
     font-size: 0.75em;
     font-weight: $fw-semi-bold;
+    max-width: 20%;
   }
 
   .time {
@@ -35,7 +35,11 @@
 
 @include small {
   .countdown {
-    margin: 0.5em;
-    grid-area: 2 / span 3;
+    margin: 0.5em 0.5em 1em;
+  }
+
+  .time {
+    display: flex;
+    flex-direction: column;
   }
 }

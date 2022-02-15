@@ -3,7 +3,7 @@
 
 .banner {
   display: grid;
-  grid-template-columns: 2fr 3fr 3fr 1fr;
+  grid-template-columns: 2fr 4fr 3fr 1fr;
   column-gap: 1em;
   align-items: center;
   background-color: $indigo;
@@ -15,7 +15,7 @@
     width: 80%;
     display: block;
     margin: 0 auto;
-  } 
+  }
 }
 
 .countdownCompleted {
@@ -47,24 +47,33 @@
 
 @include small {
   .banner {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 3fr 2fr;
   }
+
   .electionLogo {
-    grid-area: 1 / 1 / span 1/ span 2;
+    grid-area: 1 / 1 / span 1 / span 1;
   }
-  
+
+  .countdown {
+    grid-area: 2 / 1 / span 1 / span 2;
+  }
+
   .stats {
     justify-content: space-evenly;
-    grid-area: 3 / span 3;
+    grid-area: 3 / 1 / span 1 / span 2;
+  }
+
+  .voteButton {
+    grid-area: 1 / 2 / span 1 / span 1;
   }
 
   .completed {
     .electionLogo {
-      grid-area: 1 / 1 / span 1/ span 3;
+      grid-area: 1 / 1 / span 1 / span 2;
 
       img {
         width: 50%;
-      } 
+      }
     }
   }
   .countdownCompleted {

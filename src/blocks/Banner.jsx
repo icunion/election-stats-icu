@@ -76,15 +76,15 @@ const Banner = (props) => {
           <img src={logoBanner} alt="Logo" />
         </a>
       </div>
-      
-      
-      <ElectionCountdown
-        date={props.votingCloseDate}
-        onComplete={bannerCountdownCompleteHandler}
-        className={props.mainSource}
-      >
-        <p className={styles.countdownCompleted}>Thank you for voting!</p>
-      </ElectionCountdown>
+      <div className={styles.countdown}>
+        <ElectionCountdown
+          date={props.votingCloseDate}
+          onComplete={bannerCountdownCompleteHandler}
+          className={props.mainSource}
+        >
+          <p className={styles.countdownCompleted}>Thank you for voting!</p>
+        </ElectionCountdown>
+      </div>
       <div className={styles.stats}>
         <div className={styles.turnout}>
           <div className={styles.label}>turnout</div>
@@ -118,7 +118,7 @@ const Banner = (props) => {
         </div>
       </div>
       {!countdownCompleted && (
-        <div className='text-center'>
+        <div className={styles.voteButton}>
           <Button href='https://vote.union.ic.ac.uk' target='_blank'>
             VOTE
           </Button>
