@@ -10,6 +10,14 @@
 :global {
   .election-stats-icu {
     font-family: 'Open Sans',Arial,sans-serif;
+
+    // Use same paragraph styles as dotorg by default
+    p {
+      margin-bottom: 1rem;
+      font-size: inherit;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
   }
   .text-center {
     text-align: center;

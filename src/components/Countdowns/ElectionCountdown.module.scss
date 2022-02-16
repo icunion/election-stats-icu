@@ -11,10 +11,11 @@
   }
 
   .header {
+    max-width: 17%;
+    margin-bottom: 0;
     color: $amber;
     font-size: 0.75em;
     font-weight: $fw-semi-bold;
-    max-width: 20%;
   }
 
   .time {
