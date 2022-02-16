@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { Banner } from 'election-stats-icu'
 import 'election-stats-icu/dist/index.css'
