@@ -31,11 +31,11 @@ const StudyType = (props) => {
   )
 
   return (
-    <div class={styles.studyType}>
-      <div class={styles.barContainer}>
-        <div class={styles.bar} style={{width: `${statsData.percentage}%`}}></div>
+    <div className={styles.studyType}>
+      <div className={styles.barContainer}>
+        <div className={styles.bar} style={{width: `${statsData.percentage}%`}}></div>
       </div>
-      <div class={styles.label}>
+      <div className={styles.label}>
         <span>{props.type}</span>
         <AnimatedNumber
           duration='750'
