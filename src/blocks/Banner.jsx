@@ -119,8 +119,8 @@ const Banner = (props) => {
       </div>
       {!countdownCompleted && (
         <div className={styles.voteButton}>
-          <Button href='https://vote.union.ic.ac.uk' target='_blank'>
-            VOTE
+          <Button href='https://vote.union.ic.ac.uk' target='_blank' className="vote">
+            Vote
           </Button>
         </div>
       )}

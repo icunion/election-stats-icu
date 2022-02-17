@@ -3,34 +3,45 @@
 
 .button {
   display: inline-block;
+  padding: 0.75em 0.9em;
+  border: 1px solid transparent;
   vertical-align: middle;
-  padding: 0.85em 1em;
-  transition: color 0.25s ease-out, color 0.25s ease-out;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-size: 0.9em;
   font-family: inherit;
-  font-size: 2em;
-  font-weight: $fw-extra-bold;
   -webkit-appearance: none;
   line-height: 1;
-  letter-spacing: 0.3rem;
   text-align: center;
   cursor: pointer;
-  background-color: transparent;
+  background-color: $indigo;
   color: $amber;
-  text-shadow: 1px -1px $orange;
+  box-shadow: 0.16em 0.16em 0 0 $red;
 
   &:hover {
-    text-shadow: 1px -1px $amber;
-    color: $orange;
+    background-color: $mauve;
+  }
+
+  &.small {
+    font-size: 0.75em;
+    padding: 0.6em 0.75em;
+  }
+
+  &.vote {
+    font-size: 2em;
+    font-weight: $fw-extra-bold;
+    letter-spacing: 0.3rem;
+    background-color: transparent;
+    color: $amber;
+    text-shadow: 1px -1px $orange;
+    text-transform: uppercase;
+
+    &:hover {
+      text-shadow: 1px -1px $amber;
+      color: $orange;
+    }
   }
 }
 
 a.button {
   text-decoration: none;
 }
-
-@include small {
-  .button {
-    grid-area: 1;
-  }
-}
-
