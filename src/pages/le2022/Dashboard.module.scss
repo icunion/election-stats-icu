@@ -88,3 +88,16 @@
     grid-row: 6 / span 1;
   }
 }
+
+.sourceToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.5em;
+  height: calc(100% - 1em);
+
+  > span {
+    font-size: 0.7em;
+  }
+}

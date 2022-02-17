@@ -53,14 +53,10 @@ const Dashboard = (props) => {
           CSPs total stats
         </Panel>
       </section>
-      <section
-        className={`${styles.grid} ${styles.sourceToggle}`}
-        style={{ height: '3em' }}
-      >
-        Viewing {selectedSource == props.mainSource ? 'General' : 'CSPs'} stats
-        <Button type='button' onClick={toggleSelectedSource}>
-          Show {selectedSource == props.mainSource ? 'CSPs' : 'General'}{' '}
-          <span className='show-for-sr'>Elections stats</span>
+      <section className={`${styles.grid} ${styles.sourceToggle}`}>
+        <span>Viewing {selectedSource == props.mainSource ? 'main' : 'CSPs'} stats</span>
+        <Button type='button' onClick={toggleSelectedSource} className="small">
+          Show {selectedSource == props.mainSource ? 'CSPs' : 'main'} stats
         </Button>
       </section>
       <section className={`${styles.grid} ${styles.timeLine}`}>
