@@ -48,3 +48,20 @@ export const proportionStatSelector = (state, source, group, stat, statSelector 
     })
   }
 }
+
+export const rollingStatSelector = (state, source, interval, stat, statSelector = (stat) => stat) => {
+  const rollingStat = `${interval}:${stat}`
+  if (checkStatExists(state, source, 'rolling', rollingStat)) {
+    return statSelector(makeProportionStat(state.stats.sources[source]['rolling'][rollingStat]))
+  } else {
+    return statSelector({
+      current: 0,
+      total: 0,
+      proportion: 0,
+      percentage: 0,
+      peakProportion: 0,
+      peakPercentage: 0,
+      dataPoints: {}
+    })
+  }
+}

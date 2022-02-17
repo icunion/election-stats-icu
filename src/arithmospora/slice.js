@@ -21,33 +21,14 @@ const arithmosporaSlice = createSlice({
       }
     },
     stats: (state, action) => {
-      const [group, stat] = action.payload.args
-      state.sources[action.payload.source][group][stat] = action.payload.payload
+      const [group, ...statFragments] = action.payload.args
+      state.sources[action.payload.source][group][statFragments.join(':')] = action.payload.payload
     },
     default: (state) => {
       state
     }
   }
 })
-
-export const arithmosporaSelector = (
-  state,
-  source,
-  group,
-  stat,
-  statSelector = (stat) => stat
-) => {
-  if (
-    source in state.stats.sources &&
-    group in state.stats.sources[source] &&
-    stat in state.stats.sources[source][group] &&
-    Object.keys(state.stats.sources[source][group][stat]).length !== 0
-  ) {
-    return statSelector(state.stats.sources[source][group][stat])
-  } else {
-    return undefined
-  }
-}
 
 export const arithmosporaActions = arithmosporaSlice.actions
 export default arithmosporaSlice.reducer
