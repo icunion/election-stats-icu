@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import Button from '../../components/UI/Button/Button.jsx'
 import Panel from '../../components/Containers/Panel.jsx'
 import StudyTypes from '../../components/Stats/StudyTypes/StudyTypes.jsx'
+import TimeLine from '../../components/Stats/TimeLine/TimeLine.jsx'
 
 import styles from './Dashboard.module.scss'
 
@@ -52,19 +53,18 @@ const Dashboard = (props) => {
           CSPs total stats
         </Panel>
       </section>
-      <section className={`${styles.grid} ${styles.sourceToggle}`}>
-        Viewing {selectedSource == props.mainSource ? 'General' : 'CSPs'}{' '}
-        Elections stats
+      <section
+        className={`${styles.grid} ${styles.sourceToggle}`}
+        style={{ height: '3em' }}
+      >
+        Viewing {selectedSource == props.mainSource ? 'General' : 'CSPs'} stats
         <Button type='button' onClick={toggleSelectedSource}>
           Show {selectedSource == props.mainSource ? 'CSPs' : 'General'}{' '}
-          Elections stats
+          <span className='show-for-sr'>Elections stats</span>
         </Button>
       </section>
       <section className={`${styles.grid} ${styles.timeLine}`}>
-        Time line
-        <div>Last 5 min</div>
-        <div>Last hour</div>
-        <div>Last day</div>
+        <TimeLine source={selectedSource} />
       </section>
       <section className={`${styles.grid} ${styles.recentActivity}`}>
         <Panel title='Recent Activity' className='teal'>

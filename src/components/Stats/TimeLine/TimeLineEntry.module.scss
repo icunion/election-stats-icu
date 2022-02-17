@@ -1,0 +1,45 @@
+/* Styles for the TimeLineEntry component */
+@import "../../../styles/variables.scss";
+
+.timeLineEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0.125em;
+  text-align: center;
+  transition: background-color 2s ease-in-out, color 2s ease-in-out, box-shadow 2s ease-in-out;
+
+  .intervalLabel {
+    font-size: 0.875em;
+  }
+
+  .countContainer {
+    line-height: 0.9em;
+  }
+
+  .count {
+    font-size: 1.125em;
+    font-weight: $fw-bold;
+  }
+
+  .countLabel {
+    font-size: 0.625em;
+    font-weight: $fw-bold;
+  }
+}
+
+.rising, .falling {
+  transition: none;
+}
+
+.rising {
+  background-color: $amber;
+  color: $indigo;
+  box-shadow: 0 0 0.1em 0.05em $amber;
+}
+
+.falling {
+  background-color: $red;
+  box-shadow: 0 0 0.5em 1em $red;
+  color: $amber;
+}
