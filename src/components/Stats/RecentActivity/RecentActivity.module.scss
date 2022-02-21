@@ -1,0 +1,57 @@
+/* Styles for the StudyType component */
+@import '../../../styles/variables.scss';
+
+.container {
+  .chartKey {
+    text-align: right;
+    font-size: 0.6em;
+
+    dl {
+      margin: 0.25em 1em;
+
+      dd {
+        display: inline;
+        margin: 0;
+
+        &::before {
+          display: inline-block;
+          content: ' ';
+          vertical-align: baseline;
+          width: 0.9em;
+          height: 0.9em;
+          border-radius: 0.45em;
+          margin-left: 0.75em;
+          margin-right: 0.25em;
+        }
+
+        &.votes::before {
+          background-color: $indigo;
+        }
+
+        &.voters::before {
+          background-color: $red;
+        }
+      }
+    }
+  }
+
+  :global {
+    svg {
+      .axis {
+        line {
+          stroke-width: 0.21em;
+          shape-rendering: crispEdges;
+        }
+
+        .minor line {
+          stroke: #888;
+          stroke-width: 0.14em;
+        }
+
+        path {
+          display: none;
+        }
+      }
+    }
+  }
+}

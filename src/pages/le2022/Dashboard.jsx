@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import Button from '../../components/UI/Button/Button.jsx'
 import Panel from '../../components/Containers/Panel.jsx'
+import RecentActivity from '../../components/Stats/RecentActivity/RecentActivity'
 import StudyTypes from '../../components/Stats/StudyTypes/StudyTypes.jsx'
 import TimeLine from '../../components/Stats/TimeLine/TimeLine.jsx'
 
@@ -64,7 +65,7 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.recentActivity}`}>
         <Panel title='Recent Activity' className='teal'>
-          Recent activity graph
+          <RecentActivity source={selectedSource} />
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.studyTypes}`}>
