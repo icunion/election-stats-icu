@@ -5,7 +5,8 @@ import connectSources from './index'
 import {
   arithmosporaSelector,
   proportionStatSelector,
-  rollingStatSelector
+  rollingStatSelector,
+  timedStatSelector
 } from './selectors'
 
 export const useSources = (sources) => {
@@ -39,6 +40,12 @@ export const useRollingStat = (
 ) => {
   return useSelector((state) =>
     rollingStatSelector(state, source, interval, stat, statSelector)
+  )
+}
+
+export const useTimedStat = (source, stat, dataPoint, statSelector) => {
+  return useSelector((state) =>
+    timedStatSelector(state, source, stat, dataPoint, statSelector)
   )
 }
 

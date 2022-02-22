@@ -35,9 +35,17 @@ const makeProportionStat = (stateStat) => {
   return proportionStat
 }
 
-export const proportionStatSelector = (state, source, group, stat, statSelector = (stat) => stat) => {
+export const proportionStatSelector = (
+  state,
+  source,
+  group,
+  stat,
+  statSelector = (stat) => stat
+) => {
   if (checkStatExists(state, source, group, stat)) {
-    return statSelector(makeProportionStat(state.stats.sources[source][group][stat]))
+    return statSelector(
+      makeProportionStat(state.stats.sources[source][group][stat])
+    )
   } else {
     return statSelector({
       current: 0,
@@ -49,10 +57,18 @@ export const proportionStatSelector = (state, source, group, stat, statSelector 
   }
 }
 
-export const rollingStatSelector = (state, source, interval, stat, statSelector = (stat) => stat) => {
+export const rollingStatSelector = (
+  state,
+  source,
+  interval,
+  stat,
+  statSelector = (stat) => stat
+) => {
   const rollingStat = `${interval}:${stat}`
   if (checkStatExists(state, source, 'rolling', rollingStat)) {
-    return statSelector(makeProportionStat(state.stats.sources[source]['rolling'][rollingStat]))
+    return statSelector(
+      makeProportionStat(state.stats.sources[source]['rolling'][rollingStat])
+    )
   } else {
     return statSelector({
       current: 0,
@@ -63,5 +79,22 @@ export const rollingStatSelector = (state, source, interval, stat, statSelector 
       peakPercentage: 0,
       dataPoints: {}
     })
+  }
+}
+
+export const timedStatSelector = (
+  state,
+  source,
+  stat,
+  dataPoint,
+  statSelector = (stat) => stat
+) => {
+  if (
+    checkStatExists(state, source, 'timed', stat) &&
+    dataPoint in state.stats.sources[source]['timed'][stat].dataPoints
+  ) {
+    return statSelector(state.stats.sources[source]['timed'][stat].dataPoints[dataPoint].data)
+  } else {
+    return statSelector({})
   }
 }

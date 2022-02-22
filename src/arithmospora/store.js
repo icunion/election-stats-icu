@@ -14,9 +14,15 @@ let store
  * @returns {Object} - The newly created Redux store.
  */
 const configureArithmosporaStore = (args) => {
-  let { reducer = {} } = args
+  let { reducer = {}, middleware } = args
   reducer.stats = arithmosporaReducer
-  store = configureStore({ ...args, reducer })
+  if (!middleware) {
+    middleware = (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false
+      })
+  }
+  store = configureStore({ ...args, reducer, middleware })
   return store
 }
 
