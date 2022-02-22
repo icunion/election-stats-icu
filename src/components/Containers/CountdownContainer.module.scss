@@ -1,0 +1,18 @@
+/* Styles for the Panel component */
+@import "../../styles/variables.scss";
+
+.countdownContainer {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.countdownCompleted {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: $fw-bold;
+    color: $amber;
+    padding: 1.14em 0;
+    margin: 0;
+  }

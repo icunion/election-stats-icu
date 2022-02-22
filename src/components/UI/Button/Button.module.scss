@@ -34,6 +34,7 @@
     color: $amber;
     text-shadow: 1px -1px $orange;
     text-transform: uppercase;
+    box-shadow:none;
 
     &:hover {
       text-shadow: 1px -1px $amber;

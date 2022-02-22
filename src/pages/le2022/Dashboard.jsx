@@ -3,8 +3,11 @@ import { useSelector } from 'react-redux'
 
 import Button from '../../components/UI/Button/Button.jsx'
 import Panel from '../../components/Containers/Panel.jsx'
+import CountdownContainer from '../../components/Containers/CountdownContainer.jsx'
 import StudyTypes from '../../components/Stats/StudyTypes/StudyTypes.jsx'
 import TimeLine from '../../components/Stats/TimeLine/TimeLine.jsx'
+import TotalStats from '../../components/Stats/TotalStats/TotalStats.jsx'
+// import ConstituentUnions from '../../components/Stats/ConstituentUnions/ConstituentUnions.jsx'
 
 import styles from './Dashboard.module.scss'
 
@@ -22,16 +25,6 @@ const Dashboard = (props) => {
     }
   }
 
-  // Use a state property to determine whether the countdown has completed.
-  // If the close date is already in the past, we want the state to be set
-  // to true from the outset.
-  const [countdownCompleted, setCountdownCompleted] = useState(
-    props.votingCloseDate < Date.now()
-  )
-
-  const countdownCompleteHandler = () => {
-    setCountdownCompleted(true)
-  }
 
   return (
     <div
@@ -41,16 +34,16 @@ const Dashboard = (props) => {
     >
       <section className={`${styles.grid} ${styles.logo}`}>Logo</section>
       <section className={`${styles.grid} ${styles.votingCloses}`}>
-        Voting closes countdown
+        <CountdownContainer votingCloseDate={Date.now() + 775000} />
       </section>
       <section className={`${styles.grid} ${styles.totalMain}`}>
         <Panel title='General Elections' className='indigo'>
-          Main total stats
+          <TotalStats source={props.mainSource} />
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.totalCSPs}`}>
         <Panel title='CSPs Elections' className='teal'>
-          CSPs total stats
+          <TotalStats source={props.cspsSource} className='cspStat'/>
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.sourceToggle}`}>
@@ -74,7 +67,7 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.CUs}`}>
         <Panel title='Consituent Unions' className='indigo'>
-          Constituent Unions
+          {/* <ConstituentUnions source={selectedSource} /> */}
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.depts}`}>

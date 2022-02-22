@@ -15,7 +15,7 @@
     margin-bottom: 0;
     color: $amber;
     font-size: 0.75em;
-    font-weight: $fw-semi-bold;
+    font-weight: $fw-bold;
   }
 
   .time {
@@ -29,7 +29,20 @@
 
     .label {
       font-size: 0.80em;
-      font-weight: $fw-semi-bold;
+      font-weight: $fw-bold;
+    }
+  }
+
+  &.dashboardCountdown {
+    .timeRow {
+      justify-content: space-between;
+      padding: 0 0.75em 0 0.55em;
+    }
+
+    .header {
+      max-width: 100%;
+      font-size: 1.125em;
+      margin: unset;
     }
   }
 }

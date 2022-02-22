@@ -35,7 +35,7 @@ const ElectionCountDown = (props) => {
   }
 
   return (
-    <div className={styles.countdown}>
+    <div className={`${styles.countdown} ${styles[props.className] || ''}`}>
       {!countdownCompleted && (
         <Countdown
           date={props.date}
