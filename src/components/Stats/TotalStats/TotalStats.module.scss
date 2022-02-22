@@ -1,0 +1,25 @@
+/* Styles for the TimeLine component */
+@import "../../../styles/variables.scss";
+
+.totalStat {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+    color: $indigo;
+
+    .percentage {
+        font-size: 3em;
+        font-weight: $fw-extra-bold;
+    }
+
+    .countContainer {
+        font-size: 1.5em;
+        font-weight: $fw-bold;
+    }
+
+    &.cspStat {
+        color: $teal;
+    }
+}
