@@ -35,7 +35,7 @@ const Dashboard = (props) => {
     >
       <section className={`${styles.grid} ${styles.logo}`}>Logo</section>
       <section className={`${styles.grid} ${styles.votingCloses}`}>
-        <CountdownContainer votingCloseDate={Date.now() + 775000} />
+        <CountdownContainer votingCloseDate={props.votingCloseDate} />
       </section>
       <section className={`${styles.grid} ${styles.totalMain}`}>
         <Panel title='General Elections' className='indigo'>
