@@ -7,15 +7,19 @@
   column-gap: 1em;
   align-items: center;
   background-color: $indigo;
-  padding: 10px 0;
+  padding: 0.5em 1em;
 }
 
 .electionLogo {
   img {
-    width: 80%;
-    display: block;
+    max-width: 80%;
+    padding: 0.75em 0.75em 0.75em 0;
     margin: 0 auto;
   }
+}
+
+.completed .electionLogo img {
+  padding: 0.75em 0.75em 0.75em 0;
 }
 
 p.countdownCompleted {
@@ -23,7 +27,7 @@ p.countdownCompleted {
   font-size: 1.5em;
   font-weight: $fw-bold;
   color: $amber;
-  padding: 1.14em 0;
+  padding: 0.75em 0;
   margin: 0;
 }
 
@@ -52,6 +56,10 @@ p.countdownCompleted {
 
   .electionLogo {
     grid-area: 1 / 1 / span 1 / span 1;
+
+    img {
+      padding-bottom: 0;
+    }
   }
 
   .countdown {
@@ -70,9 +78,10 @@ p.countdownCompleted {
   .completed {
     .electionLogo {
       grid-area: 1 / 1 / span 1 / span 2;
+      text-align: center;
 
       img {
-        width: 50%;
+        padding: 0.75 0 0 0;
       }
     }
   }
