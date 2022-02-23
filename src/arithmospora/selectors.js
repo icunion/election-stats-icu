@@ -1,5 +1,8 @@
+import { createSelector } from "@reduxjs/toolkit"
+
 const checkStatExists = (state, source, group, stat) => {
   return (
+    state &&
     'stats' in state &&
     source in state.stats.sources &&
     group in state.stats.sources[source] &&
@@ -23,9 +26,8 @@ export const arithmosporaSelector = (
 }
 
 const makeProportionStat = (stateStat) => {
-  let proportionStat = { ...stateStat.data }
+  let proportionStat = { ...stateStat.data, dataPoints: {} }
   if (Object.keys(stateStat.dataPoints).length !== 0) {
-    proportionStat.dataPoints = {}
     for (const dpKey in stateStat.dataPoints) {
       proportionStat.dataPoints[dpKey] = makeProportionStat(
         stateStat.dataPoints[dpKey]
@@ -98,3 +100,81 @@ export const timedStatSelector = (
     return statSelector({})
   }
 }
+
+export const makeStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
+  (state, source, group, stat) => {
+    if (checkStatExists(state, source, group, stat)) {
+      return state.stats.sources[source][group][stat]
+    } else {
+      return undefined
+    }
+  },
+  (stateStat) => {
+    return stateStat ? statSelector(stateStat) : stateStat
+  }
+)
+
+export const makeProportionStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
+  (state, source, stat) => {
+    if (checkStatExists(state, source, 'proportion', stat)) {
+      return state.stats.sources[source]['proportion'][stat]
+    } else {
+      return {
+        data: {
+          current: 0,
+          total: 0,
+          proportion: 0,
+          percentage: 0
+        },
+        dataPoints: {}
+      }
+    }
+  },
+  (stateStat) => {
+    return statSelector(
+      makeProportionStat(stateStat)
+    )
+  }
+)
+
+export const makeRollingStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
+  (state, source, interval, stat) => {
+    const rollingStat = `${interval}:${stat}`
+    if (checkStatExists(state, source, 'rolling', rollingStat)) {
+      return state.stats.sources[source]['proportion'][stat]
+    } else {
+      return {
+        data: {
+          current: 0,
+          total: 0,
+          proportion: 0,
+          percentage: 0,
+          peakProportion: 0,
+          peakPercentage: 0
+          },
+        dataPoints: {}
+      }
+    }
+  },
+  (stateStat) => {
+    return statSelector(
+      makeProportionStat(stateStat)
+    )
+  }
+)
+
+export const makeTimedStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
+  (state, source, stat, dataPoint) => {
+    if (
+      checkStatExists(state, source, 'timed', stat) &&
+      dataPoint in state.stats.sources[source]['timed'][stat].dataPoints
+    ) {
+      return state.stats.sources[source]['timed'][stat].dataPoints[dataPoint].data
+    } else {
+      return {}
+    }
+  },
+  (stateStat) => {
+    return statSelector(stateStat)
+  }
+)
