@@ -64,7 +64,9 @@ const connectSource = (statsSource) => {
   // Handle messages for this source
   sockets[statsSource].socket.onmessage = (event) => {
     const message = JSON.parse(event.data)
-    //console.log(message)
+    if (window && window.electionStatsICU && window.electionStatsICU.debug) {
+      console.log({debug: "Stats message received", statsSource, ...message})
+    }
     const [messageEvent, ...messageArgs] = message.event.split(':')
     store.dispatch(
       arithmosporaActions[messageEvent]({
