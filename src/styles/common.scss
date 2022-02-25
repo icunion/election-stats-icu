@@ -18,6 +18,15 @@
       line-height: 1.6;
       text-rendering: optimizeLegibility;
     }
+
+    // Reset dotorg heading styles
+    h1, h2, h3, h4, h5, h6 {
+      letter-spacing: normal;
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   .text-center {
