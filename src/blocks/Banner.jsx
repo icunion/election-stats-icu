@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import AnimatedNumber from 'animated-number-react'
 
 import useLocalStorage from '../hooks/use-local-storage'
 
-import connectSources from '../arithmospora'
 import {
-  arithmosporaSelector,
-  proportionStatSelector
-} from '../arithmospora/selectors'
+  useSources,
+  useStat,
+  useProportionStat
+} from '../arithmospora/hooks'
 
 import ElectionCountdown from '../components/Countdowns/ElectionCountdown'
 import Button from '../components/UI/Button/Button'
@@ -19,19 +18,17 @@ import styles from './Banner.module.scss'
 
 
 const Banner = (props) => {
+  // Ensure stats source connected
+  useSources([props.mainSource])
+
   // Gets data from redux state
-  const totalVotes = useSelector((state) =>
-    arithmosporaSelector(
-      state,
-      props.mainSource,
-      'other',
-      'totalvotes',
-      (stat) => stat.data.totalvotes
-    )
+  const totalVotes = useStat(
+    props.mainSource,
+    'other',
+    'totalvotes',
+    (stat) => stat.data.totalvotes
   )
-  const totalVoters = useSelector((state) =>
-    proportionStatSelector(state, props.mainSource, 'proportion', 'total')
-  )
+  const totalVoters = useProportionStat(props.mainSource, 'proportion', 'total')
 
   // Use a state property to determine whether the countdown has completed.
   // If the close date is already in the past, we want the state to be set
@@ -61,9 +58,6 @@ const Banner = (props) => {
       setAnimateNumbers(true)
     }, 1500)
   }, [animateNumbersStorage])
-
-  // Connect the stats source
-  connectSources([props.mainSource])
 
   return (
     <div
