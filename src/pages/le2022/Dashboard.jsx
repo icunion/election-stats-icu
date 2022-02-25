@@ -9,6 +9,7 @@ import StudyTypes from '../../components/Stats/StudyTypes/StudyTypes.jsx'
 import TimeLine from '../../components/Stats/TimeLine/TimeLine.jsx'
 import TotalStats from '../../components/Stats/TotalStats/TotalStats.jsx'
 // import ConstituentUnions from '../../components/Stats/ConstituentUnions/ConstituentUnions.jsx'
+import TopTurnoutList from '../../components/Stats/TopTurnoutList/TopTurnoutList'
 
 import styles from './Dashboard.module.scss'
 
@@ -73,17 +74,17 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.depts}`}>
         <Panel title='Departments' className='teal'>
-          Departments
+          <TopTurnoutList source={selectedSource} stat="departments" />
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.CSPs}`}>
         <Panel title='CSPs' className='teal'>
-          CSPs
+          <TopTurnoutList source={selectedSource} stat="cspgroups" />
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.halls}`}>
         <Panel title='Halls' className='teal'>
-          Halls
+          <TopTurnoutList source={selectedSource} stat="halls" />
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.progress}`}>
