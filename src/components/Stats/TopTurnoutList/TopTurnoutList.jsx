@@ -13,7 +13,6 @@ const TopTurnoutList = (props) => {
 
   const statsData = useProportionStat(
     props.source,
-    'proportion',
     props.stat,
     getListSortedByTurnout(props.stat)
   )

@@ -18,7 +18,7 @@ const TotalStats = (props) => {
     (stat) => stat.data.totalvotes
   );
 
-  const totalVoters = useProportionStat(props.source, 'proportion', 'total');
+  const totalVoters = useProportionStat(props.source, 'total');
 
   // Number animation: we want all the numbers to animate the first time we
   // load the page and whenever stats change, but we don't want to spin the
@@ -68,7 +68,7 @@ const TotalStats = (props) => {
           </div>
         </div>
 
-        
+
     </div>
   )
 }

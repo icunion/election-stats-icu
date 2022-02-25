@@ -40,13 +40,12 @@ const makeProportionStat = (stateStat) => {
 export const proportionStatSelector = (
   state,
   source,
-  group,
   stat,
   statSelector = (stat) => stat
 ) => {
-  if (checkStatExists(state, source, group, stat)) {
+  if (checkStatExists(state, source, 'proportion', stat)) {
     return statSelector(
-      makeProportionStat(state.stats.sources[source][group][stat])
+      makeProportionStat(state.stats.sources[source]['proportion'][stat])
     )
   } else {
     return statSelector({

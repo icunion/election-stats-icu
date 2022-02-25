@@ -90,7 +90,6 @@ export const useStat = (
  * // }
  * const totalVoters = useProportionStat(props.source, 'proportion', 'total')
  * @param {string} source - The name of the stats source to retrieve from
- * @param {string} group - Deprecated: Not used, will be removed.
  * @param {string} stat - The name of the stat to retrieve.
  * @param {statSelector} [statSelector = (stateStat) => stateStat] - Optional
  *     callback to select desired data from the retrieved stat object.
@@ -98,7 +97,6 @@ export const useStat = (
  */
 export const useProportionStat = (
   source,
-  group,
   stat,
   statSelector = (stateStat) => stateStat
 ) => {

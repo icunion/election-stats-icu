@@ -28,7 +28,7 @@ const Banner = (props) => {
     'totalvotes',
     (stat) => stat.data.totalvotes
   )
-  const totalVoters = useProportionStat(props.mainSource, 'proportion', 'total')
+  const totalVoters = useProportionStat(props.mainSource, 'total')
 
   // Use a state property to determine whether the countdown has completed.
   // If the close date is already in the past, we want the state to be set

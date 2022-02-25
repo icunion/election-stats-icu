@@ -11,7 +11,6 @@ const StudyType = (props) => {
 
   const statsData = useProportionStat(
     props.source,
-    'proportion',
     'studytypes',
     (stat) => {
       if (Object.keys(stat.dataPoints).length === 0) {
