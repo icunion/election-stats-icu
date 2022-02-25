@@ -24,6 +24,8 @@ const TimeLineEntry = (props) => {
   const totalVotersData = useRollingStat(props.source, props.interval, 'total')
   const prevTotalVotersCurrent = usePrevious(totalVotersData.current)
 
+  const prevSource = usePrevious(props.source)
+
   const [change, setChange] = useState(false)
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const TimeLineEntry = (props) => {
         setChange(false)
       }, 500)
       return () => clearTimeout(timer)
-    } else if (totalVotersData.current != prevTotalVotersCurrent) {
+    } else if (totalVotersData.current != prevTotalVotersCurrent && (!prevSource || props.source == prevSource)) {
       setChange(
         (totalVotersData.current > prevTotalVotersCurrent && 'rising') ||
           (totalVotersData.current < prevTotalVotersCurrent && 'falling')
