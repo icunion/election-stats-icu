@@ -16,7 +16,6 @@ const TopTurnoutList = (props) => {
     props.stat,
     getListSortedByTurnout(props.stat)
   )
-  console.log(statsData)
 
   return (
     <div className={styles.container}>
