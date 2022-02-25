@@ -27,7 +27,7 @@ export const arithmosporaSelector = (
 
 const makeProportionStat = (stateStat) => {
   let proportionStat = { ...stateStat.data, dataPoints: {} }
-  if (Object.keys(stateStat.dataPoints).length !== 0) {
+  if ('dataPoints' in stateStat && Object.keys(stateStat.dataPoints).length !== 0) {
     for (const dpKey in stateStat.dataPoints) {
       proportionStat.dataPoints[dpKey] = makeProportionStat(
         stateStat.dataPoints[dpKey]
