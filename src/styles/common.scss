@@ -9,6 +9,7 @@
  */
 :global {
   .election-stats-icu {
+    box-sizing: content-box;
     font-family: 'Open Sans',Arial,sans-serif;
 
     // Use same paragraph styles as dotorg by default
@@ -21,6 +22,9 @@
 
     // Reset dotorg heading styles
     h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding: 0;
+      font-weight: $fw-bold;
       letter-spacing: normal;
 
       &::after {
