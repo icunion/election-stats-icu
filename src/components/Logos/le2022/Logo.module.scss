@@ -1,0 +1,17 @@
+/* Styles for the le2022 Logo component */
+@import "../../../styles/variables.scss";
+
+.container {
+  background: linear-gradient(0deg, $indigo 50%, $teal 50%);
+
+  a {
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    img {
+      margin-top: -0.3em;
+      margin-bottom: -0.1em;
+    }
+  }
+}
