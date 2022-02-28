@@ -28,7 +28,6 @@ const Dashboard = (props) => {
     }
   }
 
-
   return (
     <div
       className={`election-stats-icu ${styles.dashboard} ${
@@ -48,12 +47,14 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.totalCSPs}`}>
         <Panel title='CSPs Elections' className='teal'>
-          <TotalStats source={props.cspsSource} className='cspStat'/>
+          <TotalStats source={props.cspsSource} className='cspStat' />
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.sourceToggle}`}>
-        <span>Viewing {selectedSource == props.mainSource ? 'main' : 'CSPs'} stats</span>
-        <Button type='button' onClick={toggleSelectedSource} className="small">
+        <span>
+          Viewing {selectedSource == props.mainSource ? 'main' : 'CSPs'} stats
+        </span>
+        <Button type='button' onClick={toggleSelectedSource} className='small'>
           Show {selectedSource == props.mainSource ? 'CSPs' : 'main'} stats
         </Button>
       </section>
@@ -72,7 +73,7 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.CUs}`}>
         <Panel title='Consituent Unions' className='indigo'>
-          {/* <ConstituentUnions source={selectedSource} /> */}
+          <ConstituentUnions source={selectedSource} />
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.depts}`}>

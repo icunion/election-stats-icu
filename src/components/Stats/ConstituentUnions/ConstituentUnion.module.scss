@@ -1,0 +1,100 @@
+/* Styles for the StudyType component */
+@import "../../../styles/variables.scss";
+
+.cus {
+  display: block;
+  width: 100%;
+  padding: 6px 0;
+
+  &:nth-child(1) {
+    -ms-transform: translate(0,0%);
+    -webkit-transform: translate3d(0,0%,0);
+    transform: translate3d(0,0%,0);
+  }
+
+  &::before {
+    display: inline-block;
+    content: counter(item) " ";
+    counter-increment: item;
+    color: $indigo;
+    background-color: $amber;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.4em;
+    border-radius: 1em;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.7em;
+    font-weight: $fw-bold;
+  }
+
+  .content {
+    float: right;
+    width: 88%;
+    height: 42px;
+    vertical-align: middle;
+  }
+
+  .barcontainer {
+    display: inline-block;
+    width: 70%;
+    height: 38px;
+    vertical-align: middle;
+    margin-left: -25px;
+    margin-top: 2px;
+    z-index: -1;
+    background: none;
+    position: relative;
+
+    .bar {
+      position: absolute;
+      box-sizing: content-box;
+      background-color: $teal-light;
+      border-radius: 0;
+      width: 0;
+      height: 36px;
+      padding-left: 22px;
+      -webkit-transition: width 1.0s ease;
+      transition: width 1.0s ease;
+    }
+
+    .info {
+      float: none;
+      margin-left: 30px;
+      height: 36px;
+      line-height: 36px;
+      text-align: right;
+      position: relative;
+      z-index: 3;
+      vertical-align: middle;
+      padding-right: 10px;
+
+      .label {
+        float: left;
+        text-align: left;
+        font-weight: $fw-bold;
+        font-size: 1.125em;
+        max-width: 70%;
+        color: $indigo;
+      }
+    }
+
+  }
+
+
+  .percentage {
+    position: relative;
+    display: inline-block;
+    width: 19%;
+    height: 40px;
+    padding-right: 5px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 1.30em;
+    font-weight: $fw-bold;
+    color: $indigo;
+    vertical-align: middle;
+  }
+}
+
+
