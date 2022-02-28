@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
   useSources,
@@ -6,7 +6,7 @@ import {
 } from '../../../arithmospora/hooks'
 
 import ConstituentUnion from './ConstituentUnion'
-// import RollingTimeFrame from '../../UI/Button/RollingTimeFrame'
+import RollingTimeFrame from '../../UI/Button/RollingTimeFrame'
 
 import { getCUsSortedByTurnout } from './constituent-union-helpers'
 import styles from './ConstituentUnions.module.scss'
@@ -15,7 +15,14 @@ const ConstituentUnions = (props) => {
   // Ensure stat sources get connected
   useSources([props.source])
 
-  const interval = 'whole'
+  const [timeframe, setSelectedTimeFrame] = useState('total');
+
+  const RollingTimeFrameHandler = (selectedTimeFrame) => {
+    setSelectedTimeFrame(selectedTimeFrame) ;
+  };
+
+  const interval = timeframe;
+
 
   const statsData = useRollingStat(
     props.source,
@@ -23,10 +30,6 @@ const ConstituentUnions = (props) => {
     'cus',
     getCUsSortedByTurnout
   )
-
-  const RollingTimeFrameHandler = (selectedTimeFrame) => {
-    console.log(selectedTimeFrame)
-  }
 
   return (
     <div className={styles.container}>
@@ -36,7 +39,7 @@ const ConstituentUnions = (props) => {
         ))}
       </ol>
       <div className={styles.buttonsContainer}>
-        {/* <RollingTimeFrame onChangeRolling={RollingTimeFrameHandler} /> */}
+        <RollingTimeFrame setActive={RollingTimeFrameHandler}/>
         {/* <RollingTimeFrame /> */}
       </div>
     </div>
