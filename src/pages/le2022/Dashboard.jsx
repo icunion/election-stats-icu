@@ -9,7 +9,7 @@ import RecentActivity from '../../components/Stats/RecentActivity/RecentActivity
 import StudyTypes from '../../components/Stats/StudyTypes/StudyTypes.jsx'
 import TimeLine from '../../components/Stats/TimeLine/TimeLine.jsx'
 import TotalStats from '../../components/Stats/TotalStats/TotalStats.jsx'
-// import ConstituentUnions from '../../components/Stats/ConstituentUnions/ConstituentUnions.jsx'
+import ConstituentUnions from '../../components/Stats/ConstituentUnions/ConstituentUnions'
 import TopTurnoutList from '../../components/Stats/TopTurnoutList/TopTurnoutList'
 
 import styles from './Dashboard.module.scss'
