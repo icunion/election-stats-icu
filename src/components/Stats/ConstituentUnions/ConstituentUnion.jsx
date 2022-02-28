@@ -15,7 +15,6 @@ const ConstituentUnion = (props) => {
           <div className={styles.info}>
             <span className={styles.label}>{props.name}</span>
           </div>
-
         </div>
         <div className={styles.percentage}>
           <AnimatedNumber
