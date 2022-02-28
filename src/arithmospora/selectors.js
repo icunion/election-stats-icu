@@ -139,7 +139,9 @@ export const makeProportionStatSelector = (statSelector = (stateStat) => stateSt
 export const makeRollingStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
   (state, source, interval, stat) => {
     const rollingStat = `${interval}:${stat}`
-    if (checkStatExists(state, source, 'rolling', rollingStat)) {
+    if (['5m', '1h', '6h', '1d'].includes(interval) && checkStatExists(state, source, 'rolling', rollingStat)) {
+      return state.stats.sources[source]['rolling'][rollingStat]
+    } else if (!['5m', '1h', '6h', '1d'].includes(interval) && checkStatExists(state, source, 'proportion', stat)) {
       return state.stats.sources[source]['proportion'][stat]
     } else {
       return {

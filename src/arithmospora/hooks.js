@@ -116,7 +116,9 @@ export const useProportionStat = (
  * from the source yet. Note that for stats that have nested dataPoints,
  * the top level current and totals are not usually populated, as they would
  * be aggregating all the child dataPoints and would be the same as the total
- * stat.
+ * stat. If an unknown interval is supplied and a corresponding proportion
+ * stat for the whole election exists, the proportion stat will be returned,
+ * facilitating the 'choose a rolling interval or whole election' pattern.
  * @example
  * // returns e.g.
  * // {
@@ -133,7 +135,9 @@ export const useProportionStat = (
  * @param {string} source - The name of the stats source to retrieve from
  * @param {string} interval - The rolling interval we want to retrieve for.
  *     Usually one of '5m', '1h', '6h', or '1d', but beware that some stats
- *     sources might provide only some (or even none) of these intervals.
+ *     sources might provide only some (or even none) of these intervals. If
+ *     an unknown interval is provided, the corresponding whole election
+ *     proportion stat is returned if available.
  * @param {string} stat - The name of the stat to retrieve.
  * @param {statSelector} [statSelector = (stateStat) => stateStat] - Optional
  *     callback to select desired data from the retrieved stat object.
