@@ -65,6 +65,7 @@
     "animated-number-react": "0.1.1",
     "d3": "^7.3.0",
     "localstorage-slim": "^2.2.0",
-    "react-countdown": "^2.3.2"
+    "react-countdown": "^2.3.2",
+    "react-flip-toolkit": "^7.0.13"
   }
 }
