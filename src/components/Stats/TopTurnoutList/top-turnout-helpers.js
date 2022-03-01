@@ -50,7 +50,14 @@ export const getListSortedByTurnout = (statName) => {
   }
 }
 
-export const top = (statData, quantity, statName) => {
+/**
+ * Apply stat specific filtering to the list
+ * @param {Object[]} statData - List of data objects
+ * @param {string} statName - Name of the stat
+ * @returns
+ *   The filtered entries.
+ */
+export const filteredList = (statData, statName) => {
   return statData
     .filter((item) => {
       switch (statName) {
@@ -60,5 +67,4 @@ export const top = (statData, quantity, statName) => {
           return true
       }
     })
-    .slice(0, quantity)
 }

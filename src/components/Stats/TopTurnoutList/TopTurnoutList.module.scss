@@ -6,10 +6,28 @@
 }
 
 ol.entrylist {
+  &::-webkit-scrollbar-thumb {
+    background-color: $teal-x-light
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $teal-xx-light
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: $teal-xx-light
+  }
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
   counter-reset: item;
   -webkit-transition: top 0.5s ease-out;
   transition: top 0.5s ease-out;
-  margin-left: 0;
-  margin-top: 5px;
+  margin: 0 0 0.5em;
   padding: 0.5em;
+  height: 7.5em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-color: $teal-x-light $teal-xx-light;
+  scrollbar-width: thin;
+
 }

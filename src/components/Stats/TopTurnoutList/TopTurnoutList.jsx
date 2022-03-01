@@ -6,7 +6,7 @@ import { useSources, useRollingStat } from '../../../arithmospora/hooks'
 import TopTurnoutEntry from './TopTurnoutEntry'
 import RollingTimeFrame from '../../UI/Button/RollingTimeFrame'
 
-import { getListSortedByTurnout, top } from './top-turnout-helpers'
+import { getListSortedByTurnout, filteredList } from './top-turnout-helpers'
 import styles from './TopTurnoutList.module.scss'
 
 const TopTurnoutList = (props) => {
@@ -32,7 +32,7 @@ const TopTurnoutList = (props) => {
     <div className={styles.container}>
       <Flipper flipKey={flipKey}>
         <ol className={styles.entrylist}>
-          {top(statsData, 5, props.stat).map((item) => (
+          {filteredList(statsData, props.stat).map((item) => (
             <Flipped key={item.id} flipId={item.id}>
               {(flippedProps) => (
                 <TopTurnoutEntry flippedProps={flippedProps} {...item} />
