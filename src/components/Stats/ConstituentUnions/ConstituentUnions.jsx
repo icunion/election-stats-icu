@@ -40,8 +40,7 @@ const ConstituentUnions = (props) => {
         </ol>
       </Flipper>
       <div className={styles.buttonsContainer}>
-        <RollingTimeFrame setActive={RollingTimeFrameHandler}/>
-        {/* <RollingTimeFrame /> */}
+        <RollingTimeFrame onSetActive={RollingTimeFrameHandler}/>
       </div>
     </div>
   )

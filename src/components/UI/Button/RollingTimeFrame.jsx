@@ -28,12 +28,8 @@ const RollingTimeFrame = (props) => {
 
   const buttonChangeHandler = (e, key) => {
     setActive(key)
-    props.setActive(key)
-    console.log(key)
-    //this.props.onChangeRolling(e.target.value);
+    props.onSetActive(key)
   }
-
-  console.log('active ' + isActive)
 
   return (
     <div className={styles.container}>

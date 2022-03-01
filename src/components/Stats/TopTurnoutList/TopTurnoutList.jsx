@@ -42,7 +42,7 @@ const TopTurnoutList = (props) => {
         </ol>
       </Flipper>
       <div className={styles.buttonsContainer}>
-        <RollingTimeFrame setActive={RollingTimeFrameHandler} />
+        <RollingTimeFrame onSetActive={RollingTimeFrameHandler} />
       </div>
     </div>
   )
