@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
+import { Flipper, Flipped } from 'react-flip-toolkit'
 
-import {
-  useSources,
-  useRollingStat
-} from '../../../arithmospora/hooks'
+import { useSources, useRollingStat } from '../../../arithmospora/hooks'
 
 import ConstituentUnion from './ConstituentUnion'
 import RollingTimeFrame from '../../UI/Button/RollingTimeFrame'
@@ -21,23 +19,26 @@ const ConstituentUnions = (props) => {
     setSelectedTimeFrame(selectedTimeFrame) ;
   };
 
-  const interval = timeframe;
-
-
   const statsData = useRollingStat(
     props.source,
-    interval,
+    timeframe,
     'cus',
     getCUsSortedByTurnout
   )
 
+  const flipKey = statsData.map((item) => item.id).join('')
+
   return (
     <div className={styles.container}>
-      <ol className={styles.list}>
-        {statsData.map((item) => (
-          <ConstituentUnion key={item.id} {...item} />
-        ))}
-      </ol>
+      <Flipper flipKey={flipKey}>
+        <ol className={styles.list}>
+          {statsData.map((item) => (
+            <Flipped key={item.id} flipId={item.id}>
+              {(flippedProps) => <ConstituentUnion flippedProps={flippedProps} {...item} />}
+            </Flipped>
+          ))}
+        </ol>
+      </Flipper>
       <div className={styles.buttonsContainer}>
         <RollingTimeFrame setActive={RollingTimeFrameHandler}/>
         {/* <RollingTimeFrame /> */}

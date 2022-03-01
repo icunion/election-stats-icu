@@ -5,7 +5,7 @@ import styles from './ConstituentUnion.module.scss'
 
 const ConstituentUnion = (props) => {
   return (
-    <li className={styles.cus}>
+    <li {...props.flippedProps} className={styles.cus}>
       <div className={styles.content}>
         <div className={styles.barcontainer}>
           <div
