@@ -12,16 +12,21 @@ import {
 /**
  * Make a set of stats source available. Use this hook in all components that
  * needs to access stats data to ensure the relevant sources are connected and
- * providing data.
+ * providing data. See connectSources for further info about options.
  * @param {string[]} statsSources - Array of stats source names corresponding
  *     to sources defined in config.
+ * @param {Object} [options={}] - Options object.
+ * @param {Object.<string, *>} options.only - Only enable stats specified by
+ *     provided keys. e.g. {only: { 'other:totalvotes': true}}.
+ * @param {Object.<string, *>} options.exclude - Disable stats specified by
+ *     provided keys.
  * @see connectSources
  * @see ../config
  */
-export const useSources = (sources) => {
+export const useSources = (sources, options = {}) => {
   useEffect(() => {
-    connectSources(sources)
-  }, [sources])
+    connectSources(sources, options)
+  }, [sources, options])
 }
 
 /**
