@@ -13,13 +13,18 @@ import ElectionCountdown from '../components/Countdowns/ElectionCountdown'
 import Button from '../components/UI/Button/Button'
 import logoBanner from 'logo-banner2022.png'
 
-
 import styles from './Banner.module.scss'
 
+const sourceOptions = {
+  only: {
+    'other:totalvotes': true,
+    'proportion:total': true
+  }
+}
 
 const Banner = (props) => {
   // Ensure stats source connected
-  useSources([props.mainSource])
+  useSources([props.mainSource], sourceOptions)
 
   // Gets data from redux state
   const totalVotes = useStat(
