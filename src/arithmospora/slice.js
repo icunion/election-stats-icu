@@ -55,7 +55,7 @@ const arithmosporaSlice = createSlice({
           !(groupStat in state.sourceOptions[action.payload.source].disabled))
       ) {
 
-        // Pre-emptively freeze the received payload let Immer know this
+        // Pre-emptively freeze the received payload to let Immer know this
         // entire section of the state object has been changed and allow it
         // to add it to the final object tree faster.
         freeze(action.payload.payload)
