@@ -113,20 +113,22 @@ export const makeStatSelector = (statSelector = (stateStat) => stateStat) => cre
   }
 )
 
+const proportionStatDefault = {
+  data: {
+    current: 0,
+    total: 0,
+    proportion: 0,
+    percentage: 0
+  },
+  dataPoints: {}
+}
+
 export const makeProportionStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
   (state, source, stat) => {
     if (checkStatExists(state, source, 'proportion', stat)) {
       return state.stats.sources[source]['proportion'][stat]
     } else {
-      return {
-        data: {
-          current: 0,
-          total: 0,
-          proportion: 0,
-          percentage: 0
-        },
-        dataPoints: {}
-      }
+      return proportionStatDefault
     }
   },
   (stateStat) => {
@@ -135,6 +137,18 @@ export const makeProportionStatSelector = (statSelector = (stateStat) => stateSt
     )
   }
 )
+
+const rollingStatDefault = {
+  data: {
+    current: 0,
+    total: 0,
+    proportion: 0,
+    percentage: 0,
+    peakProportion: 0,
+    peakPercentage: 0
+    },
+  dataPoints: {}
+}
 
 export const makeRollingStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
   (state, source, interval, stat) => {
@@ -144,17 +158,7 @@ export const makeRollingStatSelector = (statSelector = (stateStat) => stateStat)
     } else if (!['5m', '1h', '6h', '1d'].includes(interval) && checkStatExists(state, source, 'proportion', stat)) {
       return state.stats.sources[source]['proportion'][stat]
     } else {
-      return {
-        data: {
-          current: 0,
-          total: 0,
-          proportion: 0,
-          percentage: 0,
-          peakProportion: 0,
-          peakPercentage: 0
-          },
-        dataPoints: {}
-      }
+      return rollingStatDefault
     }
   },
   (stateStat) => {
@@ -164,6 +168,8 @@ export const makeRollingStatSelector = (statSelector = (stateStat) => stateStat)
   }
 )
 
+const timedStatDefault = {}
+
 export const makeTimedStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
   (state, source, stat, dataPoint) => {
     if (
@@ -172,7 +178,7 @@ export const makeTimedStatSelector = (statSelector = (stateStat) => stateStat) =
     ) {
       return state.stats.sources[source]['timed'][stat].dataPoints[dataPoint].data
     } else {
-      return {}
+      return timedStatDefault
     }
   },
   (stateStat) => {
