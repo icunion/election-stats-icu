@@ -37,3 +37,9 @@ $breakpoints: (
     @content;
   }
 }
+
+@mixin small-portrait {
+  @media screen and (max-width: map-get($breakpoints, 'medium')) and (orientation: portrait) {
+    @content;
+  }
+}

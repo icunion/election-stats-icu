@@ -8,3 +8,9 @@
   height: 100%;
   color: white;
 }
+
+@include small-portrait {
+  .container {
+    flex-direction: column;
+  }
+}
