@@ -17,7 +17,6 @@ const tickMarkers = [...Array(7)].map((_, i) => {
 const scaleTo = 65 / 100
 
 const getMarkers = (source) => {
-  console.log({progressDefs})
   return [
     ...tickMarkers,
     ...progressDefs.markers[source]
