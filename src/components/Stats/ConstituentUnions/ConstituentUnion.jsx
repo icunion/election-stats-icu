@@ -3,7 +3,20 @@ import AnimatedNumber from 'animated-number-react'
 
 import styles from './ConstituentUnion.module.scss'
 
+import cgcuLogo from 'cus-cgcu.svg'
+import icsmsuLogo from 'cus-icsmsu.svg'
+import rcsuLogo from 'cus-rcsu.svg'
+import rsmuLogo from 'cus-rsmu.svg'
+
 const ConstituentUnion = (props) => {
+
+  const cusLogos = {
+    'CGCU' : cgcuLogo,
+    'ICSMSU' : icsmsuLogo,
+    'RCSU' : rcsuLogo,
+    'RSMU' : rsmuLogo
+  };
+
   return (
     <li {...props.flippedProps} className={styles.cus}>
       <div className={styles.content}>
@@ -23,7 +36,9 @@ const ConstituentUnion = (props) => {
             value={props.percentage}
           />
         </div>
-        <div className={styles.icon}><svg></svg></div>
+        <div className={styles.icon}>
+          <img src={cusLogos[props.id]} />
+        </div>
       </div>
     </li>
   )
