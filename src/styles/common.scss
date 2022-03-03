@@ -31,6 +31,28 @@
         display: none;
       }
     }
+
+    span[data-tooltip]:not([data-tooltip=""]) {
+      position: relative;
+      text-decoration: underline dotted;
+
+      &:hover::before,
+      &:focus::before,
+      &:active::before {
+        content: attr(data-tooltip);
+        display: block;
+        position: absolute;
+        z-index: 3;
+        top: 0.5em;
+        right: 3em;
+        width: 20em;
+        background-color: white;
+        color: black;
+        border: 1px solid #888;
+        padding: 0.5em;
+        font-size: 1em;
+      }
+    }
   }
 
   .text-center {

@@ -64,7 +64,11 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.sourceToggle}`}>
         <span>
-          Viewing {selectedSource == props.mainSource ? 'main' : 'CSPs'} stats
+          Viewing{' '}
+          <span data-tooltip="The 'Main' or 'General Elections' stats relate to votes for any of the non-CSP positions which are grouped as 'Leadership Elections 2022' on eVoting. The 'CSPs' stats relate to votes for any of the CSP positions which are grouped as 'Leadership Elections 2022 (CSPs) on eVoting.">
+            {selectedSource == props.mainSource ? 'main' : 'CSPs'}
+          </span>{' '}
+          stats
         </span>
         <Button type='button' onClick={toggleSelectedSource} className='small'>
           Show {selectedSource == props.mainSource ? 'CSPs' : 'main'} stats
@@ -85,13 +89,17 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.CUs}`}>
         <Panel title='Consituent Unions' className='indigo'>
-          {delayRender && <ThreeDots wrapperClass={styles.loader} color='#ccc' />}
+          {delayRender && (
+            <ThreeDots wrapperClass={styles.loader} color='#ccc' />
+          )}
           {!delayRender && <ConstituentUnions source={selectedSource} />}
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.depts}`}>
         <Panel title='Departments' className='teal'>
-          {delayRender && <ThreeDots wrapperClass={styles.loader} color='#ccc' />}
+          {delayRender && (
+            <ThreeDots wrapperClass={styles.loader} color='#ccc' />
+          )}
           {!delayRender && (
             <TopTurnoutList source={selectedSource} stat='departments' />
           )}
@@ -99,7 +107,9 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.CSPs}`}>
         <Panel title='CSPs' className='teal'>
-          {delayRender && <ThreeDots wrapperClass={styles.loader} color='#ccc' />}
+          {delayRender && (
+            <ThreeDots wrapperClass={styles.loader} color='#ccc' />
+          )}
           {!delayRender && (
             <TopTurnoutList source={selectedSource} stat='cspgroups' />
           )}
@@ -107,7 +117,9 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.halls}`}>
         <Panel title='Halls' className='teal'>
-          {delayRender && <ThreeDots wrapperClass={styles.loader} color='#ccc' />}
+          {delayRender && (
+            <ThreeDots wrapperClass={styles.loader} color='#ccc' />
+          )}
           {!delayRender && (
             <TopTurnoutList source={selectedSource} stat='halls' />
           )}
