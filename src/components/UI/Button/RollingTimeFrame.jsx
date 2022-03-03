@@ -7,18 +7,22 @@ import styles from './RollingTimeFrame.module.scss'
 const RollingTimeFrame = (props) => {
   const timeframeOptions = [
     {
+      id: '5m',
       key: '5m',
       text: '5 min'
     },
     {
+      id: '1h',
       key: '1h',
       text: '1 hr'
     },
     {
+      id: '1d',
       key: '1d',
       text: '24 hr'
     },
     {
+      id: 'total',
       key: 'total',
       text: 'Whole'
     }
@@ -44,8 +48,7 @@ const RollingTimeFrame = (props) => {
         // </button>
         <Button
           type='timeframe'
-          name={timeframe.key}
-          key={timeframe.key}
+          key={timeframe.id}
           className={isActive === timeframe.key ? styles['btn' && 'active'] : styles['btn']}
           onClick={(e) => buttonChangeHandler(e, timeframe.key)}
         >
