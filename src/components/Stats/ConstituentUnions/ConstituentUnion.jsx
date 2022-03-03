@@ -37,7 +37,7 @@ const ConstituentUnion = (props) => {
           />
         </div>
         <div className={styles.icon}>
-          <img src={cusLogos[props.id]} />
+          <img src={cusLogos[props.id]} alt={props.name + ' Logo'}/>
         </div>
       </div>
     </li>
