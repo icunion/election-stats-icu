@@ -1,0 +1,96 @@
+/* Styles for the ElectionProgress component */
+@import "../../../styles/variables.scss";
+
+.container {
+  position: relative;
+  height: calc(100%);
+  padding: 0 0.5em;
+  overflow: hidden;
+  background-color: $indigo;
+  color: white;
+  z-index: 1;
+}
+
+@include small-portrait {
+  .container {
+    height: 5em;
+  }
+}
+
+ul.markers {
+  margin: 0;
+  padding: 1.25em 2em 0 0.75em;
+  list-style: none;
+
+  li {
+    position: absolute;
+    display: block;
+    z-index: 2;
+    transition: width 0.75s ease;
+
+    span {
+      position: absolute;
+      top: 0.3em;
+      right: 0.3em;
+      font-size: 0.7em;
+      font-weight: $fw-bold;
+      writing-mode: vertical-rl;
+    }
+
+    &[data-tooltip]:not([data-tooltip=""]) {
+      span {
+        text-decoration: underline dotted;
+      }
+
+      &:hover::before,
+      &:focus::before,
+      &:active::before {
+        content: attr(data-tooltip);
+        display: block;
+        position: absolute;
+        z-index: 3;
+        top: 0.5em;
+        right: 2em;
+        background-color: white;
+        color: black;
+        border: 1px solid #888;
+        padding: 0.5em;
+        font-size: 0.6em;
+      }
+    }
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: -0.25em;
+      right: 0;
+      width: 0.2em;
+      height: 2.75em;
+      background-color: white;
+    }
+
+    &.tick {
+      span {
+        top: -1.75em;
+        right: -1em;
+        writing-mode: horizontal-tb;
+      }
+
+      &::after {
+        width: 0.1em;
+        background-color: rgba(255,255,255,0.75);
+      }
+    }
+  }
+}
+
+.currentYear {
+  position: absolute;
+  left: 0.75em;
+  display: block;
+  height: 2em;
+  padding-left: 0.5em;
+  background-color: $amber;
+  box-shadow: -0.2em 0.2em 0 0 $red;
+  transition: width 2.0s cubic-bezier(0.5, 1, 0.89, 1);
+}

@@ -11,6 +11,7 @@ import TimeLine from '../../components/Stats/TimeLine/TimeLine.jsx'
 import TotalStats from '../../components/Stats/TotalStats/TotalStats.jsx'
 import ConstituentUnions from '../../components/Stats/ConstituentUnions/ConstituentUnions'
 import TopTurnoutList from '../../components/Stats/TopTurnoutList/TopTurnoutList'
+import ElectionProgress from '../../components/Stats/ElectionProgress/ElectionProgress'
 
 import styles from './Dashboard.module.scss'
 
@@ -92,7 +93,9 @@ const Dashboard = (props) => {
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.progress}`}>
-        Progress
+        <Panel title='Progress' className='indigo'>
+          <ElectionProgress source={selectedSource} />
+        </Panel>
       </section>
     </div>
   )
