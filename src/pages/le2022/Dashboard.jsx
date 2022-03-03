@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { ThreeDots } from 'react-loader-spinner'
 
 import Logo from '../../components/Logos/le2022/Logo'
 import Button from '../../components/UI/Button/Button.jsx'
@@ -28,6 +28,17 @@ const Dashboard = (props) => {
       setSelectedSource(props.mainSource)
     }
   }
+
+  // We delay fully rendering some stats to avoid doing excessive redraws when
+  // sources connect and spam initial data messages.
+  const [delayRender, setDelayRender] = useState(true)
+
+  useEffect(() => {
+    const delayRenderTimeOut = setTimeout(() => {
+      setDelayRender(false)
+    }, 2500)
+    return () => clearTimeout(delayRenderTimeOut)
+  }, [])
 
   return (
     <div
@@ -74,22 +85,32 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.CUs}`}>
         <Panel title='Consituent Unions' className='indigo'>
-          <ConstituentUnions source={selectedSource} />
+          {delayRender && <ThreeDots wrapperClass={styles.loader} color='#ccc' />}
+          {!delayRender && <ConstituentUnions source={selectedSource} />}
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.depts}`}>
         <Panel title='Departments' className='teal'>
-          <TopTurnoutList source={selectedSource} stat="departments" />
+          {delayRender && <ThreeDots wrapperClass={styles.loader} color='#ccc' />}
+          {!delayRender && (
+            <TopTurnoutList source={selectedSource} stat='departments' />
+          )}
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.CSPs}`}>
         <Panel title='CSPs' className='teal'>
-          <TopTurnoutList source={selectedSource} stat="cspgroups" />
+          {delayRender && <ThreeDots wrapperClass={styles.loader} color='#ccc' />}
+          {!delayRender && (
+            <TopTurnoutList source={selectedSource} stat='cspgroups' />
+          )}
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.halls}`}>
         <Panel title='Halls' className='teal'>
-          <TopTurnoutList source={selectedSource} stat="halls" />
+          {delayRender && <ThreeDots wrapperClass={styles.loader} color='#ccc' />}
+          {!delayRender && (
+            <TopTurnoutList source={selectedSource} stat='halls' />
+          )}
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.progress}`}>

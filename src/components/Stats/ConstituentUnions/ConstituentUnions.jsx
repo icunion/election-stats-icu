@@ -13,11 +13,11 @@ const ConstituentUnions = (props) => {
   // Ensure stat sources get connected
   useSources([props.source])
 
-  const [timeframe, setSelectedTimeFrame] = useState('total');
+  const [timeframe, setSelectedTimeFrame] = useState('total')
 
   const RollingTimeFrameHandler = (selectedTimeFrame) => {
-    setSelectedTimeFrame(selectedTimeFrame) ;
-  };
+    setSelectedTimeFrame(selectedTimeFrame)
+  }
 
   const statsData = useRollingStat(
     props.source,
@@ -30,17 +30,21 @@ const ConstituentUnions = (props) => {
 
   return (
     <div className={styles.container}>
-      <Flipper flipKey={flipKey}>
-        <ol className={styles.list}>
-          {statsData.map((item) => (
-            <Flipped key={item.id} flipId={item.id}>
-              {(flippedProps) => <ConstituentUnion flippedProps={flippedProps} {...item} />}
-            </Flipped>
-          ))}
-        </ol>
-      </Flipper>
+      {statsData.length > 0 && (
+        <Flipper flipKey={flipKey}>
+          <ol className={styles.list}>
+            {statsData.map((item) => (
+              <Flipped key={item.id} flipId={item.id}>
+                {(flippedProps) => (
+                  <ConstituentUnion flippedProps={flippedProps} {...item} />
+                )}
+              </Flipped>
+            ))}
+          </ol>
+        </Flipper>
+      )}
       <div className={styles.buttonsContainer}>
-        <RollingTimeFrame onSetActive={RollingTimeFrameHandler}/>
+        <RollingTimeFrame onSetActive={RollingTimeFrameHandler} />
       </div>
     </div>
   )

@@ -106,6 +106,13 @@
   background-color: $indigo;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 @include small-portrait {
   .dashboard {
     display: grid;

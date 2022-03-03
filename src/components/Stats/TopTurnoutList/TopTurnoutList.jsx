@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Flipper, Flipped } from 'react-flip-toolkit'
 
 import { useSources, useRollingStat } from '../../../arithmospora/hooks'
@@ -13,6 +13,7 @@ const TopTurnoutList = (props) => {
   // Ensure stat sources get connected
   useSources([props.source])
 
+  // Rolling time frame interval selection.
   const [timeframe, setSelectedTimeFrame] = useState('total')
 
   const RollingTimeFrameHandler = (selectedTimeFrame) => {
@@ -30,17 +31,19 @@ const TopTurnoutList = (props) => {
 
   return (
     <div className={styles.container}>
-      <Flipper flipKey={flipKey}>
-        <ol className={styles.entrylist}>
-          {filteredList(statsData, props.stat).map((item) => (
-            <Flipped key={item.id} flipId={item.id}>
-              {(flippedProps) => (
-                <TopTurnoutEntry flippedProps={flippedProps} {...item} />
-              )}
-            </Flipped>
-          ))}
-        </ol>
-      </Flipper>
+      {statsData.length > 0 && (
+        <Flipper flipKey={flipKey}>
+          <ol className={styles.entrylist}>
+            {filteredList(statsData, props.stat).map((item) => (
+              <Flipped key={item.id} flipId={item.id}>
+                {(flippedProps) => (
+                  <TopTurnoutEntry flippedProps={flippedProps} {...item} />
+                )}
+              </Flipped>
+            ))}
+          </ol>
+        </Flipper>
+      )}
       <div className={styles.buttonsContainer}>
         <RollingTimeFrame onSetActive={RollingTimeFrameHandler} />
       </div>
