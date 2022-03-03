@@ -16,3 +16,9 @@
     font-size: 1.125em;
   }
 }
+
+@include small-portrait {
+  .container {
+    height: 4.35em;
+  }
+}
