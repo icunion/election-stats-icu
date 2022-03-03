@@ -7,6 +7,6 @@ export const markers = {
     { name: 'UCL', percentage: 19.58, description: 'UCL (2021): 9473 voters, 19.58% turnout'}
   ],
   'le2022csps': [
-    { name: '2021', percentage: 27.22, description: '2021: 4754 voters for CSP positions, 27.73% turnout' }
+    { name: '2021', percentage: 27.73, description: '2021: 4754 voters for CSP positions, 27.73% turnout' }
   ]
 }
