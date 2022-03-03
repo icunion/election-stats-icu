@@ -66,6 +66,7 @@
     "d3": "^7.3.0",
     "localstorage-slim": "^2.2.0",
     "react-countdown": "^2.3.2",
-    "react-flip-toolkit": "^7.0.13"
+    "react-flip-toolkit": "^7.0.13",
+    "react-loader-spinner": "^5.1.4"
   }
 }
