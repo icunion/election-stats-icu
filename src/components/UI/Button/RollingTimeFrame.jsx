@@ -34,24 +34,23 @@ const RollingTimeFrame = (props) => {
   return (
     <div className={styles.container}>
       {timeframeOptions.map((timeframe) => (
-        <button
+        // <button
+        //   name={timeframe.key}
+        //   key={timeframe.key}
+        //   className={isActive === timeframe.key ? styles['btn' && 'active'] : styles['btn']}
+        //   onClick={(e) => buttonChangeHandler(e, timeframe.key)}
+        // >
+        //   {timeframe.text}
+        // </button>
+        <Button
+          type='timeframe'
           name={timeframe.key}
           key={timeframe.key}
           className={isActive === timeframe.key ? styles['btn' && 'active'] : styles['btn']}
           onClick={(e) => buttonChangeHandler(e, timeframe.key)}
         >
           {timeframe.text}
-        </button>
-        // <Button
-        //   type='timeframe'
-        //   name={timeframe.key}
-        //   key={timeframe.key}
-        //   // className={isActive === timeframe.key ? 'active' : ''}
-        //   className='small'
-        //   onClick={(e) => buttonChangeHandler(e, timeframe.key)}
-        // >
-        //   {timeframe.text}
-        // </Button>
+        </Button>
       ))}
     </div>
   )

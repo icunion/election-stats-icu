@@ -13,6 +13,18 @@ const Button = (props) => {
         {props.children}
       </button>
     )
+  } else if (props.type == 'timeframe') {
+    return (
+      <button
+        type="button"
+        onClick={props.onClick}
+        className={props.className}
+        name={props.name}
+        key={props.key}
+      >
+        {props.children}
+      </button>
+    )
   } else {
     return (
       <a
