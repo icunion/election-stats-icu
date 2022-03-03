@@ -7,7 +7,7 @@ import styles from './ElectionProgress.module.scss'
 
 // Generate tick markers up to 60% and scale all our bar widths and marker
 // positions to be full width at 65% (to allow for some overflow of the box)
-const tickMarkers = [...Array(7)].map((_, i) => {
+const tickMarkers = [...Array(7).fill(true)].map((_, i) => {
   return {
     name: `${i * 10}%`,
     percentage: i * 10,
