@@ -1,5 +1,5 @@
 /* Styles for the Dashboard component */
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .dashboard {
   display: grid;
@@ -16,7 +16,11 @@
 
   &.maxWidth1170 {
     max-width: 1170px;
-    font-size: clamp(8px, 16px, calc(8px + (16 - 8) * ((100vw - 585px) / (1170 - 585))));
+    font-size: clamp(
+      8px,
+      16px,
+      calc(8px + (16 - 8) * ((100vw - 585px) / (1170 - 585)))
+    );
   }
 }
 
@@ -122,81 +126,81 @@
     gap: 1px;
     font-size: calc(8px + (16 - 8) * ((100vw - 360px) / (720 - 360)));
 
-    // Uncomment to add borders
-    // > section {
-    //   border: 1px solid #888;
-    // }
-
     &.maxWidth1170 {
       font-size: calc(8px + (16 - 8) * ((100vw - 360px) / (720 - 360)));
     }
-    .grid {
-      height: auto;
+  }
 
-      &.votingCloses {
-        grid-column: 1 / span 2;
-        grid-row: 2 / span 1;
-      }
+  .grid {
+    height: auto;
 
-      &.logo {
-        grid-column: 1 / span 2;
-        grid-row: 1 / span 1;
-      }
-
-      &.totalMain {
-        grid-column: 1 / span 1;
-        grid-row: 3 / span 1;
-      }
-
-      &.totalCSPs {
-        grid-column: 2 / span 1;
-        grid-row: 3 / span 1;
-      }
-
-      &.recentActivity {
-        grid-column: 1 / span 1;
-        grid-row: 5 / span 1;
-      }
-
-      &.studyTypes {
-        grid-column: 2 / span 1;
-        grid-row: 5 / span 1;
-      }
-
-      &.sourceToggle {
-        grid-column: 1 / span 2;
-        grid-row: 6 / span 1;
-      }
-
-      &.timeLine {
-        grid-column: 1 / span 2;
-        grid-row: 4 / span 1;
-      }
-
-      &.CUs {
-        grid-column: 1 / span 1;
-        grid-row: 7 / span 1;
-      }
-
-      &.depts {
-        grid-column: 2 / span 1;
-        grid-row: 7 / span 1;
-      }
-
-      &.CSPs {
-        grid-column: 1 / span 1;
-        grid-row: 8 / span 1;
-      }
-
-      &.halls {
-        grid-column: 2 / span 1;
-        grid-row: 8 / span 1;
-      }
-
-      &.progress {
-        grid-column: 1 / span 2;
-        grid-row: 9 / span 1;
-      }
+    &.votingCloses {
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
     }
+
+    &.logo {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 1;
+    }
+
+    &.totalMain {
+      grid-column: 1 / span 1;
+      grid-row: 3 / span 1;
+    }
+
+    &.totalCSPs {
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 1;
+    }
+
+    &.recentActivity {
+      grid-column: 1 / span 1;
+      grid-row: 5 / span 1;
+    }
+
+    &.studyTypes {
+      grid-column: 2 / span 1;
+      grid-row: 5 / span 1;
+    }
+
+    &.sourceToggle {
+      grid-column: 1 / span 2;
+      grid-row: 6 / span 1;
+    }
+
+    &.timeLine {
+      grid-column: 1 / span 2;
+      grid-row: 4 / span 1;
+    }
+
+    &.CUs {
+      grid-column: 1 / span 1;
+      grid-row: 7 / span 1;
+    }
+
+    &.depts {
+      grid-column: 2 / span 1;
+      grid-row: 7 / span 1;
+    }
+
+    &.CSPs {
+      grid-column: 1 / span 1;
+      grid-row: 8 / span 1;
+    }
+
+    &.halls {
+      grid-column: 2 / span 1;
+      grid-row: 8 / span 1;
+    }
+
+    &.progress {
+      grid-column: 1 / span 2;
+      grid-row: 9 / span 1;
+    }
+  }
+
+  .sourceToggle {
+    height: 3.25em;
   }
 }
