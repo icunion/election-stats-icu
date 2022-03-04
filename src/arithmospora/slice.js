@@ -48,8 +48,8 @@ const arithmosporaSlice = createSlice({
           state.sources[action.payload.source][group] = {}
         }
         action.payload.payload[group].forEach((stat) => {
-          if (!(stat in state.sources[action.payload.source])) {
-            action.payload.payload[group][stat] = {}
+          if (!(stat in state.sources[action.payload.source][group])) {
+            state.sources[action.payload.source][group][stat] = {}
           }
         })
       }
