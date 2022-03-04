@@ -1,25 +1,42 @@
-/* Styles for the TimeLine component */
-@import "../../../styles/variables.scss";
+/* Styles for the TotalStats component */
+@import '../../../styles/variables.scss';
 
 .totalStat {
-    display: flex;
-    justify-content: space-evenly;
-    align-content: center;
-    align-items: center;
-    height: 100%;
-    color: $indigo;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  height: 100%;
+  color: $indigo;
 
-    .percentage {
-        font-size: 3em;
-        font-weight: $fw-extra-bold;
-    }
+  .percentage {
+    font-size: 3em;
+    font-weight: $fw-extra-bold;
+  }
 
-    .countContainer {
-        font-size: 1.5em;
-        font-weight: $fw-bold;
-    }
+  .countContainer {
+    font-size: 1.5em;
+    font-weight: $fw-bold;
+  }
 
-    &.cspStat {
-        color: $teal;
+  &.cspStat {
+    color: $teal;
+  }
+
+  .connectionStatus {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0.2em;
+    height: 0.2em;
+    z-index: 1;
+
+    &.disconnected {
+      background-color: $red;
     }
+    &.connected {
+      background-color: green;
+    }
+  }
 }
