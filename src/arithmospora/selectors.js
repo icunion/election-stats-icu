@@ -105,6 +105,12 @@ export const milestoneSelector = createSelector(
   (lastMilestone) => lastMilestone
 )
 
+export const connectionStatusSelector = createSelector(
+  (state) => state.stats.sources,
+  (_, source) => source,
+  (sources, source) => source in sources ? sources[source].connected : false
+)
+
 export const makeStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
   (state, source, group, stat) => {
     if (checkStatExists(state, source, group, stat)) {

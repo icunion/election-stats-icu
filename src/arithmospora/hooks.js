@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import connectSources from './index'
 import {
+  connectionStatusSelector,
   makeProportionStatSelector,
   makeRollingStatSelector,
   makeStatSelector,
@@ -252,6 +253,10 @@ export const useMilestone = (holdFor = 8000) => {
   }, [])
 
   return lastMilestone
+}
+
+export const useConnectionStatus = (source) => {
+  return useSelector((state) => connectionStatusSelector(state, source))
 }
 
 export default useSources

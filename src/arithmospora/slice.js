@@ -23,7 +23,7 @@ const arithmosporaSlice = createSlice({
   reducers: {
     addSource: (state, action) => {
       if (!(action.payload.statsSource in state.sources)) {
-        state.sources[action.payload.statsSource] = {}
+        state.sources[action.payload.statsSource] = { connected: false }
         state.sourceOptions[action.payload.statsSource] = Object.assign(
           {},
           defaultOptions
@@ -44,11 +44,21 @@ const arithmosporaSlice = createSlice({
     },
     available: (state, action) => {
       for (const group in action.payload.payload) {
-        state.sources[action.payload.source][group] = Object.assign(
-          {},
-          ...action.payload.payload[group].map((key) => ({ [key]: {} }))
-        )
+        if (!(group in state.sources[action.payload.source])) {
+          state.sources[action.payload.source][group] = {}
+        }
+        action.payload.payload[group].forEach((stat) => {
+          if (!(stat in state.sources[action.payload.source])) {
+            action.payload.payload[group][stat] = {}
+          }
+        })
       }
+    },
+    connected: (state, action) => {
+      state.sources[action.payload.source].connected = true
+    },
+    disconnected: (state, action) => {
+      state.sources[action.payload.source].connected = false
     },
     milestone: (state, action) => {
       state.lastMilestone.source = action.payload.source
@@ -67,7 +77,6 @@ const arithmosporaSlice = createSlice({
         (state.sourceOptions[action.payload.source].enableByDefault &&
           !(groupStat in state.sourceOptions[action.payload.source].disabled))
       ) {
-
         // Pre-emptively freeze the received payload to let Immer know this
         // entire section of the state object has been changed and allow it
         // to add it to the final object tree faster.
