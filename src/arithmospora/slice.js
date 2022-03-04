@@ -3,7 +3,12 @@ import config from '../config'
 
 const initialArithmosporaState = {
   sources: {},
-  sourceOptions: {}
+  sourceOptions: {},
+  lastMilestone: {
+    source: null,
+    milestone: null,
+    isNew: false
+  }
 }
 
 const defaultOptions = {
@@ -44,6 +49,14 @@ const arithmosporaSlice = createSlice({
           ...action.payload.payload[group].map((key) => ({ [key]: {} }))
         )
       }
+    },
+    milestone: (state, action) => {
+      state.lastMilestone.source = action.payload.source
+      state.lastMilestone.milestone = action.payload.payload
+      state.lastMilestone.isNew = true
+    },
+    milestoneCompleted: (state) => {
+      state.lastMilestone.isNew = false
     },
     stats: (state, action) => {
       const [group, ...statFragments] = action.payload.args

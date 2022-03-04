@@ -1,13 +1,15 @@
-import { useEffect, useMemo } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect, useMemo, useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 import connectSources from './index'
 import {
   makeProportionStatSelector,
   makeRollingStatSelector,
   makeStatSelector,
-  makeTimedStatSelector
+  makeTimedStatSelector,
+  milestoneSelector
 } from './selectors'
+import { arithmosporaActions } from './slice'
 
 /**
  * Make a set of stats source available. Use this hook in all components that
@@ -200,6 +202,56 @@ export const useProportionStat = (
   return useSelector((state) =>
     timedStatSelectorMemoized(state, source, stat, dataPoint)
   )
+}
+
+/**
+ * Retrieves the last received milestone. If the milestone is new,
+ * the isNew property will be set to true, and will be reset to false
+ * after the 'holdFor' period. Note that the current implementation
+ * is only expecting a single usage: if you use useMilestone in multiple
+ * places then unexpected things might happen around milestone completion
+ * (particularly with differing holdFor times).
+ * @example
+ * useMilestone()
+ * // returns e.g.
+ * // {
+ * //   isNew: true,
+ * //   source: le2022,
+ * //   milestone: {
+ * //     name: "1000",
+ * //     message: "1000 voters!",
+ * //     achievedWhen: "2022-03-04T13:12:37Z",
+ * //     ...
+ * //   }
+ * // }
+ * @param {int} [holdFor=8000] - The amount of time a milestone should
+ *     remain as 'new' before it is marked as completed.
+ * @returns {Object} - Object holding the milestone, the source which
+ *     generated it, and the isNew flag.
+ */
+export const useMilestone = (holdFor = 8000) => {
+  const lastMilestone = useSelector((state) => milestoneSelector(state))
+  const dispatch = useDispatch()
+  let milestoneCompleteTimeoutRef = useRef()
+
+  // Ensure milestone gets marked as completed after a period of time.
+  // If the milestone changes before the previous one is marked as
+  // completed, reset the timeout for the new milestone.
+  useEffect(() => {
+    if (lastMilestone.isNew) {
+      clearTimeout(milestoneCompleteTimeoutRef)
+      milestoneCompleteTimeoutRef = setTimeout(() => {
+        dispatch(arithmosporaActions.milestoneCompleted())
+      }, holdFor)
+    }
+  }, [lastMilestone.milestone])
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => clearTimeout(milestoneCompleteTimeoutRef)
+  }, [])
+
+  return lastMilestone
 }
 
 export default useSources

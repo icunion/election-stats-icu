@@ -100,6 +100,11 @@ export const timedStatSelector = (
   }
 }
 
+export const milestoneSelector = createSelector(
+  (state) => state.stats.lastMilestone,
+  (lastMilestone) => lastMilestone
+)
+
 export const makeStatSelector = (statSelector = (stateStat) => stateStat) => createSelector(
   (state, source, group, stat) => {
     if (checkStatExists(state, source, group, stat)) {
