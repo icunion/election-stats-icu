@@ -1,0 +1,33 @@
+/* Styles for the Milestone component */
+@import "../../../styles/variables.scss";
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $mauve;
+  color: white;
+  transition: none;
+
+  &.finished {
+    background-color: $indigo;
+    color: $indigo;
+    transition: all 1.0s ease-out;
+  }
+}
+
+.loadEffect {
+  transition: none;
+  transform: scale(0.1);
+
+  &.loaded {
+    transition: all 1.0s ease-out;
+    transform: scale(1.0);
+  }
+}
+
+.message {
+  font-size: 1.5em;
+  font-weight: $fw-semi-bold;
+}

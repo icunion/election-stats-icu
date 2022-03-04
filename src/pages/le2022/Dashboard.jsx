@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { ThreeDots } from 'react-loader-spinner'
 
+import { useMilestone } from '../../arithmospora/hooks'
+
 import Logo from '../../components/Logos/le2022/Logo'
 import Button from '../../components/UI/Button/Button.jsx'
 import Panel from '../../components/Containers/Panel.jsx'
@@ -12,6 +14,7 @@ import TotalStats from '../../components/Stats/TotalStats/TotalStats.jsx'
 import ConstituentUnions from '../../components/Stats/ConstituentUnions/ConstituentUnions'
 import TopTurnoutList from '../../components/Stats/TopTurnoutList/TopTurnoutList'
 import ElectionProgress from '../../components/Stats/ElectionProgress/ElectionProgress'
+import Milestone from '../../components/Stats/Milestone/Milestone'
 
 import styles from './Dashboard.module.scss'
 
@@ -40,6 +43,9 @@ const Dashboard = (props) => {
     return () => clearTimeout(delayRenderTimeOut)
   }, [])
 
+  // Milestone
+  const lastMilestone = useMilestone()
+
   return (
     <div
       className={`election-stats-icu ${styles.dashboard} ${
@@ -49,9 +55,16 @@ const Dashboard = (props) => {
       <section className={`${styles.grid} ${styles.logo}`}>
         <Logo />
       </section>
-      <section className={`${styles.grid} ${styles.votingCloses}`}>
-        <CountdownContainer votingCloseDate={props.votingCloseDate} />
-      </section>
+      { lastMilestone.isNew && (
+        <section className={`${styles.grid} ${styles.milestone}`}>
+          <Milestone source={lastMilestone.source} {...lastMilestone.milestone} holdFor='8000' />
+        </section>
+      )}
+      { !lastMilestone.isNew && (
+        <section className={`${styles.grid} ${styles.votingCloses}`}>
+          <CountdownContainer votingCloseDate={props.votingCloseDate} />
+        </section>
+      )}
       <section className={`${styles.grid} ${styles.totalMain}`}>
         <Panel title='General Elections' className='indigo'>
           <TotalStats source={props.mainSource} />

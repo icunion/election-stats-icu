@@ -27,7 +27,8 @@
 .grid {
   height: 100%;
 
-  &.votingCloses {
+  &.votingCloses,
+  &.milestone {
     grid-column: 2 / span 6;
     grid-row: 1 / span 1;
   }
@@ -134,7 +135,8 @@
   .grid {
     height: auto;
 
-    &.votingCloses {
+    &.votingCloses,
+    &.milestone {
       grid-column: 1 / span 2;
       grid-row: 2 / span 1;
     }
