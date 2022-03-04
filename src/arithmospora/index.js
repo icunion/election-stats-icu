@@ -56,27 +56,30 @@ const connectSource = (statsSource) => {
   const sourceConf = config.sources[statsSource]
 
   if (!(statsSource in sockets)) {
-    sockets[statsSource] = { socket: null, timeout: null }
+    sockets[statsSource] = { socket: null, interval: null }
   }
+
   sockets[statsSource].socket = new WebSocket(
     `${config.arithmosporaUrl}/${sourceConf.path}`
   )
 
   // Attempt to reconnect on disconnect after a short delay
   sockets[statsSource].socket.onopen = (event) => {
-    if (sockets[statsSource].timeout) {
+    if (sockets[statsSource].interval) {
       clearInterval(sockets[statsSource].interval)
-      sockets[statsSource].timeout = null
+      sockets[statsSource].interval = null
     }
     store.dispatch(arithmosporaActions.connected({ source: statsSource }))
   }
   sockets[statsSource].socket.onclose = (event) => {
     store.dispatch(arithmosporaActions.disconnected({ source: statsSource }))
-    if (!sockets[statsSource].timeout) {
-      sockets[statsSource].timeout = setTimeout(
-        () => connectSource(statsSource),
-        5000
-      )
+    sockets[statsSource].socket = null
+    if (!sockets[statsSource].interval) {
+      sockets[statsSource].interval = setInterval(() => {
+        if (!sockets[statsSource].socket) {
+          connectSource(statsSource)
+        }
+      }, 5000)
     }
   }
 
