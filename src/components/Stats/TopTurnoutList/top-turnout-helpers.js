@@ -72,15 +72,14 @@ export const getListSortedByTurnout = (statName) => {
  *   The filtered entries.
  */
 export const filteredList = (statData, statName) => {
-  return statData
-    .filter((item) => {
-      switch (statName) {
-        case 'departments':
-          return !['OT', 'IC'].includes(item.id)
-        case 'halls':
-          return item.id != ""
-        default:
-          return true
-      }
-    })
+  return statData.filter((item) => {
+    switch (statName) {
+      case 'departments':
+        return !['OT', 'IC'].includes(item.id)
+      case 'halls':
+        return item.id != ''
+      default:
+        return true
+    }
+  })
 }
