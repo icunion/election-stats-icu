@@ -36,7 +36,7 @@ const ConstituentUnions = (props) => {
             {statsData.map((item) => (
               <Flipped key={item.id} flipId={item.id}>
                 {(flippedProps) => (
-                  <ConstituentUnion flippedProps={flippedProps} {...item} />
+                  <ConstituentUnion flippedProps={flippedProps} timeframe={timeframe} {...item} />
                 )}
               </Flipped>
             ))}
