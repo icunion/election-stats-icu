@@ -1,15 +1,17 @@
 import React from 'react'
 
-export const Toolbar = ({ selectHandler, closeHandler }) => {
+import styles from './Toolbar.module.css'
+
+export const Toolbar = ({ selected, selectHandler, closeHandler }) => {
   const selectOnChange = (event) => {
     selectHandler(event.target.value)
   }
 
   return (
-    <div>
+    <div className={styles.toolbar}>
       <label>
         Show:{' '}
-        <select onChange={selectOnChange}>
+        <select value={selected} onChange={selectOnChange}>
           <option value='Banner'>Banner</option>
           <option value='DashboardLE2022'>DashboardLE2022</option>
           <option value='DashboardLE2022.maxWidth'>
