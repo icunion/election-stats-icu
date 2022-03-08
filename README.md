@@ -72,7 +72,7 @@ Finally we build an app component by importing a block or page component from th
 
 `App.js`:
 ```jsx
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { Banner } from 'election-stats-icu'
 import 'election-stats-icu/dist/index.css'
@@ -86,7 +86,14 @@ export default App
 
 ## Development
 
-See the [create-reacte-app Development section](https://www.npmjs.com/package/create-react-library#development). Additionally, in the `example` folder the `redux` dependency is sourced from the parent folder to ensure the example app uses the same Redux instance as the library itself.
+See the [create-reacte-app Development section](https://www.npmjs.com/package/create-react-library#development). The general idea is to run `npm start` in the top level folder to build the library, and then run `npm start` in the example folder to build the development app.
+
+When installing, the top level npm install should trigger an install in the example app,folder, but it may be necessary to perform this step explicitly in some circumstances. In the `example` folder
+the shared dependencies (such as `react` and `redux` are sourced from the parent folder to ensure the example app uses the same React and Redux instances as the library itself.
+
+The example app includes a simple toolbar to facilitate switching between the libraries block and page app components.
+
+When developing, the sources and arithmospora instance defined in `config/config-dev.json` are used. You can connect to live sources by overriding these values with those found in `config/config-production.json`, which are the values used in production environments (i.e when `process.env.NODE_ENV === 'production'`)
 
 ## Contact
 
