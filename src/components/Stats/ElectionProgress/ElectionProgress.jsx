@@ -19,7 +19,7 @@ const scaleTo = 65 / 100
 const getMarkers = (source) => {
   return [
     ...tickMarkers,
-    ...progressDefs.markers[source]
+    ...(source in progressDefs.markers ? progressDefs.markers[source] : [])
   ].sort((a, b) => a.percentage - b.percentage)
 }
 

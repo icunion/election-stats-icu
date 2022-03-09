@@ -8,14 +8,29 @@ import icsmsuLogo from 'cus-icsmsu.svg'
 import rcsuLogo from 'cus-rcsu.svg'
 import rsmuLogo from 'cus-rsmu.svg'
 
+const cusLogos = {
+  'CGCU' : cgcuLogo,
+  'ICSMSU' : icsmsuLogo,
+  'RCSU' : rcsuLogo,
+  'RSMU' : rsmuLogo
+}
+
+const rollingBarScales = {
+  '5m': 42,
+  '1h': 5,
+  '1d': 1.2
+}
+
+const calculateBarWidth = (percentage, timeframe) => {
+  if (timeframe in rollingBarScales) {
+    return (80 * (1 - 1 / Math.pow(rollingBarScales[timeframe], percentage)))
+  } else {
+    return percentage
+  }
+}
+
 const ConstituentUnion = (props) => {
 
-  const cusLogos = {
-    'CGCU' : cgcuLogo,
-    'ICSMSU' : icsmsuLogo,
-    'RCSU' : rcsuLogo,
-    'RSMU' : rsmuLogo
-  };
 
   return (
     <li {...props.flippedProps} className={styles.cus}>
@@ -23,7 +38,7 @@ const ConstituentUnion = (props) => {
         <div className={styles.barcontainer}>
           <div
             className={styles.bar}
-            style={{ width: `${props.percentage}%` }}
+            style={{ width: `${calculateBarWidth(props.percentage, props.timeframe)}%` }}
           ></div>
           <div className={styles.info}>
             <span className={styles.label}>{props.name}</span>

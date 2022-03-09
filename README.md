@@ -10,15 +10,19 @@ NOTE: This library is currently a pre-release alpha, undergoing rapid developmen
 
 ## Overview
 
-The library is intended to be used as part of a minimal app whose job is to set up a Redux store, wrap one of the `block` or `pages` components, and render the app to the DOM. The reason for this is so we can build an app designed to be delivered to the browser from a [Drupal 9](https://www.drupal.org) on imperialcollegeunion.org, and to separate that concern from the development of the live stats front-end, which can be done completely independently with just this library.
+The library is intended to be used as part of a minimal app whose job is to set up a Redux store, wrap one of the `block` or `pages` components, and render the app to the DOM. The reason for this is so we can build an app designed to be delivered to the browser from a [Drupal 9](https://www.drupal.org) module on imperialcollegeunion.org, and to separate that concern from the development of the live stats front-end, which can be done completely independently with just this library.
 
-The library was created using [create-react-library](https://www.npmjs.com/package/create-react-library) and is organised into four main folders:
+The library was created using [create-react-library](https://www.npmjs.com/package/create-react-library) and is organised into eight main folders:
 
 * `arithmospora`: Code relating to connecting [Arithmospora](https://github.com/icunion/arithmospora) to a [Redux](https://redux.js.org/) state slice.
 * `blocks`: Top-level components intended to be rendered to a Drupal block (e.g. live stats banners).
 * `components`: The main component library used top level block and page components.
 * `config`: Provides environment specific configuration for connecting to Arithmospora.
+* `definitions`: Provides metadata relating to stats data, e.g. names of departments, progress markers, etc.
+* `hooks`: Useful non-arithmospora hooks (Arithmospora hooks
+can be found in `arithmospora/hooks`)
 * `pages`: Top-level components intended to be rendered as a full page, either in the content region of a .org page (full width) or completely standalone.
+* `styles`: Styles and sass variables common to all apps.
 
 ## Install
 
@@ -68,7 +72,7 @@ Finally we build an app component by importing a block or page component from th
 
 `App.js`:
 ```jsx
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { Banner } from 'election-stats-icu'
 import 'election-stats-icu/dist/index.css'
@@ -82,7 +86,14 @@ export default App
 
 ## Development
 
-See the [create-reacte-app Development section](https://www.npmjs.com/package/create-react-library#development). Additionally, in the `example` folder the `redux` dependency is sourced from the parent folder to ensure the example app uses the same Redux instance as the library itself.
+See the [create-reacte-app Development section](https://www.npmjs.com/package/create-react-library#development). The general idea is to run `npm start` in the top level folder to build the library, and then run `npm start` in the example folder to build the development app.
+
+When installing, the top level npm install should trigger an install in the example app,folder, but it may be necessary to perform this step explicitly in some circumstances. In the `example` folder
+the shared dependencies (such as `react` and `redux` are sourced from the parent folder to ensure the example app uses the same React and Redux instances as the library itself.
+
+The example app includes a simple toolbar to facilitate switching between the libraries block and page app components.
+
+When developing, the sources and arithmospora instance defined in `config/config-dev.json` are used. You can connect to live sources by overriding these values with those found in `config/config-production.json`, which are the values used in production environments (i.e when `process.env.NODE_ENV === 'production'`)
 
 ## Contact
 

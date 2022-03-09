@@ -1,11 +1,25 @@
 import * as deptDefs from '../../../definitions/departments'
 import * as hallsDefs from '../../../definitions/halls'
 
-const getDeptName = (key) =>
-  key in deptDefs.displayNames ? deptDefs.displayNames[key].shortName : key
+const getDeptName = (key) => {
+  if (key in deptDefs.displayNames) {
+    return 'midName' in deptDefs.displayNames[key]
+      ? deptDefs.displayNames[key].midName
+      : deptDefs.displayNames[key].shortName
+  } else {
+    return key
+  }
+}
 
-const getHallName = (key) =>
-  key in hallsDefs.displayNames ? hallsDefs.displayNames[key].shortName : key
+const getHallName = (key) => {
+  if (key in hallsDefs.displayNames) {
+    return 'midName' in hallsDefs.displayNames[key]
+      ? hallsDefs.displayNames[key].midName
+      : hallsDefs.displayNames[key].shortName
+  } else {
+    return key
+  }
+}
 
 const getCSPName = (dpName) => {
   const cutOffLength = 21
@@ -58,15 +72,14 @@ export const getListSortedByTurnout = (statName) => {
  *   The filtered entries.
  */
 export const filteredList = (statData, statName) => {
-  return statData
-    .filter((item) => {
-      switch (statName) {
-        case 'departments':
-          return !['OT', 'IC'].includes(item.id)
-        case 'halls':
-          return item.id != ""
-        default:
-          return true
-      }
-    })
+  return statData.filter((item) => {
+    switch (statName) {
+      case 'departments':
+        return !['OT', 'IC'].includes(item.id)
+      case 'halls':
+        return item.id != ''
+      default:
+        return true
+    }
+  })
 }
