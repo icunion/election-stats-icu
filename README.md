@@ -4,9 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/election-stats-icu.svg)](https://www.npmjs.com/package/election-stats-icu) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Provides a library of [React](https://reactjs.org/) components for building live stats pages and blocks for [Imperial College Union](https://wwww.imperialcollegeunion.org)'s elections.
-
-NOTE: This library is currently a pre-release alpha, undergoing rapid development for use in ICU's Leadership Elections 2022.
+Provides a library of [React](https://reactjs.org/) components for building live stats pages and blocks for [Imperial College Union](https://wwww.imperialcollegeunion.org)'s elections. [Take a look at the dashboard](https://www.imperialcollegeunion.org/your-union/leadership-elections-2022/stats)!
 
 ## Overview
 
