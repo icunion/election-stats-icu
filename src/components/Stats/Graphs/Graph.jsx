@@ -1,6 +1,8 @@
 import React from 'react'
 
-import Plot from 'react-plotly.js'
+import Plotly from 'plotly.js-gl2d-dist-min'
+import createPlotlyComponent from 'react-plotly.js/factory'
+const Plot = createPlotlyComponent(Plotly)
 
 import { useSources, useTimedStat } from '../../../arithmospora/hooks'
 import * as yearData from '../../../definitions/election-year-metadata'

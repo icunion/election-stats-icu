@@ -67,6 +67,7 @@
     "d3-array": "^3.1.1",
     "localstorage-slim": "^2.2.0",
     "plotly.js": "^2.9.0",
+    "plotly.js-gl2d-dist-min": "^2.11.0",
     "react-countdown": "^2.3.2",
     "react-flip-toolkit": "^7.0.13",
     "react-loader-spinner": "^5.1.4",
