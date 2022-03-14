@@ -13,7 +13,7 @@ const Button = (props) => {
         {props.children}
       </button>
     )
-  } else if (props.type == 'timeframe') {
+  } else if (props.type == 'options') {
     return (
       <button
         type="button"

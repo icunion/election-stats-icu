@@ -47,7 +47,7 @@ const RollingTimeFrame = (props) => {
         //   {timeframe.text}
         // </button>
         <Button
-          type='timeframe'
+          type='options'
           key={timeframe.id}
           className={isActive === timeframe.key ? styles['btn' && 'active'] : styles['btn']}
           onClick={(e) => buttonChangeHandler(e, timeframe.key)}

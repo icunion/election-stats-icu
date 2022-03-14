@@ -17,6 +17,9 @@ export const Toolbar = ({ selected, selectHandler, closeHandler }) => {
           <option value='DashboardLE2022.maxWidth'>
             DashboardLE2022 with maxWidth set
           </option>
+          <option value='StepByStepLE2022.maxWidth'>
+            Step By Step with maxWidth set
+          </option>
         </select>
       </label>
       {' '}

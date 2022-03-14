@@ -1,0 +1,11 @@
+/* Styles for the Dashboard component */
+@import '../../styles/variables.scss';
+
+.stepContainer {
+  max-width: 1170px;
+  text-align: center;
+
+  .paragraph{
+    margin: 2em;
+  }
+}
