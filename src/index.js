@@ -5,7 +5,7 @@ import config from './config'
 
 export { default as Banner } from './blocks/Banner'
 export { default as DashboardLE2022 } from './pages/le2022/Dashboard'
-export { default as StepByStep } from './pages/le2022/StepByStep'
+export { default as StepByStepLE2022 } from './pages/le2022/StepByStep'
 export { default as configureStore } from './arithmospora/store'
 
 export * from './hooks'
