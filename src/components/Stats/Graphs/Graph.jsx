@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Plotly from 'plotly.js-gl2d-dist-min'
 import createPlotlyComponent from 'react-plotly.js/factory'
@@ -7,19 +7,19 @@ const Plot = createPlotlyComponent(Plotly)
 import { useSources, useTimedStat } from '../../../arithmospora/hooks'
 import * as yearData from '../../../definitions/election-year-metadata'
 
+// generate datetime sequence for the x-axis using the startTime and endTime
+const getDatesBetween = (startTime, endTime) => {
+  const dates = []
+  while (startTime < endTime) {
+    startTime = startTime + 300000
+    dates.push(new Date(startTime))
+  }
+  return dates
+}
+
 const Graph = (props) => {
   // Ensure stat sources get connected
   useSources([props.source, props.prevYearSource])
-
-  // generate datetime sequence for the x-axis using the startTime and endTime
-  const getDatesBetween = (startTime, endTime) => {
-    const dates = []
-    while (startTime < endTime) {
-      startTime = startTime + 300000
-      dates.push(new Date(startTime))
-    }
-    return dates
-  }
 
   //get start and end times from election-year-metadata
   const startTime = yearData.yearData[props.source].minTime
@@ -137,30 +137,32 @@ const Graph = (props) => {
 
   const layout = {
     xaxis: {
-      type: 'date'
+      type: 'date',
     },
     yaxis: {
-      title: result.ytitle
+      title: result.ytitle,
+
     },
     title: result.mainTitle,
-    // height: '100%',
-    // width: '100%',
+    uirevision: result.mainTitle,
     legend: {
       orientation: 'h',
       x: 0.5,
       y: -0.2,
       xanchor: 'center'
     },
-    // autosize: true
   }
 
-  const config = {responsive: true}
 
   return (
     <div>
       <h3>{yearData.yearData[props.source].votingPeriodText}</h3>
-      <Plot data={data} layout={layout} config={config} useResizeHandler
-     style={{ width: "100%", height: "100%" }}/>
+      <Plot
+        data={data}
+        layout={layout}
+        useResizeHandler
+        style={{ width: '100%', height: '100%' }}
+      />
     </div>
   )
 }
