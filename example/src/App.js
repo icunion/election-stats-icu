@@ -5,7 +5,7 @@ import { Toolbar } from './Toolbar'
 
 import { Banner } from 'election-stats-icu'
 import { DashboardLE2022 } from 'election-stats-icu'
-import { StepByStep } from 'election-stats-icu'
+import { StepByStepLE2022 } from 'election-stats-icu'
 
 import 'election-stats-icu/dist/index.css'
 
@@ -45,7 +45,7 @@ const App = () => {
         />
       )}
       {appToRender === 'StepByStepLE2022.maxWidth' && (
-        <StepByStep
+        <StepByStepLE2022
           votingCloseDate={Date.now() + 15000}
           mainSource='le2022'
           prevYearSource="le2021"

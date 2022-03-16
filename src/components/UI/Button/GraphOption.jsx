@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
+
+import useLocalStorage from '../../../hooks/use-local-storage'
 
 import Button from './Button'
 
@@ -9,24 +11,21 @@ const GraphOption = (props) => {
     {
       id: 'votesGraph',
       key: 'votesGraph',
-      title: 'Votes Cast',
-      // text: 'The graph shows the total number of votes cast in each 5 minute period',
+      title: 'Votes Cast'
     },
     {
       id: 'votersGraph',
       key: 'votersGraph',
-      title: 'New Voters',
-      // text: 'The graph shows the number of new voters in each 5 minute period',
+      title: 'New Voters'
     },
     {
       id: 'cumulativeGraph',
       key: 'cumulativeGraph',
-      title: 'Cumulative Voters',
-      // text: "The final graph shows the cumulative number of voters versus the previous year, allowing you to see whether we're ahead or behind."
+      title: 'Cumulative Voters'
     }
   ]
 
-  const [isActive, setActive] = useState('votesGraph')
+  const [isActive, setActive] = useLocalStorage('option', 'votesGraph')
 
   const buttonChangeHandler = (e, key) => {
     setActive(key)

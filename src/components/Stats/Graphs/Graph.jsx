@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import Plotly from 'plotly.js-gl2d-dist-min'
 import createPlotlyComponent from 'react-plotly.js/factory'
@@ -111,7 +111,7 @@ const Graph = (props) => {
     },
     fill: 'tozeroy',
     hovertemplate:
-      '<span style="font-size:10px"> %{x} </span><br>'+
+      // '<span style="font-size:10px"> %{x} </span><br>'+
       '<span style="color:#45a5ad">%{meta}: </span>'+
       '<span style="font-weight:bold" dx="3">%{y}</span><extra></extra>',
     meta: props.prevYear
@@ -127,7 +127,7 @@ const Graph = (props) => {
     },
     fill: 'tozeroy',
     hovertemplate:
-      '<span style="font-size:10px"> %{x} </span><br>'+
+      // '<span style="font-size:10px"> %{x} </span><br>'+
       '<span style="color:#45a5ad">%{meta}: </span>'+
       '<span style="font-weight:bold" dx="3">%{y}</span><extra></extra>',
     meta: props.year
@@ -151,6 +151,7 @@ const Graph = (props) => {
       y: -0.2,
       xanchor: 'center'
     },
+    hovermode: "x unified"
   }
 
 

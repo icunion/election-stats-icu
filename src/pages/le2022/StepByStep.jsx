@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
+import useLocalStorage from '../../hooks/use-local-storage'
 
 import Graph from '../../components/Stats/Graphs/Graph'
-
 import GraphOption from '../../components/UI/Button/GraphOption.jsx'
 
 import styles from './StepByStep.module.scss'
 
 const StepByStep = (props) => {
   // TODO: use local storage to set the state
-  const [option, setSelectedGraph] = useState('votesGraph')
+  // const [option, setSelectedGraph] = useState('votesGraph')
+  const [option, setSelectedGraph] = useLocalStorage('option','votesGraph')
 
   const GraphOptionHandler = (selectedGraph) => {
     setSelectedGraph(selectedGraph)
@@ -25,7 +26,7 @@ const StepByStep = (props) => {
 
   return (
     <div className={`election-stats-icu ${styles.stepContainer}`}>
-      
+
       <div style={{ height: "450px" }}>
         <Graph
           source={props.mainSource}
