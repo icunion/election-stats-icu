@@ -101,7 +101,7 @@ const Dashboard = (props) => {
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.CUs}`}>
-        <Panel title='Consituent Unions' className='indigo'>
+        <Panel title='Constituent Unions' className='indigo'>
           {delayRender && (
             <ThreeDots wrapperClass={styles.loader} color='#ccc' />
           )}
