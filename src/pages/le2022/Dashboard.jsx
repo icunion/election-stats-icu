@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { ThreeDots } from 'react-loader-spinner'
 
 import { useMilestone } from '../../arithmospora/hooks'
@@ -55,12 +55,16 @@ const Dashboard = (props) => {
       <section className={`${styles.grid} ${styles.logo}`}>
         <Logo />
       </section>
-      { lastMilestone.isNew && (
+      {lastMilestone.isNew && (
         <section className={`${styles.grid} ${styles.milestone}`}>
-          <Milestone source={lastMilestone.source} {...lastMilestone.milestone} holdFor='8000' />
+          <Milestone
+            source={lastMilestone.source}
+            {...lastMilestone.milestone}
+            holdFor='8000'
+          />
         </section>
       )}
-      { !lastMilestone.isNew && (
+      {!lastMilestone.isNew && (
         <section className={`${styles.grid} ${styles.votingCloses}`}>
           <CountdownContainer votingCloseDate={props.votingCloseDate} />
         </section>
@@ -101,7 +105,17 @@ const Dashboard = (props) => {
         </Panel>
       </section>
       <section className={`${styles.grid} ${styles.CUs}`}>
-        <Panel title='Constituent Unions' className='indigo'>
+        <Panel
+          title={
+            <Fragment>
+              Constituent Unions{' '}
+              <span data-tooltip="We made a mistake! Although electoral rolls for Constituent Unions are set up correctly and allow postgraduates to vote on eligible positions, we forgot to update the way the stats system counts Constituent Union voters to include PGs 😳. We'll make sure to fix the stats system for the next election!">
+                (UGs)
+              </span>
+            </Fragment>
+          }
+          className='indigo'
+        >
           {delayRender && (
             <ThreeDots wrapperClass={styles.loader} color='#ccc' />
           )}
