@@ -12,6 +12,7 @@ import {
 import ElectionCountdown from '../components/Countdowns/ElectionCountdown'
 import Button from '../components/UI/Button/Button'
 import logoBanner from 'banner-logo2022.svg'
+import logoBannerSE from 'summer-elections-white.png'
 
 import styles from './Banner.module.scss'
 
@@ -72,7 +73,7 @@ const Banner = (props) => {
     >
       <div className={styles.electionLogo}>
         <a href='https://vote.union.ic.ac.uk' target='_blank'>
-        <img src={logoBanner} alt="Leadership Elections 2022" />
+        <img src={logoBannerSE} alt="Leadership Elections 2022" />
         </a>
       </div>
       <div className={styles.countdown}>
