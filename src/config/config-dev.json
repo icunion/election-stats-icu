@@ -1,7 +1,11 @@
 {
-  "arithmosporaUrl": "wss://www.imperialcollegeunion.org/sys-arithmospora-dev",
+  "arithmosporaUrl": "wss://www.imperialcollegeunion.org/sys-arithmospora",
   "sources": {
-    "le2022": { "path": "dev" },
-    "le2022csps": { "path": "le2017" }
+    "le2021": { "path": "le2021" },
+    "le2021csps": { "path": "le2021csps" },
+    "le2022": { "path": "le2022" },
+    "le2022csps": { "path": "le2022csps" },
+    "se2022": { "path": "se2022" },
+    "se2022csps": { "path": "se2022csps" }
   }
 }
