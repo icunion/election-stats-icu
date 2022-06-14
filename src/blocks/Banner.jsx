@@ -73,7 +73,7 @@ const Banner = (props) => {
     >
       <div className={styles.electionLogo}>
         <a href='https://vote.union.ic.ac.uk' target='_blank'>
-        <img src={logoBannerSE} alt="Leadership Elections 2022" />
+        <img src={logoBannerSE} alt="Summer Elections 2022" />
         </a>
       </div>
       <div className={styles.countdown}>
