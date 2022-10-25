@@ -4,6 +4,7 @@
     "le2022": { "path": "dev" },
     "le2022csps": { "path": "le2017" },
     "se2022": { "path": "dev" },
-    "se2022csps": { "path": "le2017" }
+    "se2022csps": { "path": "le2017" },
+    "ae2022": { "path": "dev" }
   }
 }
