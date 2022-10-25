@@ -45,15 +45,46 @@
       margin: unset;
     }
   }
+
+  &.ae2022 {
+    padding-bottom: 1em;
+
+    .timeRow {
+      color: $indigo;
+    }
+
+    .header {
+      color: $indigo;
+    }
+
+    .time {
+      display: flex;
+      flex-direction: column;
+
+      .count {
+        color: white;
+      }
+    }
+  }
 }
 
 @include small {
   .countdown {
     margin: 0.5em 0.5em 1em;
+
+    .time {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &.ae2022 {
+      padding-bottom: 0;
+      margin-bottom: 0.5em;
+
+      .time .count {
+        color: $mauve;
+      }
+    }
   }
 
-  .time {
-    display: flex;
-    flex-direction: column;
-  }
 }

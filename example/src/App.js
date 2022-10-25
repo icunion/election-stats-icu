@@ -27,7 +27,7 @@ const App = () => {
         <Toolbar selected={appToRender} selectHandler={selectApp} closeHandler={closeToolbar} />
       )}
       {appToRender === 'Banner' && (
-        <Banner votingCloseDate={Date.now() + 15000} mainSource='le2022' />
+        <Banner votingCloseDate={Date.now() + 15000} mainSource='ae2022' />
       )}
       {appToRender === 'DashboardLE2022' && (
         <DashboardLE2022

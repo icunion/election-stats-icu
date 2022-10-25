@@ -40,6 +40,7 @@ const ElectionCountDown = (props) => {
         <Countdown
           date={props.date}
           renderer={renderer}
+          className={props.className}
           onComplete={countdownCompleteHandler}
         />
       )}
