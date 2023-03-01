@@ -84,10 +84,11 @@ export default App
 
 ## Development
 
-See the [create-reacte-app Development section](https://www.npmjs.com/package/create-react-library#development). The general idea is to run `npm start` in the top level folder to build the library, and then run `npm start` in the example folder to build the development app.
+The project was originally created with  [create-reacte-library](https://www.npmjs.com/package/create-react-library), however the build systems for both the library itself and the example app have been replaced (the library now uses `rollup` directly rather than `microbundle-crl`, and the example app uses a minimal `webpack` configuration rather than `react-scripts`).
 
-When installing, the top level npm install should trigger an install in the example app,folder, but it may be necessary to perform this step explicitly in some circumstances. In the `example` folder
-the shared dependencies (such as `react` and `redux` are sourced from the parent folder to ensure the example app uses the same React and Redux instances as the library itself.
+To install dependencies, run `npm install` in the top level first, then run `npm install` in the `example` folder.  In the `example` folder the shared dependencies (such as `react` and `redux`) are sourced from the parent folder to ensure the example app uses the same React and Redux instances as the library itself.
+
+Once dependencies are installed, run `npm start` in the top level folder to build the library and watch for changes, and then run `npm start` in the example folder to build the development app and start a dev server on http://localhost:3000 . You can also build both the library and the app without watching for changes with `npm run build` in the appropriate location.
 
 The example app includes a simple toolbar to facilitate switching between the libraries block and page app components.
 
