@@ -20,6 +20,12 @@ export const Toolbar = ({ selected, selectHandler, closeHandler }) => {
           <option value='StepByStepLE2022.maxWidth'>
             Step By Step with maxWidth set
           </option>
+          <option value='DashboardLE2023'>
+            DashboardLE2023
+          </option>
+          <option value='StepByStepLE2023.maxWidth'>
+            Step By Step 2023 with maxWidth set
+          </option>
         </select>
       </label>
       {' '}
