@@ -43,7 +43,9 @@ const config = {
         }),
         smartAsset({
             url: 'copy',
-            keepImport: true
+            keepImport: true,
+            useHash: true,
+            keepName: true
         }),
     ],
 };
