@@ -106,14 +106,7 @@ const Dashboard = (props) => {
       </section>
       <section className={`${styles.grid} ${styles.CUs}`}>
         <Panel
-          title={
-            <Fragment>
-              Constituent Unions{' '}
-              <span data-tooltip="We made a mistake! Although electoral rolls for Constituent Unions are set up correctly and allow postgraduates to vote on eligible positions, we forgot to update the way the stats system counts Constituent Union voters to include PGs 😳. We'll make sure to fix the stats system for the next election!">
-                (UGs)
-              </span>
-            </Fragment>
-          }
+          title='Constituent Unions'
           className='indigo'
         >
           {delayRender && (
