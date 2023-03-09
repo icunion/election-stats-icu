@@ -1,82 +1,74 @@
 /* Styles common to all components. */
 @import "./variables.scss";
 
-/**
- * :global selector is a temporary work around for an issue where regular
- * css/scss includes are processed as CSS modules due to an upstream bug
- * in the microbundle-crl fork - see
- * https://github.com/developit/microbundle/issues/653
- */
-:global {
-  .election-stats-icu {
-    box-sizing: content-box;
-    font-family: 'Open Sans',Arial,sans-serif;
+.election-stats-icu {
+  box-sizing: content-box;
+  font-family: 'Open Sans',Arial,sans-serif;
 
-    // Use same paragraph styles as dotorg by default
-    p {
-      margin-bottom: 1rem;
-      font-size: inherit;
-      line-height: 1.6;
-      text-rendering: optimizeLegibility;
-    }
-
-    // Reset dotorg heading styles
-    h1, h2, h3, h4, h5, h6 {
-      margin: 0;
-      padding: 0;
-      font-weight: $fw-bold;
-      letter-spacing: normal;
-
-      &::after {
-        display: none;
-      }
-    }
-
-    span[data-tooltip]:not([data-tooltip=""]) {
-      position: relative;
-      text-decoration: underline dotted;
-
-      &:hover::before,
-      &:focus::before,
-      &:active::before {
-        content: attr(data-tooltip);
-        display: block;
-        position: absolute;
-        z-index: 3;
-        top: 0.5em;
-        right: 3em;
-        width: 20em;
-        line-height: 1.2;
-        background-color: white;
-        color: black;
-        border: 1px solid #888;
-        padding: 0.5em;
-        font-size: 1em;
-        font-weight: $fw-regular;
-      }
-    }
-
-    h2 span[data-tooltip]:not([data-tooltip=""]) {
-      &:hover::before,
-      &:focus::before,
-      &:active::before {
-        font-size: 0.5em;
-      }
-    }
+  // Use same paragraph styles as dotorg by default
+  p {
+    margin-bottom: 1rem;
+    font-size: inherit;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
   }
 
-  .text-center {
-    text-align: center;
-  }
-
-  .show-for-sr {
-    position: absolute !important;
-    width: 1px;
-    height: 1px;
+  // Reset dotorg heading styles
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
     padding: 0;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border: 0;
+    font-weight: $fw-bold;
+    letter-spacing: normal;
+
+    &::after {
+      display: none;
+    }
   }
+
+  span[data-tooltip]:not([data-tooltip=""]) {
+    position: relative;
+    text-decoration: underline dotted;
+
+    &:hover::before,
+    &:focus::before,
+    &:active::before {
+      content: attr(data-tooltip);
+      display: block;
+      position: absolute;
+      z-index: 3;
+      top: 0.5em;
+      right: 3em;
+      width: 20em;
+      line-height: 1.2;
+      background-color: white;
+      color: black;
+      border: 1px solid #888;
+      padding: 0.5em;
+      font-size: 1em;
+      font-weight: $fw-regular;
+    }
+  }
+
+  h2 span[data-tooltip]:not([data-tooltip=""]) {
+    &:hover::before,
+    &:focus::before,
+    &:active::before {
+      font-size: 0.5em;
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.show-for-sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
