@@ -30,7 +30,7 @@ export const yearData = {
   'le2023': {
     years: {
       '2023': {
-        election: 'le2022',
+        election: 'le2023',
         colour: '#390099',
         offset: 9,
         zIndex: 2,
@@ -39,20 +39,20 @@ export const yearData = {
         actualLength: 77 // 3 days + 5hours 
       },
       '2022': {
-        election: 'le2020',
-          colour: '#ffa900',
-          offset: 9,
-          zIndex: 1,
-          periodLength: 81,
-          actualLength: 77
+        election: 'le2022',
+        colour: '#ffa900',
+        offset: 9,
+        zIndex: 1,
+        periodLength: 81,
+        actualLength: 77
       }
     },
-    minTime: Date.UTC(2022, 3 - 1, 14, 0, 0, 0),
-    startTime: Date.UTC(2022, 3 - 1, 14, 6, 0, 0),
-    endTime: Date.UTC(2022, 3 - 1, 17, 18, 0, 0),
-    startTimeThisYear: Date.UTC(2022, 3 - 1, 14, 9, 0, 0),
-    endTimeThisYear: Date.UTC(2022, 3 - 1, 17, 14, 0, 0),
-    maxTime: Date.UTC(2022, 3 - 1, 18, 0, 0, 0),
+    minTime: Date.UTC(2023, 3 - 1, 13, 0, 0, 0),
+    startTime: Date.UTC(2023, 3 - 1, 13, 6, 0, 0),
+    endTime: Date.UTC(2023, 3 - 1, 16, 18, 0, 0),
+    startTimeThisYear: Date.UTC(2023, 3 - 1, 13, 9, 0, 0),
+    endTimeThisYear: Date.UTC(2023, 3 - 1, 16, 14, 0, 0),
+    maxTime: Date.UTC(2023, 3 - 1, 17, 0, 0, 0),
     votingPeriodText: 'Voting period for Leadership Elections 2023'
   }
 }
