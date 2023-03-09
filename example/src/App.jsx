@@ -61,6 +61,14 @@ const App = () => {
         cspsSource='le2023csps'
       />
       )}
+      {appToRender === 'DashboardLE2023.maxWidth' && (
+        <DashboardLE2023
+        votingCloseDate={Date.now() + 15000}
+        mainSource='le2023'
+        cspsSource='le2023csps'
+        maxWidth='1170'
+        />
+      )}
       {appToRender === 'StepByStepLE2023.maxWidth' && (
         <StepByStepLE2023
           votingCloseDate={Date.now() + 15000}
