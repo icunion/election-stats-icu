@@ -84,7 +84,7 @@ export default App
 
 ## Development
 
-The project was originally created with  [create-reacte-library](https://www.npmjs.com/package/create-react-library), however the build systems for both the library itself and the example app have been replaced (the library now uses `rollup` directly rather than `microbundle-crl`, and the example app uses a minimal `webpack` configuration rather than `react-scripts`).
+The project was originally created with  [create-reacte-library](https://www.npmjs.com/package/create-react-library), however the build systems for both the library itself and the example app have been replaced (the library now uses `rollup` directly rather than `microbundle-crl`, and the example app uses a `vite` configuration rather than `react-scripts`).
 
 To install dependencies, run `npm install` in the top level first, then run `npm install` in the `example` folder.  In the `example` folder the shared dependencies (such as `react` and `redux`) are sourced from the parent folder to ensure the example app uses the same React and Redux instances as the library itself.
 
