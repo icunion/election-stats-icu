@@ -13,6 +13,7 @@ export const Toolbar = ({ selected, selectHandler, closeHandler }) => {
         Show:{' '}
         <select value={selected} onChange={selectOnChange}>
           <option value='Banner'>Banner</option>
+          <option value='Banner.autumn'>Banner Autumn</option>
           <option value='DashboardLE2023'>DashboardLE2023</option>
           <option value='DashboardLE2023.maxWidth'>
             DashboardLE2023 with maxWidth set

@@ -11,7 +11,7 @@ import {
 
 import ElectionCountdown from '../components/Countdowns/ElectionCountdown'
 import Button from '../components/UI/Button/Button'
-import logoBanner from 'banner-logo-ae2022.svg'
+import logoBanner from 'banner-logo-le2023.svg'
 
 import styles from './Banner.module.scss'
 
@@ -68,11 +68,11 @@ const Banner = (props) => {
     <div
       className={`election-stats-icu ${countdownCompleted ? styles.completed : ''} ${styles.banner} ${
         styles[props.mainSource] || ''
-      }`}
+      } ${ styles[props.season] || '' }`}
     >
       <div className={styles.electionLogo}>
         <a href='https://vote.union.ic.ac.uk' target='_blank'>
-        <img src={logoBanner} alt="Autumn Elections 2022" />
+        <img src={logoBanner} alt="Leadership Elections 2023" />
         </a>
       </div>
       <div className={styles.countdown}>
@@ -118,7 +118,7 @@ const Banner = (props) => {
       </div>
       {!countdownCompleted && (
         <div className={styles.voteButton}>
-          <Button href='https://vote.union.ic.ac.uk' target='_blank'>
+          <Button href='https://vote.union.ic.ac.uk' target='_blank' className={props.season != 'autumn' ? 'vote' : ''}>
             Vote
           </Button>
         </div>

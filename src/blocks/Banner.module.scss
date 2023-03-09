@@ -6,7 +6,7 @@
   grid-template-columns: 2fr 4fr 3fr 1fr;
   column-gap: 1em;
   align-items: center;
-  background: linear-gradient(to bottom, $orange, $orange 50%, $amber 50%, $amber);
+  background: $indigo;
   padding: 0.5em 1em;
 }
 
@@ -24,10 +24,10 @@
 
 p.countdownCompleted {
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.5em;
   font-weight: $fw-bold;
-  color: white;
-  padding: 0 0 0.9em 0;
+  color: $amber;
+  padding: 0.75em 0;
   margin: 0;
 }
 
@@ -35,7 +35,6 @@ p.countdownCompleted {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-top: 0.5rem;
   font-size: 0.80rem;
   font-weight: $fw-bold;
   color: white;
@@ -45,7 +44,6 @@ p.countdownCompleted {
   }
 
   .data {
-    color: $mauve;
     font-size: 1.5rem;
     font-weight: $fw-extra-bold;
   }
@@ -53,6 +51,26 @@ p.countdownCompleted {
 
 .voteButton {
   text-align: center;
+}
+
+.autumn {
+  &.banner {
+    background: linear-gradient(to bottom, $orange, $orange 50%, $amber 50%, $amber);
+  }
+
+  p.countdownCompleted {
+    font-size: 1.4em;
+    color: white;
+    padding: 0 0 0.9em 0;
+  }
+
+  .stats {
+    padding-top: 0.5rem;
+
+    .data {
+      color: $mauve;
+    }
+  }
 }
 
 @include small {
