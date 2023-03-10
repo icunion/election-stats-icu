@@ -75,7 +75,7 @@ export const filteredList = (statData, statName) => {
   return statData.filter((item) => {
     switch (statName) {
       case 'departments':
-        return !['OT', 'IC'].includes(item.id)
+        return !['OT', 'OTSA', 'IC'].includes(item.id)
       case 'halls':
         return item.id != ''
       default:
