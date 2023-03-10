@@ -82,7 +82,7 @@ const Dashboard = (props) => {
       <section className={`${styles.grid} ${styles.sourceToggle}`}>
         <span>
           Viewing{' '}
-          <span data-tooltip="The 'Main' or 'General Elections' stats relate to votes for any of the non-CSP positions which are grouped as 'Leadership Elections 2022' on eVoting. The 'CSPs' stats relate to votes for any of the CSP positions which are grouped as 'Leadership Elections 2022 (CSPs) on eVoting.">
+          <span data-tooltip="The 'Main' or 'General Elections' stats relate to votes for any of the non-CSP positions which are grouped as 'Leadership Elections 2023' on eVoting. The 'CSPs' stats relate to votes for any of the Club, Society or Project positions which are grouped as 'Leadership Elections 2023 (Clubs, Societies and Projects) on eVoting.">
             {selectedSource == props.mainSource ? 'main' : 'CSPs'}
           </span>{' '}
           stats
