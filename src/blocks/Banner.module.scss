@@ -75,9 +75,7 @@ p.countdownCompleted {
 
 @include small {
   .banner {
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 3fr 4fr 4fr;
-    background: linear-gradient(to bottom, $orange, $orange 33%, $amber 33%, $amber);
+    grid-template-columns: 3fr 2fr;
   }
 
   .electionLogo {
@@ -95,11 +93,6 @@ p.countdownCompleted {
   .stats {
     justify-content: space-evenly;
     grid-area: 3 / 1 / span 1 / span 2;
-    color: $indigo;
-
-    .data {
-      color: $mauve;
-    }
   }
 
   .voteButton {
@@ -107,22 +100,51 @@ p.countdownCompleted {
   }
 
   .completed {
-    &.banner {
-      grid-template-rows: 4fr 3fr 4fr;
-      background: linear-gradient(to bottom, $orange, $orange 40%, $amber 40%, $amber);
-    }
-
     .electionLogo {
       grid-area: 1 / 1 / span 1 / span 2;
       text-align: center;
 
       img {
-        padding: 0;
+        padding: 0.75 0 0 0;
       }
     }
   }
+
   p.countdownCompleted {
-    padding: 0.2em 0;
-    color: $indigo;
+    padding: 0.7em 0;
+  }
+
+  .autumn {
+    &.banner {
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 3fr 4fr 4fr;
+      background: linear-gradient(to bottom, $orange, $orange 33%, $amber 33%, $amber);  
+    }
+
+    .stats {
+      color: $indigo;
+
+      .data {
+        color: $mauve;
+      }
+    }
+
+    &.completed {
+      &.banner {
+        grid-template-rows: 4fr 3fr 4fr;
+        background: linear-gradient(to bottom, $orange, $orange 40%, $amber 40%, $amber);
+      }
+
+      .electionLogo {
+        img {
+          padding: 0;
+        }
+      }
+
+      p.countdownCompleted {
+        padding: 0.2em 0;
+        color: $indigo;
+      }
+    }
   }
 }
