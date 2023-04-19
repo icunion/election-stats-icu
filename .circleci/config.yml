@@ -5,7 +5,9 @@ jobs:
     docker:
       - image: cimg/node:lts
     steps:
-      - run: echo "Hello, world! I have been saved to a shared workspace." > /tmp/workspace/output.txt
+      - run: |
+          mkdir -p /tmp/workspace
+          echo "Hello, world! I have been saved to a shared workspace." > /tmp/workspace/output.txt
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
