@@ -7,16 +7,20 @@ orbs:
 # Orchestrate or schedule a set of jobs
 jobs:
   print_hello:
-    docker: cimg/node:lts
+    docker:
+      - image: cimg/node:lts
     steps:
-      run: |
+      - run: |
         echo hello
   print_world:
-    docker: cimg/node:lts
-    requires: ['print_hello']
+    docker:
+      - image: cimg/node:lts
+    requires:
+      - print_hello
     steps:
-      run: |
+      - run: |
         echo world
+
 workflows:
   # Name the workflow "welcome"
   welcome:
