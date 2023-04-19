@@ -29,6 +29,15 @@ jobs:
       - image: cimg/node:lts
     steps:
       - print_pipeline_id
+  failing_example:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - run: return 1
+      - run:
+          name: Failing example failed
+          command: echo Failnig example has successfully failed. As has my spelling ability.
+          when: on_fail
 
 workflows:
   welcome:
@@ -38,3 +47,4 @@ workflows:
           requires:
             - save_hello_world_output
       - use_command_example
+      - failing_example
