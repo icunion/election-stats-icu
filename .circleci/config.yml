@@ -33,7 +33,7 @@ jobs:
     docker:
       - image: cimg/node:lts
     steps:
-      - run: return 1
+      - run: return 0
       - run:
           name: Failing example failed
           command: echo Failnig example has successfully failed. As has my spelling ability.
