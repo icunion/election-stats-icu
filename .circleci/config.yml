@@ -16,9 +16,9 @@ jobs:
     docker:
       - image: cimg/node:lts
     steps:
-      - run: cat /tmp/workspace/output.txt
       - attach_workspace:
           at: /tmp/workspace
+      - run: cat /tmp/workspace/output.txt
 workflows:
   welcome:
     jobs:
