@@ -10,16 +10,12 @@ jobs:
     docker:
       - image: cimg/node:lts
     steps:
-      - run: |
-        echo hello
+      - run: echo hello
   print_world:
     docker:
       - image: cimg/node:lts
-    requires:
-      - print_hello
     steps:
-      - run: |
-        echo world
+      - run: echo world
 
 workflows:
   # Name the workflow "welcome"
@@ -28,4 +24,6 @@ workflows:
     jobs:
       - welcome/run
       - print_hello
-      - print_world
+      - print_world:
+          requires:
+            - print_hello
