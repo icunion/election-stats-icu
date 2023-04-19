@@ -2,7 +2,7 @@
 
 > Imperial College Union election stats apps and components
 
-[![NPM](https://img.shields.io/npm/v/election-stats-icu.svg)](https://www.npmjs.com/package/election-stats-icu) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/election-stats-icu.svg)](https://www.npmjs.com/package/election-stats-icu) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/icunion/election-stats-icu/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/icunion/election-stats-icu/tree/main)
 
 Provides a library of [React](https://reactjs.org/) components for building live stats pages and blocks for [Imperial College Union](https://wwww.imperialcollegeunion.org)'s elections. [Take a look at the dashboard](https://www.imperialcollegeunion.org/your-union/leadership-elections-2022/stats)!
 
