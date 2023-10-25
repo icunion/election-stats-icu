@@ -9,6 +9,7 @@
     "le2023csps": { "path": "le2023csps" },
     "se2022": { "path": "se2022" },
     "se2022csps": { "path": "se2022csps" },
-    "ae2022": { "path": "ae2022" }
+    "ae2022": { "path": "ae2022" },
+    "ae2023": { "path": "ae2023" }
   }
 }
