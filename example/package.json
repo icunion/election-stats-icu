@@ -13,13 +13,15 @@
     "election-stats-icu": "file:..",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
-    "react-redux": "file:../node_modules/react-redux",
+    "react-redux": "^7.2.6",
     "redux": "file:../node_modules/redux"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.0",
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
     "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
