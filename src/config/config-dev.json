@@ -3,10 +3,12 @@
   "sources": {
     "le2022": { "path": "dev" },
     "le2022csps": { "path": "le2017" },
+    "le2023": { "path": "dev" },
+    "le2023csps": { "path": "le2017" },
+    "le2024": { "path": "dev" },
+    "le2024csps": { "path": "le2017" },
     "se2022": { "path": "dev" },
     "se2022csps": { "path": "le2017" },
-    "ae2022": { "path": "dev" },
-    "le2023": { "path": "dev" },
-    "le2023csps": { "path": "le2017" }
+    "ae2022": { "path": "dev" }
   }
 }

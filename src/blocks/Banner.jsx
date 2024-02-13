@@ -11,7 +11,7 @@ import {
 
 import ElectionCountdown from '../components/Countdowns/ElectionCountdown'
 import Button from '../components/UI/Button/Button'
-import logoBanner from 'banner-logo-ae2023.svg'
+import logoBanner from 'banner-logo-le2024.svg'
 
 import styles from './Banner.module.scss'
 
@@ -72,7 +72,7 @@ const Banner = (props) => {
     >
       <div className={styles.electionLogo}>
         <a href='https://vote.union.ic.ac.uk' target='_blank'>
-        <img src={logoBanner} alt="Autumn Elections 2023" />
+        <img src={logoBanner} alt="Leadership Elections 2024" />
         </a>
       </div>
       <div className={styles.countdown}>

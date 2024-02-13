@@ -1,0 +1,208 @@
+/* Styles for the Dashboard component */
+@import '../../styles/variables.scss';
+
+.dashboard {
+  display: grid;
+  aspect-ratio: 16 / 9;
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1.45fr 1.05fr 3fr 1.5fr;
+  gap: 1px;
+  font-size: calc(8px + (16 - 8) * ((100vw - 585px) / (1170 - 585)));
+
+  // Uncomment to add borders
+  // > section {
+  //   border: 1px solid #888;
+  // }
+
+  &.maxWidth1170 {
+    max-width: 1170px;
+    font-size: clamp(
+      8px,
+      16px,
+      calc(8px + (16 - 8) * ((100vw - 585px) / (1170 - 585)))
+    );
+  }
+}
+
+.grid {
+  height: 100%;
+
+  &.votingCloses,
+  &.milestone {
+    grid-column: 2 / span 6;
+    grid-row: 1 / span 1;
+  }
+
+  &.logo {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+  }
+
+  &.totalMain {
+    grid-column: 2 / span 3;
+    grid-row: 3 / span 1;
+  }
+
+  &.totalCSPs {
+    grid-column: 5 / span 3;
+    grid-row: 3 / span 1;
+  }
+
+  &.recentActivity {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 2;
+  }
+
+  &.studyTypes {
+    grid-column: 2 / span 6;
+    grid-row: 4 / span 1;
+  }
+
+  &.sourceToggle {
+    grid-column: 7 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  &.timeLine {
+    grid-column: 2 / span 5;
+    grid-row: 2 / span 1;
+  }
+
+  &.CUs {
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 1;
+  }
+
+  &.depts {
+    grid-column: 2 / span 2;
+    grid-row: 5 / span 1;
+  }
+
+  &.CSPs {
+    grid-column: 4 / span 2;
+    grid-row: 5 / span 1;
+  }
+
+  &.halls {
+    grid-column: 6 / span 2;
+    grid-row: 5 / span 1;
+  }
+
+  &.progress {
+    grid-column: 1 / span 7;
+    grid-row: 6 / span 1;
+  }
+}
+
+.sourceToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0.5em;
+  height: calc(100% - 1em);
+
+  > span {
+    font-size: 0.7em;
+  }
+}
+
+.votingCloses {
+  background-color: $indigo;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+@include small-portrait {
+  .dashboard {
+    display: grid;
+    aspect-ratio: initial;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1px;
+    font-size: calc(8px + (16 - 8) * ((100vw - 360px) / (720 - 360)));
+
+    &.maxWidth1170 {
+      font-size: calc(8px + (16 - 8) * ((100vw - 360px) / (720 - 360)));
+    }
+  }
+
+  .grid {
+    height: auto;
+
+    &.votingCloses,
+    &.milestone {
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
+    }
+
+    &.logo {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 1;
+    }
+
+    &.totalMain {
+      grid-column: 1 / span 1;
+      grid-row: 3 / span 1;
+    }
+
+    &.totalCSPs {
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 1;
+    }
+
+    &.recentActivity {
+      grid-column: 1 / span 1;
+      grid-row: 5 / span 1;
+    }
+
+    &.studyTypes {
+      grid-column: 2 / span 1;
+      grid-row: 5 / span 1;
+    }
+
+    &.sourceToggle {
+      grid-column: 1 / span 2;
+      grid-row: 6 / span 1;
+    }
+
+    &.timeLine {
+      grid-column: 1 / span 2;
+      grid-row: 4 / span 1;
+    }
+
+    &.CUs {
+      grid-column: 1 / span 1;
+      grid-row: 7 / span 1;
+    }
+
+    &.depts {
+      grid-column: 2 / span 1;
+      grid-row: 7 / span 1;
+    }
+
+    &.CSPs {
+      grid-column: 1 / span 1;
+      grid-row: 8 / span 1;
+    }
+
+    &.halls {
+      grid-column: 2 / span 1;
+      grid-row: 8 / span 1;
+    }
+
+    &.progress {
+      grid-column: 1 / span 2;
+      grid-row: 9 / span 1;
+    }
+  }
+
+  .sourceToggle {
+    height: 3.25em;
+  }
+}

@@ -1,0 +1,18 @@
+/* Styles for the le2024 Logo component */
+@import "../../../styles/variables.scss";
+
+.container {
+  background: linear-gradient(0deg, $indigo 50%, $teal 50%);
+  height: 100%;
+
+  a {
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    img {
+      margin-top: 1.46em;
+      margin-bottom: -0.1em;
+    }
+  }
+}
