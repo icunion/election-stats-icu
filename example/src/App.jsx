@@ -4,8 +4,8 @@ import { useLocalStorage } from 'election-stats-icu'
 import { Toolbar } from './Toolbar'
 
 import { Banner } from 'election-stats-icu'
-import { DashboardLE2022, DashboardLE2023 } from 'election-stats-icu'
-import { StepByStepLE2022, StepByStepLE2023 } from 'election-stats-icu'
+import { DashboardLE2022, DashboardLE2023, DashboardLE2024 } from 'election-stats-icu'
+import { StepByStepLE2022, StepByStepLE2023, StepByStepLE2024 } from 'election-stats-icu'
 
 import 'election-stats-icu/dist/index.css'
 
@@ -79,6 +79,31 @@ const App = () => {
           prevYearSource="le2022"
           thisYear="2023"
           prevYear="2022"
+          maxWidth='1170'
+        />
+      )}
+      {appToRender === 'DashboardLE2024' && (
+        <DashboardLE2024
+        votingCloseDate={Date.now() + 15000}
+        mainSource='le2024'
+        cspsSource='le2024csps'
+      />
+      )}
+      {appToRender === 'DashboardLE2024.maxWidth' && (
+        <DashboardLE2024
+        votingCloseDate={Date.now() + 15000}
+        mainSource='le2024'
+        cspsSource='le2024csps'
+        maxWidth='1170'
+        />
+      )}
+      {appToRender === 'StepByStepLE2024.maxWidth' && (
+        <StepByStepLE2024
+          votingCloseDate={Date.now() + 15000}
+          mainSource='le2024'
+          prevYearSource="le2023"
+          thisYear="2024"
+          prevYear="2023"
           maxWidth='1170'
         />
       )}

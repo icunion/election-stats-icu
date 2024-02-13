@@ -14,6 +14,13 @@ export const Toolbar = ({ selected, selectHandler, closeHandler }) => {
         <select value={selected} onChange={selectOnChange}>
           <option value='Banner'>Banner</option>
           <option value='Banner.autumn'>Banner Autumn</option>
+          <option value='DashboardLE2024'>DashboardLE2024</option>
+          <option value='DashboardLE2024.maxWidth'>
+            DashboardLE2024 with maxWidth set
+          </option>
+          <option value='StepByStepLE2024.maxWidth'>
+            Step By Step 2024 with maxWidth set
+          </option>
           <option value='DashboardLE2023'>DashboardLE2023</option>
           <option value='DashboardLE2023.maxWidth'>
             DashboardLE2023 with maxWidth set
