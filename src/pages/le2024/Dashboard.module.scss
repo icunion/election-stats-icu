@@ -168,7 +168,7 @@
 
     &.sourceToggle {
       grid-column: 1 / span 2;
-      grid-row: 6 / span 1;
+      grid-row: 9 / span 1;
     }
 
     &.timeLine {
@@ -178,31 +178,44 @@
 
     &.CUs {
       grid-column: 1 / span 1;
-      grid-row: 7 / span 1;
+      grid-row: 6 / span 1;
     }
 
     &.depts {
       grid-column: 2 / span 1;
-      grid-row: 7 / span 1;
+      grid-row: 6 / span 1;
     }
 
     &.CSPs {
       grid-column: 1 / span 1;
-      grid-row: 8 / span 1;
+      grid-row: 7 / span 1;
     }
 
     &.halls {
       grid-column: 2 / span 1;
-      grid-row: 8 / span 1;
+      grid-row: 7 / span 1;
     }
 
     &.progress {
       grid-column: 1 / span 2;
-      grid-row: 9 / span 1;
+      grid-row: 8 / span 1;
     }
   }
 
   .sourceToggle {
-    height: 3.25em;
+    font-size: 1.25em;
+    flex-direction: row;
+    height: 2em;
+
+    span[data-tooltip]:not([data-tooltip=""]) {
+      &:hover::before,
+      &:focus::before,
+      &:active::before {
+        top: initial;
+        right: initial;
+        bottom: 0.5em;
+        left: 3em;
+      }
+    }
   }
 }
