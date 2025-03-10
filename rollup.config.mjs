@@ -5,7 +5,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import replace from '@rollup/plugin-replace';
 import smartAsset from "rollup-plugin-smart-asset"
-import styles from "rollup-plugin-styles";
+import styles from "rollup-plugin-styler";
 
 const config = {
 	input: 'src/index.js',
