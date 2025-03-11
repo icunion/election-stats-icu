@@ -53,7 +53,7 @@ const renderPerMinuteChart = (svg, [votesData, turnoutData]) => {
   let y = d3.scaleLinear().range([height, 0])
 
   // Bar colours: Votes: indigo; Voters: red.
-  let fillColour = d3.scaleOrdinal().range(['#390099', '#ff005c'])
+  let fillColour = d3.scaleOrdinal().range(['#E8EE2F', '#EE6128'])
 
   // Setup axes.
   let xAxis = d3.axisBottom(x0).tickSize(0, 0).tickPadding(6)

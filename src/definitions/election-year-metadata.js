@@ -87,7 +87,7 @@ export const yearData = {
     years: {
       '2025': {
         election: 'le2025',
-        colour: '#390099',
+        colour: '#A961C7',
         offset: 9,
         zIndex: 2,
         current: true,
@@ -96,7 +96,7 @@ export const yearData = {
       },
       '2024': {
         election: 'le2024',
-        colour: '#ffa900',
+        colour: '#7ACCD3',
         offset: 9,
         zIndex: 1,
         periodLength: 81,
