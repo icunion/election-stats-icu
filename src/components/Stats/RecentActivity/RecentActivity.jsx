@@ -22,8 +22,8 @@ const RecentActivity = (props) => {
     <div className={styles.container}>
       <div className={styles.chartKey}>
         <dl>
-          <dt className={`show-for-sr ${styles.votes}`}>Yellow bar:</dt> <dd className={styles.votes}>Votes cast</dd>
-          <dt className={`show-for-sr ${styles.voters}`}>Orange bar:</dt> <dd className={styles.voters}>New voters</dd>
+          <dt className={`show-for-sr ${styles.votes}`}>Pink bar:</dt> <dd className={styles.votes}>Votes cast</dd>
+          <dt className={`show-for-sr ${styles.voters}`}>Blue bar:</dt> <dd className={styles.voters}>New voters</dd>
         </dl>
       </div>
 
