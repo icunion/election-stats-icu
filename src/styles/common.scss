@@ -1,9 +1,15 @@
 /* Styles common to all components. */
 @import "./variables.scss";
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
 .election-stats-icu {
   box-sizing: content-box;
-  font-family: 'Open Sans',Arial,sans-serif;
+  font-family: 'Satoshi',Arial,sans-serif;
 
   // Use same paragraph styles as dotorg by default
   p {
