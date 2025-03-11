@@ -14,25 +14,25 @@
     color: $teal;
     box-shadow: none;
     padding: 0.50em 0.55em;
-    border: 1px solid $amber;
+    border: 1px solid $teal;
     vertical-align: middle;
     transition: background-color 0.25s ease-out, color 0.25s ease-out;
     width: 21.5%;
     line-height: 1;
 
     &:hover {
-      background-color: $amber;
-      border-color: $amber;
+      background-color: $magenta;
+      border-color: $magenta;
       color: $teal;
     }
   }
   .active {
     font-size: 0.75em;
     font-weight: $fw-extra-bold;
-    background-color: $amber;
+    background-color: $magenta;
     padding: 0.50em 0.55em;
-    border: 1px solid $amber;
-    color: $teal;
+    border: 1px solid $magenta;
+    color: $offWhite;
     width: 21.5%;
     line-height: 1;
   }

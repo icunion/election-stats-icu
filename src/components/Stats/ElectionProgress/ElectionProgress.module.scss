@@ -6,7 +6,7 @@
   height: calc(100%);
   padding: 0 0.5em;
   overflow: hidden;
-  background-color: $indigo;
+  background-color: $cyan;
   color: white;
   z-index: 1;
 }
@@ -90,7 +90,6 @@ ul.markers {
   display: block;
   height: 2em;
   padding-left: 0.5em;
-  background-color: $amber;
-  box-shadow: -0.2em 0.2em 0 0 $red;
+  background-color: $magenta;
   transition: width 2.0s cubic-bezier(0.5, 1, 0.89, 1);
 }

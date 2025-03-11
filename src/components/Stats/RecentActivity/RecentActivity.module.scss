@@ -25,11 +25,11 @@
         }
 
         &.votes::before {
-          background-color: $indigo;
+          background-color: $yellow;
         }
 
         &.voters::before {
-          background-color: $red;
+          background-color: $orange;
         }
       }
     }

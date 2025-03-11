@@ -3,7 +3,7 @@ import { ThreeDots } from 'react-loader-spinner'
 
 import { useMilestone } from '../../arithmospora/hooks'
 
-import Logo from '../../components/Logos/le2024/Logo'
+import Logo from '../../components/Logos/le2025/Logo'
 import Button from '../../components/UI/Button/Button.jsx'
 import Panel from '../../components/Containers/Panel.jsx'
 import CountdownContainer from '../../components/Containers/CountdownContainer.jsx'
@@ -70,7 +70,7 @@ const Dashboard = (props) => {
         </section>
       )}
       <section className={`${styles.grid} ${styles.totalMain}`}>
-        <Panel title='General Elections' className='indigo'>
+        <Panel title='General Elections' className='teal'>
           <TotalStats source={props.mainSource} />
         </Panel>
       </section>
@@ -87,7 +87,7 @@ const Dashboard = (props) => {
           </span>{' '}
           stats
         </span>
-        <Button type='button' onClick={toggleSelectedSource} className='small'>
+        <Button className='small'  type='button' onClick={toggleSelectedSource} >
           Show {selectedSource == props.mainSource ? 'CSPs' : 'main'} stats
         </Button>
       </section>
@@ -107,7 +107,7 @@ const Dashboard = (props) => {
       <section className={`${styles.grid} ${styles.CUs}`}>
         <Panel
           title='Constituent Unions'
-          className='indigo'
+          className='teal'
         >
           {delayRender && (
             <ThreeDots wrapperClass={styles.loader} color='#ccc' />

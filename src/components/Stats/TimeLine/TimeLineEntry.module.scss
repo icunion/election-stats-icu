@@ -2,19 +2,28 @@
 @import "../../../styles/variables.scss";
 
 .timeLineEntry {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  justify-content: center;
   align-items: center;
-  padding: 0.5em 0.125em;
+  // padding: 0.5em 0.125em;
   text-align: center;
   transition: background-color 2s ease-in-out, color 2s ease-in-out, box-shadow 2s ease-in-out;
-
+  background-color: rgba($color: #fff, $alpha: 0.2);
   .intervalLabel {
-    font-size: 0.875em;
+    font-size: 0.6em;
+    text-transform: uppercase;
+    font-weight: 800;
+    grid-column: span 2;
+    padding: 10px 20px;
   }
 
   .countContainer {
     line-height: 0.9em;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
   }
 
   .count {
@@ -24,7 +33,8 @@
 
   .countLabel {
     font-size: 0.625em;
-    font-weight: $fw-bold;
+    font-weight: $fw-regular;
+    width: 100%;
   }
 }
 
@@ -33,13 +43,11 @@
 }
 
 .rising {
-  background-color: $amber;
-  color: $indigo;
-  box-shadow: 0 0 0.1em 0.05em $amber;
+  background-color: $green;
+  color: $white;
 }
 
 .falling {
   background-color: $red;
-  box-shadow: 0 0 0.1em 0.05em $red;
-  color: $amber;
+  color: $white;
 }

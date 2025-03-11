@@ -2,47 +2,34 @@
 @import '../../../styles/variables.scss';
 
 .button {
-  display: inline-block;
-  padding: 0.75em 0.9em;
-  border: 1px solid transparent;
-  vertical-align: middle;
-  transition: background-color 0.25s ease-out, color 0.25s ease-out;
-  font-size: 0.9em;
-  font-family: inherit;
-  -webkit-appearance: none;
-  line-height: 1;
-  text-align: center;
   cursor: pointer;
-  background-color: $indigo;
-  color: $amber;
-  box-shadow: 0.16em 0.16em 0 0 $red;
-
+  border-radius: 9999px;
+  background-color: $offBlack;
+  padding: .625rem 1.5rem;
+  text-align: center;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: white;
+  text-decoration-line: none;
+  box-shadow: none;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .1s;
+  transition-timing-function: cubic-bezier(0,0,.2,1);
   &:hover {
-    background-color: $mauve;
+    background-color: #374151;
   }
+
 
   &.small {
-    font-size: 0.75em;
-    padding: 0.6em 0.75em;
+    font-size: 0.5em;
+    padding: 0.3em 0.2em;
   }
 
-  &.vote {
-    padding: 0.2em;
-    font-size: 2em;
-    font-weight: $fw-extra-bold;
-    letter-spacing: 0.3rem;
-    background-color: transparent;
-    color: $amber;
-    box-shadow: none;
-    text-shadow: 1px -1px $orange;
-    text-transform: uppercase;
-    box-shadow:none;
 
-    &:hover {
-      text-shadow: 1px -1px $amber;
-      color: $orange;
-    }
-  }
 }
 
 a.button {
