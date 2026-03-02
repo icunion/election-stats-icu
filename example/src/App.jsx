@@ -5,7 +5,7 @@ import { Toolbar } from './Toolbar'
 
 import { Banner } from 'election-stats-icu'
 import { DashboardLE2022, DashboardLE2023, DashboardLE2024, DashboardLE2025, DashboardLE2026 } from 'election-stats-icu'
-import { StepByStepLE2022, StepByStepLE2023, StepByStepLE2024, StepByStepLE2025 } from 'election-stats-icu'
+import { StepByStepLE2022, StepByStepLE2023, StepByStepLE2024, StepByStepLE2025, StepByStepLE2026 } from 'election-stats-icu'
 
 import 'election-stats-icu/dist/index.css'
 
