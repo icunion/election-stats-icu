@@ -49,4 +49,16 @@ export const markers = {
     { name: '2023', percentage: 28.68, description: '2023: 5339 voters for CSP positions, 28.68% turnout' },
     { name: '2024', percentage: 31.70, description: '2024: 6057 voters for CSP positions, 31.70% turnout' },
   ],
+  'le2026': [
+    { name: '2016', percentage: 45.47, description: '2016: 7966 voters for all positions, 45.47% turnout' },
+    { name: '2019', percentage: 41.23, description: '2019: 8121 voters for all positions, 41.23% turnout' },
+    { name: '2022', percentage: 29.98, description: '2022: 7108 voters for non-CSP positions, 29.98% turnout' },
+    { name: '2025', percentage: 24.98, description: '2025: 6248 voters for non-CSP positions, 24.98% turnout' },
+    { name: 'UCL', percentage: 27.09, description: 'UCL (2025): 13493 voters, 27.09% turnout'}
+  ],
+  'le2026csps': [
+    { name: '2023', percentage: 28.68, description: '2023: 5339 voters for CSP positions, 28.68% turnout' },
+    { name: '2024', percentage: 31.70, description: '2024: 6057 voters for CSP positions, 31.70% turnout' },
+    { name: '2025', percentage: 33.59, description: '2025: 6301 voters for CSP positions, 33.59% turnout' },
+  ],
 }

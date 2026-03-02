@@ -110,5 +110,33 @@ export const yearData = {
     endTimeThisYear: Date.UTC(2025, 3 - 1, 13, 14, 0, 0),
     maxTime: Date.UTC(2025, 3 - 1, 14, 0, 0, 0),
     votingPeriodText: 'Voting period for Leadership Elections 2025'
+  },
+  'le2026': {
+    years: {
+      '2026': {
+        election: 'le2026',
+        colour: '#A961C7',
+        offset: 10,
+        zIndex: 2,
+        current: true,
+        periodLength: 80, // 3 days + 4 hours and extra 4 hours to end at 18:00
+        actualLength: 76 // 3 days + 4 hours
+      },
+      '2025': {
+        election: 'le2025',
+        colour: '#7ACCD3',
+        offset: 9,
+        zIndex: 1,
+        periodLength: 81,
+        actualLength: 77
+      }
+    },
+    minTime: Date.UTC(2026, 3 - 1, 9, 0, 0, 0),
+    startTime: Date.UTC(2026, 3 - 1, 9, 6, 0, 0),
+    endTime: Date.UTC(2026, 3 - 1, 12, 18, 0, 0),
+    startTimeThisYear: Date.UTC(2026, 3 - 1, 9, 10, 0, 0),
+    endTimeThisYear: Date.UTC(2026, 3 - 1, 12, 14, 0, 0),
+    maxTime: Date.UTC(2025, 3 - 1, 13, 0, 0, 0),
+    votingPeriodText: 'Voting period for Leadership Elections 2026'
   }
 }
