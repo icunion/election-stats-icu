@@ -9,6 +9,8 @@
     "le2024csps": { "path": "le2017" },
     "le2025": { "path": "dev" },
     "le2025csps": { "path": "le2017" },
+    "le2026": { "path": "dev" },
+    "le2026csps": { "path": "le2017" },
     "se2022": { "path": "dev" },
     "se2022csps": { "path": "le2017" },
     "ae2022": { "path": "dev" },
