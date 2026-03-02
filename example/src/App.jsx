@@ -151,9 +151,9 @@ const App = () => {
         <StepByStepLE2026
           votingCloseDate={Date.now() + 15000}
           mainSource='le2026'
-          prevYearSource="le2024"
-          thisYear="2025"
-          prevYear="2024"
+          prevYearSource="le2025"
+          thisYear="2026"
+          prevYear="2025"
           maxWidth='1170'
         />
       )}
