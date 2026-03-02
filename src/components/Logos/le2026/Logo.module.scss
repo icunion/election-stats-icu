@@ -1,0 +1,23 @@
+/* Styles for the le2024 Logo component */
+@import "../../../styles/variables.scss";
+
+.container {
+  background: $cyan;
+  height: 100%;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    img {
+      max-height: 100%;
+      object-fit: contain;
+      max-width: 400px;
+      margin-top: 0;
+      display: block;
+
+    }
+  }
+}
