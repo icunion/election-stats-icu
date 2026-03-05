@@ -7,7 +7,7 @@ const Logo = (props) => {
   return (
     <div className={styles.container}>
       <a href="https://www.imperialcollegeunion.org/representation/elections/leadership-elections">
-        <img src={dashboardLogo} alt="Leadership Elections 2024: 12 February - 14 March" />
+        <img src={dashboardLogo} alt="Leadership Elections 2026" />
       </a>
     </div>
   )
