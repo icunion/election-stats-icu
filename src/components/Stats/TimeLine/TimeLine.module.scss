@@ -1,5 +1,5 @@
 /* Styles for the TimeLine component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .container {
   display: flex;
@@ -7,7 +7,7 @@
   gap: 0.5em;
   align-items: center;
   padding: 0 0.75em 0 0.55em;
-  background-color: $teal;
+  background-color: variables.$teal;
   color: white;
   height: 100%;
 
@@ -17,7 +17,7 @@
   }
 }
 
-@include small-portrait {
+@include variables.small-portrait {
   .container {
     height: 4.35em;
   }

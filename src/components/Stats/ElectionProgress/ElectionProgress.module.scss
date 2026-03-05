@@ -1,17 +1,17 @@
 /* Styles for the ElectionProgress component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .container {
   position: relative;
   height: calc(100%);
   padding: 0 0.5em;
   overflow: hidden;
-  background-color: $cyan;
+  background-color: variables.$cyan;
   color: white;
   z-index: 1;
 }
 
-@include small-portrait {
+@include variables.small-portrait {
   .container {
     height: 5em;
   }
@@ -33,7 +33,7 @@ ul.markers {
       top: 0.3em;
       right: 0.3em;
       font-size: 0.7em;
-      font-weight: $fw-bold;
+      font-weight: variables.$fw-bold;
       writing-mode: vertical-rl;
     }
 
@@ -90,6 +90,6 @@ ul.markers {
   display: block;
   height: 2em;
   padding-left: 0.5em;
-  background-color: $magenta;
+  background-color: variables.$magenta;
   transition: width 2.0s cubic-bezier(0.5, 1, 0.89, 1);
 }

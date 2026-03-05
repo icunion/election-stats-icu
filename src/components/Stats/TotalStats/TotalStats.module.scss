@@ -1,5 +1,5 @@
 /* Styles for the TotalStats component */
-@import '../../../styles/variables.scss';
+@use '../../../styles/variables.scss';
 
 .totalStat {
   position: relative;
@@ -8,20 +8,20 @@
   align-content: center;
   align-items: center;
   height: 100%;
-  color: $darkMagenta;
+  color: variables.$darkMagenta;
 
   .percentage {
     font-size: 3em;
-    font-weight: $fw-extra-bold;
+    font-weight: variables.$fw-extra-bold;
   }
 
   .countContainer {
     font-size: 1.5em;
-    font-weight: $fw-bold;
+    font-weight: variables.$fw-bold;
   }
 
   &.cspStat {
-    color: $darkMagenta;
+    color: variables.$darkMagenta;
   }
 
   .connectionStatus {
@@ -33,7 +33,7 @@
     z-index: 1;
 
     &.disconnected {
-      background-color: $red;
+      background-color: variables.$red;
     }
     &.connected {
       background-color: green;

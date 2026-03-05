@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@use '../../../styles/variables.scss';
 
 .container {
   display: flex;
@@ -9,30 +9,30 @@
 
   .btn {
     font-size: 0.75em;
-    font-weight: $fw-extra-bold;
+    font-weight: variables.$fw-extra-bold;
     background-color: transparent;
-    color: $teal;
+    color: variables.$teal;
     box-shadow: none;
     padding: 0.50em 0.55em;
-    border: 1px solid $teal;
+    border: 1px solid variables.$teal;
     vertical-align: middle;
     transition: background-color 0.25s ease-out, color 0.25s ease-out;
     width: 21.5%;
     line-height: 1;
 
     &:hover {
-      background-color: $magenta;
-      border-color: $magenta;
-      color: $teal;
+      background-color: variables.$magenta;
+      border-color: variables.$magenta;
+      color: variables.$teal;
     }
   }
   .active {
     font-size: 0.75em;
-    font-weight: $fw-extra-bold;
-    background-color: $magenta;
+    font-weight: variables.$fw-extra-bold;
+    background-color: variables.$magenta;
     padding: 0.50em 0.55em;
-    border: 1px solid $magenta;
-    color: $offWhite;
+    border: 1px solid variables.$magenta;
+    color: variables.$offWhite;
     width: 21.5%;
     line-height: 1;
   }

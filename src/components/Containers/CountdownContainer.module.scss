@@ -1,5 +1,5 @@
 /* Styles for the Panel component */
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .countdownContainer {
   display: grid;
@@ -16,8 +16,8 @@
 p.countdownCompleted {
     text-align: center;
     font-size: 2em;
-    font-weight: $fw-bold;
-    color: $offBlack;
+    font-weight: variables.$fw-bold;
+    color: variables.$offBlack;
     padding: 0;
     margin: 0;
   }

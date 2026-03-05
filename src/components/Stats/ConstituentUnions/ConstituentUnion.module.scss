@@ -1,5 +1,5 @@
 /* Styles for the StudyType component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .cus {
   display: flex;
@@ -16,15 +16,15 @@
     display: inline-block;
     content: counter(item);
     counter-increment: item;
-    color: $offWhite;
-    background-color: $magenta;
+    color: variables.$offWhite;
+    background-color: variables.$magenta;
     width: 1.325em;
     height: 1.3em;
     line-height: 1.3;
     border-radius: 0.64em;
     text-align: center;
     font-size: 1.1em;
-    font-weight: $fw-bold;
+    font-weight: variables.$fw-bold;
   }
 
   .content {
@@ -46,7 +46,7 @@
     .bar {
       position: absolute;
       box-sizing: content-box;
-      background-color: $teal-x-light;
+      background-color: variables.$teal-x-light;
       border-radius: 0;
       width: 0;
       height: 1.25em;
@@ -65,8 +65,8 @@
 
       .label {
         vertical-align: middle;
-        font-weight: $fw-bold;
-        color: $offBlack;
+        font-weight: variables.$fw-bold;
+        color: variables.$offBlack;
       }
     }
 
@@ -77,8 +77,8 @@
     padding-right: 5px;
     text-align: right;
     font-size: 1em;
-    font-weight: $fw-bold;
-    color: $offBlack;
+    font-weight: variables.$fw-bold;
+    color: variables.$offBlack;
     vertical-align: middle;
   }
 

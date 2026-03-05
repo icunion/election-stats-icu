@@ -1,15 +1,15 @@
 /* Styles for the StudyTypes component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .container {
-  background-color: $cyan;
+  background-color: variables.$cyan;
   display: flex;
   justify-content: space-around;
   height: 100%;
   color: white;
 }
 
-@include small-portrait {
+@include variables.small-portrait {
   .container {
     flex-direction: column;
   }

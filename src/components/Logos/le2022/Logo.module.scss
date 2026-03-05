@@ -1,8 +1,8 @@
 /* Styles for the le2022 Logo component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .container {
-  background: linear-gradient(0deg, $indigo 50%, $teal 50%);
+  background: linear-gradient(0deg, variables.$indigo 50%, variables.$teal 50%);
 
   a {
     display: flex;

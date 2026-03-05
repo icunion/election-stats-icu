@@ -1,5 +1,5 @@
 /* Styles for the TopTurnoutList component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .entry {
   // display: block;
@@ -16,8 +16,8 @@
     display: inline-block;
     content: counter(item);
     counter-increment: item;
-    color: $offWhite;
-    background-color: $magenta;
+    color: variables.$offWhite;
+    background-color: variables.$magenta;
     width: 1.3em;
     height: 1.3em;
     line-height: 1.3;
@@ -46,11 +46,11 @@
     flex: 1 0 auto;
     margin-left: 0.5em;
     text-align: left;
-    font-weight: $fw-bold;
+    font-weight: variables.$fw-bold;
     font-size: 0.75em;
     line-height: 1em;
     max-width: 80%;
-    color: $offBlack;
+    color: variables.$offBlack;
   }
 
   .percentage {
@@ -58,8 +58,8 @@
     padding-right: 5px;
     text-align: right;
     font-size: 1em;
-    font-weight: $fw-bold;
-    color: $offBlack;
+    font-weight: variables.$fw-bold;
+    color: variables.$offBlack;
     vertical-align: middle;
   }
 }

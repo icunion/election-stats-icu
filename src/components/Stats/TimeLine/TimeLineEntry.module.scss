@@ -1,5 +1,5 @@
 /* Styles for the TimeLineEntry component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .timeLineEntry {
   display: grid;
@@ -28,12 +28,12 @@
 
   .count {
     font-size: 1.125em;
-    font-weight: $fw-bold;
+    font-weight: variables.$fw-bold;
   }
 
   .countLabel {
     font-size: 0.625em;
-    font-weight: $fw-regular;
+    font-weight: variables.$fw-regular;
     width: 100%;
   }
 }
@@ -43,11 +43,11 @@
 }
 
 .rising {
-  background-color: $green;
-  color: $offWhite;
+  background-color: variables.$green;
+  color: variables.$offWhite;
 }
 
 .falling {
-  background-color: $red;
-  color: $offWhite;
+  background-color: variables.$red;
+  color: variables.$offWhite;
 }

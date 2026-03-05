@@ -1,5 +1,5 @@
 /* Styles for the Dashboard component */
-@import '../../styles/variables.scss';
+@use '../../styles/variables.scss';
 
 .dashboard {
   display: grid;
@@ -108,7 +108,7 @@
 }
 
 .votingCloses {
-  background-color: $cyan;
+  background-color: variables.$cyan;
 }
 
 .loader {
@@ -118,7 +118,7 @@
   height: 100%;
 }
 
-@include small-portrait {
+@include variables.small-portrait {
   .dashboard {
     display: grid;
     aspect-ratio: initial;

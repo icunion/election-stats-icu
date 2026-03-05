@@ -1,3 +1,4 @@
+@use "sass:map";
 // Colours
 // LE2022
 $indigo: #390099;
@@ -42,13 +43,13 @@ $breakpoints: (
 );
 
 @mixin small {
-  @media screen and (max-width: map-get($breakpoints, 'medium')) {
+  @media screen and (max-width: map.get($breakpoints, 'medium')) {
     @content;
   }
 }
 
 @mixin small-portrait {
-  @media screen and (max-width: map-get($breakpoints, 'large')) and (orientation: portrait) {
+  @media screen and (max-width: map.get($breakpoints, 'large')) and (orientation: portrait) {
     @content;
   }
 }

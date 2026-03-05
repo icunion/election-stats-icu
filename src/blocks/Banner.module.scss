@@ -1,12 +1,12 @@
 /* Styles for the Banner component */
-@import "../styles/variables.scss";
+@use "../styles/variables.scss";
 
 .banner {
   display: grid;
   grid-template-columns: 2fr 4fr 3fr 1fr;
   column-gap: 1em;
   align-items: center;
-  background: $indigo;
+  background: variables.$indigo;
   padding: 0.5em 1em;
 }
 
@@ -25,8 +25,8 @@
 p.countdownCompleted {
   text-align: center;
   font-size: 1.5em;
-  font-weight: $fw-bold;
-  color: $amber;
+  font-weight: variables.$fw-bold;
+  color: variables.$amber;
   padding: 0.75em 0;
   margin: 0;
 }
@@ -36,7 +36,7 @@ p.countdownCompleted {
   justify-content: space-around;
   align-items: center;
   font-size: 0.80rem;
-  font-weight: $fw-bold;
+  font-weight: variables.$fw-bold;
   color: white;
 
   > div {
@@ -45,7 +45,7 @@ p.countdownCompleted {
 
   .data {
     font-size: 1.5rem;
-    font-weight: $fw-extra-bold;
+    font-weight: variables.$fw-extra-bold;
   }
 }
 
@@ -55,7 +55,7 @@ p.countdownCompleted {
 
 .autumn {
   &.banner {
-    background: linear-gradient(to bottom, $orange, $orange 50%, $amber 50%, $amber);
+    background: linear-gradient(to bottom, variables.$orange, variables.$orange 50%, variables.$amber 50%, variables.$amber);
   }
 
   p.countdownCompleted {
@@ -68,12 +68,12 @@ p.countdownCompleted {
     padding-top: 0.5rem;
 
     .data {
-      color: $mauve;
+      color: variables.$mauve;
     }
   }
 }
 
-@include small {
+@include variables.small {
   .banner {
     grid-template-columns: 3fr 2fr;
   }
@@ -118,21 +118,21 @@ p.countdownCompleted {
     &.banner {
       grid-template-columns: 3fr 1fr;
       grid-template-rows: 3fr 4fr 4fr;
-      background: linear-gradient(to bottom, $orange, $orange 33%, $amber 33%, $amber);  
+      background: linear-gradient(to bottom, variables.$orange, variables.$orange 33%, variables.$amber 33%, variables.$amber);  
     }
 
     .stats {
-      color: $indigo;
+      color: variables.$indigo;
 
       .data {
-        color: $mauve;
+        color: variables.$mauve;
       }
     }
 
     &.completed {
       &.banner {
         grid-template-rows: 4fr 3fr 4fr;
-        background: linear-gradient(to bottom, $orange, $orange 40%, $amber 40%, $amber);
+        background: linear-gradient(to bottom, variables.$orange, variables.$orange 40%, variables.$amber 40%, variables.$amber);
       }
 
       .electionLogo {
@@ -143,7 +143,7 @@ p.countdownCompleted {
 
       p.countdownCompleted {
         padding: 0.2em 0;
-        color: $indigo;
+        color: variables.$indigo;
       }
     }
   }

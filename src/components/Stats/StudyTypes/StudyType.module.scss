@@ -1,5 +1,5 @@
 /* Styles for the StudyType component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .studyType {
   display: flex;
@@ -13,7 +13,7 @@
     .bar {
       width: 0;
       height: 100%;
-      background-color: $magenta;
+      background-color: variables.$magenta;
       transition: width 0.75s ease;
     }
   }
@@ -24,6 +24,6 @@
     width: 20%;
     margin: -0.25em 0 0.5em;
     font-size: 0.9em;
-    font-weight: $fw-extra-bold;
+    font-weight: variables.$fw-extra-bold;
   }
 }

@@ -1,5 +1,5 @@
 /* Styles for the StudyType component */
-@import '../../../styles/variables.scss';
+@use '../../../styles/variables.scss';
 
 .container {
   .chartKey {
@@ -25,11 +25,11 @@
         }
 
         &.votes::before {
-          background-color: $pink;
+          background-color: variables.$pink;
         }
 
         &.voters::before {
-          background-color: $blue;
+          background-color: variables.$blue;
         }
       }
     }

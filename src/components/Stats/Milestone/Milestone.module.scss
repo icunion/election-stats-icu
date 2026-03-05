@@ -1,18 +1,18 @@
 /* Styles for the Milestone component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .container {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $mauve;
+  background-color: variables.$mauve;
   color: white;
   transition: none;
 
   &.finished {
-    background-color: $indigo;
-    color: $indigo;
+    background-color: variables.$indigo;
+    color: variables.$indigo;
     transition: all 1.0s ease-out;
   }
 }
@@ -29,5 +29,5 @@
 
 .message {
   font-size: 1.5em;
-  font-weight: $fw-semi-bold;
+  font-weight: variables.$fw-semi-bold;
 }

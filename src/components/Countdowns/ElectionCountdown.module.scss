@@ -1,5 +1,5 @@
 /* ElectionCountdown component styles. */
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .countdown {
   .timeRow {
@@ -12,9 +12,9 @@
   .header {
     max-width: 17%;
     margin-bottom: 0;
-    color: $offBlack;
+    color: variables.$offBlack;
     font-size: 0.75em;
-    font-weight: $fw-bold;
+    font-weight: variables.$fw-bold;
   }
 
   .time {
@@ -23,12 +23,12 @@
     .count {
       padding: 0 0.5em;
       font-size: 1.8em;
-      font-weight: $fw-extra-bold;
+      font-weight: variables.$fw-extra-bold;
     }
 
     .label {
       font-size: 0.80em;
-      font-weight: $fw-bold;
+      font-weight: variables.$fw-bold;
     }
   }
 
@@ -49,11 +49,11 @@
     padding-bottom: 1em;
 
     .timeRow {
-      color: $indigo;
+      color: variables.$indigo;
     }
 
     .header {
-      color: $indigo;
+      color: variables.$indigo;
     }
 
     .time {
@@ -67,7 +67,7 @@
   }
 }
 
-@include small {
+@include variables.small {
   .countdown {
     margin: 0.5em 0.5em 1em;
 
@@ -81,7 +81,7 @@
       margin-bottom: 0.5em;
 
       .time .count {
-        color: $mauve;
+        color: variables.$mauve;
       }
     }
   }

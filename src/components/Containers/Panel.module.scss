@@ -1,5 +1,5 @@
 /* Styles for the Panel component */
-@import "../../styles/variables.scss";
+@use "../../styles/variables.scss";
 
 .panel {
   border: 1px solid #444;
@@ -23,18 +23,18 @@
   }
 
   &.indigo {
-    border: 1px solid $cyan;
+    border: 1px solid variables.$cyan;
 
     > h2 {
-      background-color: $cyan;
+      background-color: variables.$cyan;
     }
   }
 
   &.teal {
-    border: 1px solid $cyan;
+    border: 1px solid variables.$cyan;
 
     > h2 {
-      background-color: $teal;
+      background-color: variables.$teal;
     }
   }
 }

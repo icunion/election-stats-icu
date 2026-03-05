@@ -1,10 +1,10 @@
 /* Styles for the Button component */
-@import '../../../styles/variables.scss';
+@use '../../../styles/variables.scss';
 
 .button {
   cursor: pointer;
   border-radius: 9999px;
-  background-color: $offBlack;
+  background-color: variables.$offBlack;
   padding: .625rem 1.5rem;
   text-align: center;
   font-size: .875rem;

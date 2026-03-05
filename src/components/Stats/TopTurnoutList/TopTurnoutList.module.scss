@@ -1,5 +1,5 @@
 /* Styles for the TopTurnoutList component */
-@import "../../../styles/variables.scss";
+@use "../../../styles/variables.scss";
 
 .container {
   font-size: 1em;
@@ -7,13 +7,13 @@
 
 ol.entrylist {
   &::-webkit-scrollbar-thumb {
-    background-color: $teal-x-light
+    background-color: variables.$teal-x-light
   }
   &::-webkit-scrollbar-track {
-    background-color: $teal-xx-light
+    background-color: variables.$teal-xx-light
   }
   &::-webkit-scrollbar-corner {
-    background-color: $teal-xx-light
+    background-color: variables.$teal-xx-light
   }
   &::-webkit-scrollbar {
     width: 0.5rem;
@@ -27,7 +27,7 @@ ol.entrylist {
   height: 7.5em;
   overflow-x: hidden;
   overflow-y: scroll;
-  scrollbar-color: $teal-x-light $teal-xx-light;
+  scrollbar-color: variables.$teal-x-light variables.$teal-xx-light;
   scrollbar-width: thin;
 
 }

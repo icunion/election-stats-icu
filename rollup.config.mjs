@@ -39,7 +39,8 @@ const config = {
         json(),
         styles({
             mode: 'extract',
-            autoModules: true
+            autoModules: true,
+            url: { inline: true }
         }),
         smartAsset({
             url: 'copy',
