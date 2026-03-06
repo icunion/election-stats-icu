@@ -136,7 +136,7 @@ export const yearData = {
     endTime: Date.UTC(2026, 3 - 1, 12, 18, 0, 0),
     startTimeThisYear: Date.UTC(2026, 3 - 1, 9, 10, 0, 0),
     endTimeThisYear: Date.UTC(2026, 3 - 1, 12, 14, 0, 0),
-    maxTime: Date.UTC(2025, 3 - 1, 13, 0, 0, 0),
+    maxTime: Date.UTC(2026, 3 - 1, 13, 0, 0, 0),
     votingPeriodText: 'Voting period for Leadership Elections 2026'
   }
 }
