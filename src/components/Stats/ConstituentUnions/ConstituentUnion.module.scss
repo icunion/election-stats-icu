@@ -25,6 +25,7 @@
     text-align: center;
     font-size: 1.1em;
     font-weight: variables.$fw-bold;
+    z-index: 1;
   }
 
   .content {
@@ -40,7 +41,7 @@
     height: 1.25em;
     vertical-align: middle;
     margin-left: -0.9em;
-    z-index: -1;
+    z-index: 0;
     background: none;
 
     .bar {
