@@ -1,12 +1,8 @@
 /* Styles common to all components. */
 @use "variables.scss";
 
-@font-face {
-  font-family: 'Satoshi';
-  src: url('../fonts/Satoshi-Variable.woff2') format('woff2');
-  font-weight: 100 900;
-  font-display: swap;
-}
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901,1,2&display=swap');     
+
 .election-stats-icu {
   box-sizing: content-box;
   font-family: 'Satoshi',Arial,sans-serif;
