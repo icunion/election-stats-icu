@@ -19,6 +19,6 @@
 
 @include variables.small-portrait {
   .container {
-    height: 4.35em;
+    min-height: 4.35em;
   }
 }

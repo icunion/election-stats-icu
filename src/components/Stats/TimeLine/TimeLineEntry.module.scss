@@ -51,3 +51,14 @@
   background-color: variables.$red;
   color: variables.$offWhite;
 }
+
+@include variables.small-portrait {
+  .timeLineEntry {
+    .intervalLabel {
+      padding: 5px 10px;
+    }
+    .countContainer {
+      padding: 5px 10px;
+    }
+  }
+}
